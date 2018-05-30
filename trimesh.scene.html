@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.scene package &mdash; trimesh 2.30.25 documentation</title>
+  <title>trimesh.scene package &mdash; trimesh 2.30.26 documentation</title>
   
 
   
@@ -57,7 +57,7 @@
             
             
               <div class="version">
-                2.30.25
+                2.30.26
               </div>
             
           
@@ -792,8 +792,42 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>name</strong></dt>
-<dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">adj</span></code></dt>
+<dd><p class="first last">Graph adjacency object holding the neighbors of each node.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">degree</span></code></dt>
+<dd><p class="first last">A DegreeView for the Graph as G.degree or G.degree().</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges</span></code></dt>
+<dd><p class="first last">An OutEdgeView of the DiGraph as G.edges or G.edges().</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">in_degree</span></code></dt>
+<dd><p class="first last">An InDegreeView for (node, in_degree) or in_degree for single node.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">in_edges</span></code></dt>
+<dd><p class="first last">An InEdgeView of the Graph as G.in_edges or G.in_edges().</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></dt>
+<dd><p class="first last">String identifier of the graph.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">node</span></code></dt>
+<dd><p class="first last">A NodeView of the Graph as G.nodes or G.nodes().</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></dt>
+<dd><p class="first last">A NodeView of the Graph as G.nodes or G.nodes().</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">out_degree</span></code></dt>
+<dd><p class="first last">An OutDegreeView for (node, out_degree)</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">out_edges</span></code></dt>
+<dd><p class="first last">An OutEdgeView of the DiGraph as G.edges or G.edges().</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">pred</span></code></dt>
+<dd><p class="first last">Graph adjacency object holding the predecessors of each node.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">succ</span></code></dt>
+<dd><p class="first last">Graph adjacency object holding the successors of each node.</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -806,56 +840,50 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_cycle</span></code>(nodes,&nbsp;**attr)</td>
-<td>Add a cycle.</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.scene.transforms.EnforcedForest.add_edge" title="trimesh.scene.transforms.EnforcedForest.add_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_edge</span></code></a>(u,&nbsp;v,&nbsp;*args,&nbsp;**kwargs)</td>
+<td>Add an edge between u and v.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_node</span></code>(n[,&nbsp;attr_dict])</td>
-<td>Add a single node n and update node attributes.</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.transforms.EnforcedForest.add_edges_from" title="trimesh.scene.transforms.EnforcedForest.add_edges_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_edges_from</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Add all the edges in ebunch_to_add.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_nodes_from</span></code>(nodes,&nbsp;**attr)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_node</span></code>(node_for_adding,&nbsp;**attr)</td>
+<td>Add a single node <cite>node_for_adding</cite> and update node attributes.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_nodes_from</span></code>(nodes_for_adding,&nbsp;**attr)</td>
 <td>Add multiple nodes.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_star</span></code>(nodes,&nbsp;**attr)</td>
-<td>Add a star.</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_weighted_edges_from</span></code>(ebunch_to_add[,&nbsp;weight])</td>
+<td>Add weighted edges in <cite>ebunch_to_add</cite> with specified weight attr</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_weighted_edges_from</span></code>(ebunch[,&nbsp;weight])</td>
-<td>Add all the edges in ebunch as weighted edges with specified weights.</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">adjacency</span></code>()</td>
+<td>Return an iterator over (node, adjacency dict) tuples for all nodes.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">adjacency_iter</span></code>()</td>
-<td>Return an iterator of (node, adjacency dict) tuples for all nodes.</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">adjlist_inner_dict_factory</span></code></td>
+<td>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.dict</span></code></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">adjacency_list</span></code>()</td>
-<td>Return an adjacency list representation of the graph.</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">adjlist_dict_factory</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">adjlist_outer_dict_factory</span></code></td>
 <td>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.dict</span></code></td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code>()</td>
 <td>Remove all nodes and edges from the graph.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code>()</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code>([as_view])</td>
 <td>Return a copy of the graph.</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">degree</span></code>([nbunch,&nbsp;weight])</td>
-<td>Return the degree of a node or nodes.</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">degree_iter</span></code>([nbunch,&nbsp;weight])</td>
-<td>Return an iterator for (node, degree).</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_attr_dict_factory</span></code></td>
 <td>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.dict</span></code></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges</span></code>([nbunch,&nbsp;data,&nbsp;default])</td>
-<td>Return a list of edges.</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_subgraph</span></code>(edges)</td>
+<td>Returns the subgraph induced by the specified edges.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_iter</span></code>([nbunch,&nbsp;data,&nbsp;default])</td>
-<td>Return an iterator over the edges.</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">fresh_copy</span></code>()</td>
+<td>Return a fresh copy graph with the same data structure.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edge_data</span></code>(u,&nbsp;v[,&nbsp;default])</td>
-<td>Return the attribute dictionary associated with edge (u,v).</td>
+<td>Return the attribute dictionary associated with edge (u, v).</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_edge</span></code>(u,&nbsp;v)</td>
-<td>Return True if the edge (u,v) is in the graph.</td>
+<td>Return True if the edge (u, v) is in the graph.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_node</span></code>(n)</td>
 <td>Return True if the graph contains the node n.</td>
@@ -866,18 +894,6 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_successor</span></code>(u,&nbsp;v)</td>
 <td>Return True if node u has successor v.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">in_degree</span></code>([nbunch,&nbsp;weight])</td>
-<td>Return the in-degree of a node or nodes.</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">in_degree_iter</span></code>([nbunch,&nbsp;weight])</td>
-<td>Return an iterator for (node, in-degree).</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">in_edges</span></code>([nbunch,&nbsp;data])</td>
-<td>Return a list of the incoming edges.</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">in_edges_iter</span></code>([nbunch,&nbsp;data])</td>
-<td>Return an iterator over the incoming edges.</td>
-</tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_directed</span></code>()</td>
 <td>Return True if graph is directed, False otherwise.</td>
 </tr>
@@ -885,25 +901,13 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 <td>Return True if graph is a multigraph, False otherwise.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">nbunch_iter</span></code>([nbunch])</td>
-<td>Return an iterator of nodes contained in nbunch that are also in the graph.</td>
+<td>Return an iterator over nodes contained in nbunch that are also in the graph.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">neighbors</span></code>(n)</td>
-<td>Return a list of successor nodes of n.</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">neighbors_iter</span></code>(n)</td>
 <td>Return an iterator over successor nodes of n.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">node_dict_factory</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">node_dict_factory</span></code></td>
 <td>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.dict</span></code></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code>([data])</td>
-<td>Return a list of the nodes in the graph.</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes_iter</span></code>([data])</td>
-<td>Return an iterator over the nodes.</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes_with_selfloops</span></code>()</td>
-<td>Return a list of nodes with self loops.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_of_edges</span></code>([u,&nbsp;v])</td>
 <td>Return the number of edges between two nodes.</td>
@@ -911,58 +915,40 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_of_nodes</span></code>()</td>
 <td>Return the number of nodes in the graph.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_of_selfloops</span></code>()</td>
-<td>Return the number of selfloop edges.</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">order</span></code>()</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">order</span></code>()</td>
 <td>Return the number of nodes in the graph.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">out_degree</span></code>([nbunch,&nbsp;weight])</td>
-<td>Return the out-degree of a node or nodes.</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">out_degree_iter</span></code>([nbunch,&nbsp;weight])</td>
-<td>Return an iterator for (node, out-degree).</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">out_edges</span></code>([nbunch,&nbsp;data,&nbsp;default])</td>
-<td>Return a list of edges.</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">out_edges_iter</span></code>([nbunch,&nbsp;data,&nbsp;default])</td>
-<td>Return an iterator over the edges.</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">predecessors</span></code>(n)</td>
-<td>Return a list of predecessor nodes of n.</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">predecessors_iter</span></code>(n)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">predecessors</span></code>(n)</td>
 <td>Return an iterator over predecessor nodes of n.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.transforms.EnforcedForest.remove_edge" title="trimesh.scene.transforms.EnforcedForest.remove_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_edge</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Remove the edge between u and v.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.scene.transforms.EnforcedForest.remove_edges_from" title="trimesh.scene.transforms.EnforcedForest.remove_edges_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_edges_from</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Remove all edges specified in ebunch.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_node</span></code>(n)</td>
 <td>Remove node n.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_nodes_from</span></code>(nbunch)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_nodes_from</span></code>(nodes)</td>
 <td>Remove multiple nodes.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse</span></code>([copy])</td>
 <td>Return the reverse of the graph.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">selfloop_edges</span></code>([data,&nbsp;default])</td>
-<td>Return a list of selfloop edges.</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code>([weight])</td>
+<td>Return the number of edges or total of all edge weights.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code>([weight])</td>
-<td>Return the number of edges.</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">subgraph</span></code>(nodes)</td>
+<td>Return a SubGraph view of the subgraph induced on <cite>nodes</cite>.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">subgraph</span></code>(nbunch)</td>
-<td>Return the subgraph induced on nodes in nbunch.</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">successors</span></code>(n)</td>
-<td>Return a list of successor nodes of n.</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">successors_iter</span></code>(n)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">successors</span></code>(n)</td>
 <td>Return an iterator over successor nodes of n.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_directed</span></code>()</td>
-<td>Return a directed copy of the graph.</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_directed</span></code>([as_view])</td>
+<td>Return a directed representation of the graph.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_undirected</span></code>([reciprocal])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_undirected</span></code>([reciprocal,&nbsp;as_view])</td>
 <td>Return an undirected representation of the digraph.</td>
 </tr>
 </tbody>
@@ -973,13 +959,13 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 <col width="26%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><strong>add_edge</strong></td>
+<tr class="row-odd"><td><strong>add_cycle</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><strong>add_edges_from</strong></td>
+<tr class="row-even"><td><strong>add_path</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><strong>add_path</strong></td>
+<tr class="row-odd"><td><strong>add_star</strong></td>
 <td>&#160;</td>
 </tr>
 <tr class="row-even"><td><strong>disconnect_path</strong></td>
@@ -988,13 +974,16 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 <tr class="row-odd"><td><strong>get_edge_data_direction</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><strong>remove_edge</strong></td>
+<tr class="row-even"><td><strong>nodes_with_selfloops</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><strong>remove_edges_from</strong></td>
+<tr class="row-odd"><td><strong>number_of_selfloops</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><strong>shortest_path_undirected</strong></td>
+<tr class="row-even"><td><strong>selfloop_edges</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><strong>shortest_path_undirected</strong></td>
 <td>&#160;</td>
 </tr>
 </tbody>
@@ -1005,8 +994,8 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 <dd><p>Add an edge between u and v.</p>
 <p>The nodes u and v will be automatically added if they are
 not already in the graph.</p>
-<p>Edge attributes can be specified with keywords or by providing
-a dictionary with key/value pairs.  See examples below.</p>
+<p>Edge attributes can be specified with keywords or by directly
+accessing the edge’s attribute dictionary. See examples below.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1015,10 +1004,6 @@ a dictionary with key/value pairs.  See examples below.</p>
 <dt><strong>u, v</strong> <span class="classifier-delimiter">:</span> <span class="classifier">nodes</span></dt>
 <dd><p class="first last">Nodes can be, for example, strings or numbers.
 Nodes must be hashable (and not None) Python objects.</p>
-</dd>
-<dt><strong>attr_dict</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dictionary, optional (default= no attributes)</span></dt>
-<dd><p class="first last">Dictionary of edge attributes.  Key/value pairs will
-update existing data associated with the edge.</p>
 </dd>
 <dt><strong>attr</strong> <span class="classifier-delimiter">:</span> <span class="classifier">keyword arguments, optional</span></dt>
 <dd><p class="first last">Edge data (or labels or objects) can be assigned using
@@ -1038,16 +1023,15 @@ keyword arguments.</p>
 </div>
 <p class="rubric">Notes</p>
 <p>Adding an edge that already exists updates the edge data.</p>
-<p>Many NetworkX algorithms designed for weighted graphs use as
-the edge weight a numerical value assigned to a keyword
-which by default is ‘weight’.</p>
+<p>Many NetworkX algorithms designed for weighted graphs use
+an edge attribute (by default <cite>weight</cite>) to hold a numerical value.</p>
 <p class="rubric">Examples</p>
-<p>The following all add the edge e=(1,2) to graph G:</p>
+<p>The following all add the edge e=(1, 2) to graph G:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>   <span class="c1"># or DiGraph, MultiGraph, MultiDiGraph, etc</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>           <span class="c1"># explicit two-node form</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="o">*</span><span class="n">e</span><span class="p">)</span>             <span class="c1"># single edge as tuple of two nodes</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="p">)</span> <span class="c1"># add edges from iterable container</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="p">)</span> <span class="c1"># add edges from iterable container</span>
 </pre></div>
 </div>
 <p>Associate data to edges using keywords:</p>
@@ -1055,26 +1039,27 @@ which by default is ‘weight’.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mf">342.7</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>For non-string attribute keys, use subscript notation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="trimesh.scene.transforms.EnforcedForest.add_edges_from">
 <code class="descname">add_edges_from</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.EnforcedForest.add_edges_from" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add all the edges in ebunch.</p>
+<dd><p>Add all the edges in ebunch_to_add.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>ebunch</strong> <span class="classifier-delimiter">:</span> <span class="classifier">container of edges</span></dt>
+<dt><strong>ebunch_to_add</strong> <span class="classifier-delimiter">:</span> <span class="classifier">container of edges</span></dt>
 <dd><p class="first last">Each edge given in the container will be added to the
-graph. The edges must be given as as 2-tuples (u,v) or
-3-tuples (u,v,d) where d is a dictionary containing edge
-data.</p>
-</dd>
-<dt><strong>attr_dict</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dictionary, optional (default= no attributes)</span></dt>
-<dd><p class="first last">Dictionary of edge attributes.  Key/value pairs will
-update existing data associated with each edge.</p>
+graph. The edges must be given as 2-tuples (u, v) or
+3-tuples (u, v, d) where d is a dictionary containing edge data.</p>
 </dd>
 <dt><strong>attr</strong> <span class="classifier-delimiter">:</span> <span class="classifier">keyword arguments, optional</span></dt>
 <dd><p class="first last">Edge data (or labels or objects) can be assigned using
@@ -1097,18 +1082,18 @@ keyword arguments.</p>
 <p class="rubric">Notes</p>
 <p>Adding the same edge twice has no effect but any edge data
 will be updated when each duplicate edge is added.</p>
-<p>Edge attributes specified in edges take precedence
-over attributes specified generally.</p>
+<p>Edge attributes specified in an ebunch take precedence over
+attributes specified via keyword arguments.</p>
 <p class="rubric">Examples</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>   <span class="c1"># or DiGraph, MultiGraph, MultiDiGraph, etc</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)])</span> <span class="c1"># using a list of edge tuples</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span> <span class="c1"># using a list of edge tuples</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="c1"># Add the path graph 0-1-2-3</span>
 </pre></div>
 </div>
 <p>Associate data to edges</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)],</span> <span class="n">weight</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;WN2898&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)],</span> <span class="n">weight</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;WN2898&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1116,35 +1101,7 @@ over attributes specified generally.</p>
 <dl class="method">
 <dt id="trimesh.scene.transforms.EnforcedForest.add_path">
 <code class="descname">add_path</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.EnforcedForest.add_path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a path.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>nodes</strong> <span class="classifier-delimiter">:</span> <span class="classifier">iterable container</span></dt>
-<dd><p class="first last">A container of nodes.  A path will be constructed from
-the nodes (in order) and added to the graph.</p>
-</dd>
-<dt><strong>attr</strong> <span class="classifier-delimiter">:</span> <span class="classifier">keyword arguments, optional (default= no attributes)</span></dt>
-<dd><p class="first last">Attributes to add to every edge in path.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_star</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">add_cycle</span></code></p>
-</div>
-<p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>   <span class="c1"># or DiGraph, MultiGraph, MultiDiGraph, etc</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_path</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_path</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span><span class="n">weight</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="trimesh.scene.transforms.EnforcedForest.disconnect_path">
@@ -1189,11 +1146,11 @@ the nodes (in order) and added to the graph.</p>
 </div>
 <p class="rubric">Examples</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>   <span class="c1"># or DiGraph, etc</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_path</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">remove_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nx</span><span class="o">.</span><span class="n">add_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">remove_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">remove_edge</span><span class="p">(</span><span class="o">*</span><span class="n">e</span><span class="p">)</span> <span class="c1"># unpacks e from an edge tuple</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,{</span><span class="s1">&#39;weight&#39;</span><span class="p">:</span><span class="mi">7</span><span class="p">})</span> <span class="c1"># an edge with attribute data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;weight&#39;</span><span class="p">:</span><span class="mi">7</span><span class="p">})</span> <span class="c1"># an edge with attribute data</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">remove_edge</span><span class="p">(</span><span class="o">*</span><span class="n">e</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># select first part of edge tuple</span>
 </pre></div>
 </div>
@@ -1213,8 +1170,8 @@ the nodes (in order) and added to the graph.</p>
 from the graph. The edges can be:</p>
 <blockquote class="last">
 <div><ul class="simple">
-<li>2-tuples (u,v) edge between u and v.</li>
-<li>3-tuples (u,v,k) where k is ignored.</li>
+<li>2-tuples (u, v) edge between u and v.</li>
+<li>3-tuples (u, v, k) where k is ignored.</li>
 </ul>
 </div></blockquote>
 </dd>
@@ -1233,9 +1190,8 @@ from the graph. The edges can be:</p>
 <p class="rubric">Notes</p>
 <p>Will fail silently if an edge in ebunch is not in the graph.</p>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>   <span class="c1"># or DiGraph, MultiGraph, MultiDiGraph, etc</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_path</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ebunch</span><span class="o">=</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">path_graph</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># or DiGraph, MultiGraph, MultiDiGraph, etc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ebunch</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">remove_edges_from</span><span class="p">(</span><span class="n">ebunch</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1620,29 +1576,47 @@ translation: (3) array</p>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_deactivate</span></code>()</td>
 <td>The window was deactivated.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_expose</span></code>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.scene.viewer.SceneViewer.on_draw" title="trimesh.scene.viewer.SceneViewer.on_draw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_draw</span></code></a>()</td>
+<td>The window contents must be redrawn.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_expose</span></code>()</td>
 <td>A portion of the window needs to be redrawn.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_hide</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_hide</span></code>()</td>
 <td>The window was hidden.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.viewer.SceneViewer.on_key_press" title="trimesh.scene.viewer.SceneViewer.on_key_press"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_key_press</span></code></a>(symbol,&nbsp;modifiers)</td>
+<td>A key on the keyboard was pressed (and held down).</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_key_release</span></code>(modifiers)</td>
 <td>A key on the keyboard was released.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_enter</span></code>(y)</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.viewer.SceneViewer.on_mouse_drag" title="trimesh.scene.viewer.SceneViewer.on_mouse_drag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_drag</span></code></a>(x,&nbsp;y,&nbsp;dx,&nbsp;dy,&nbsp;buttons,&nbsp;modifiers)</td>
+<td>The mouse was moved with one or more mouse buttons pressed.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_enter</span></code>(y)</td>
 <td>The mouse was moved into the window.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_leave</span></code>(y)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_leave</span></code>(y)</td>
 <td>The mouse was moved outside of the window.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_motion</span></code>(y,&nbsp;dx,&nbsp;dy)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_motion</span></code>(y,&nbsp;dx,&nbsp;dy)</td>
 <td>The mouse was moved with no buttons held down.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.viewer.SceneViewer.on_mouse_press" title="trimesh.scene.viewer.SceneViewer.on_mouse_press"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_press</span></code></a>(x,&nbsp;y,&nbsp;buttons,&nbsp;modifiers)</td>
+<td>A mouse button was pressed (and held down).</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_release</span></code>(y,&nbsp;button,&nbsp;modifiers)</td>
 <td>A mouse button was released.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_move</span></code>(y)</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.viewer.SceneViewer.on_mouse_scroll" title="trimesh.scene.viewer.SceneViewer.on_mouse_scroll"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_scroll</span></code></a>(x,&nbsp;y,&nbsp;dx,&nbsp;dy)</td>
+<td>The mouse wheel was scrolled.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_move</span></code>(y)</td>
 <td>The window was moved.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.viewer.SceneViewer.on_resize" title="trimesh.scene.viewer.SceneViewer.on_resize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_resize</span></code></a>(width,&nbsp;height)</td>
+<td>The window was resized.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_show</span></code>()</td>
 <td>The window was shown.</td>
@@ -1746,24 +1720,6 @@ translation: (3) array</p>
 <td>&#160;</td>
 </tr>
 <tr class="row-even"><td><strong>node_flag</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>on_draw</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>on_key_press</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>on_mouse_drag</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>on_mouse_press</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>on_mouse_scroll</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>on_resize</strong></td>
 <td>&#160;</td>
 </tr>
 <tr class="row-odd"><td><strong>toggle_culling</strong></td>
@@ -2182,7 +2138,7 @@ an IPython/Jupyter notebook.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.25',
+            VERSION:'2.30.26',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
