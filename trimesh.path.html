@@ -543,8 +543,9 @@ vertex indices rather than vertices themselves.</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_valid</span></code></dt>
 <dd><p class="first last">Is the current entity valid.</p>
 </dd>
-<dt><strong>nodes</strong></dt>
-<dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></dt>
+<dd><p class="first last">Returns an (n,2) list of nodes, or vertices on the path.</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -619,8 +620,9 @@ vertex indices rather than vertices themselves.</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_valid</span></code></dt>
 <dd><p class="first last">Is the current entity valid.</p>
 </dd>
-<dt><strong>nodes</strong></dt>
-<dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></dt>
+<dd><p class="first last">Returns an (n,2) list of nodes, or vertices on the path.</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -689,8 +691,9 @@ vertex indices rather than vertices themselves.</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_valid</span></code></dt>
 <dd><p class="first last">Is the current entity valid.</p>
 </dd>
-<dt><strong>nodes</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#trimesh.path.entities.Curve.nodes" title="trimesh.path.entities.Curve.nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></a></dt>
+<dd><p class="first last">Returns an (n,2) list of nodes, or vertices on the path.</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -726,7 +729,22 @@ vertex indices rather than vertices themselves.</p>
 <dl class="attribute">
 <dt id="trimesh.path.entities.Curve.nodes">
 <code class="descname">nodes</code><a class="headerlink" href="#trimesh.path.entities.Curve.nodes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns an (n,2) list of nodes, or vertices on the path.
+Note that this generic class function assumes that all of the
+reference points are on the path which is true for lines and
+three point arcs.</p>
+<p>If you were to define another class where that wasn’t the case
+(for example, the control points of a bezier curve),
+you would need to implement an entity- specific version of this
+function.</p>
+<p>The purpose of having a list of nodes is so that they can then be
+added as edges to a graph so we can use functions to check
+connectivity, extract paths, etc.</p>
+<p>The slicing on this function is essentially just tiling points
+so the first and last vertices aren’t repeated. Example:</p>
+<p>self.points = [0,1,2]
+returns:      [[0,1], [1,2]]</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -910,8 +928,9 @@ returns:      [[0,1], [1,2]]</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">end_points</span></code></dt>
 <dd><p class="first last">Returns the first and last points.</p>
 </dd>
-<dt><strong>is_valid</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#trimesh.path.entities.Line.is_valid" title="trimesh.path.entities.Line.is_valid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_valid</span></code></a></dt>
+<dd><p class="first last">Is the current entity valid.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></dt>
 <dd><p class="first last">Returns an (n,2) list of nodes, or vertices on the path.</p>
 </dd>
@@ -998,7 +1017,8 @@ up into n Line entities.</p>
 <dl class="attribute">
 <dt id="trimesh.path.entities.Line.is_valid">
 <code class="descname">is_valid</code><a class="headerlink" href="#trimesh.path.entities.Line.is_valid" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Is the current entity valid.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -1042,7 +1062,8 @@ In 3D, false if lines are not coplanar</p>
 <dl class="class">
 <dt id="trimesh.path.packing.RectangleBin">
 <em class="property">class </em><code class="descclassname">trimesh.path.packing.</code><code class="descname">RectangleBin</code><span class="sig-paren">(</span><em>bounds=None</em>, <em>size=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.packing.RectangleBin" title="Permalink to this definition">¶</a></dt>
-<dd><p>2D BSP tree node.
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>2D BSP tree node.
 <a class="reference external" href="http://www.blackpawn.com/texts/lightmaps/">http://www.blackpawn.com/texts/lightmaps/</a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2716,7 +2737,8 @@ transform the 2D representation back into 3 dimensions</p>
 <dl class="class">
 <dt id="trimesh.path.polygons.InversePolygon">
 <em class="property">class </em><code class="descclassname">trimesh.path.polygons.</code><code class="descname">InversePolygon</code><span class="sig-paren">(</span><em>polygon</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.polygons.InversePolygon" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create an inverse polygon.</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Create an inverse polygon.</p>
 <p>The primary use case is that given a point inside a polygon,
 you want to find the minimum distance to the boundary of the polygon.</p>
 <p class="rubric">Methods</p>
@@ -3387,7 +3409,8 @@ return the first, middle and last.</p>
 <dl class="class">
 <dt id="trimesh.path.traversal.PathSample">
 <em class="property">class </em><code class="descclassname">trimesh.path.traversal.</code><code class="descname">PathSample</code><span class="sig-paren">(</span><em>points</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.traversal.PathSample" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
 <col width="10%" />
