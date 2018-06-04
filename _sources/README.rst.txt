@@ -47,17 +47,17 @@ a `conda environment <https://conda.io/miniconda.html>`__:
     pip install trimesh[easy]
 
 Further information is available in the `advanced installation
-documentation <http://trimesh.readthedocs.io/en/latest/install.html>`__.
+documentation <https://trimsh.org/install.html>`__.
 
 Quick Start
 -----------
 
 Here is an example of loading a mesh from file and colorizing its faces.
 Here is a nicely formatted `ipython notebook
-version <http://github.com/mikedh/trimesh/blob/master/examples/quick_start.ipynb>`__
-of this example. Also check out the `cross section
-example <https://github.com/mikedh/trimesh/blob/master/examples/section.ipynb>`__
-or possibly the `integration of a function over a mesh
+version <https://trimsh.org/examples/quick_start.html>`__ of this
+example. Also check out the `cross section
+example <https://trimsh.org/examples/section.html>`__ or possibly the
+`integration of a function over a mesh
 example <https://github.com/mikedh/trimesh/blob/master/examples/integrate.ipynb>`__.
 
 .. code:: python
