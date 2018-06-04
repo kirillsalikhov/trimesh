@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.30.32 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.30.33 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                2.30.32
+                2.30.33
               </div>
             
           
@@ -365,7 +365,9 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="trimesh.ray.html">trimesh.ray package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="trimesh.ray.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="trimesh.ray.html#trimesh-ray-ray-pyembree-module">trimesh.ray.ray_pyembree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.ray.html#module-trimesh.ray.ray_pyembree">trimesh.ray.ray_pyembree module</a><ul class="simple">
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="trimesh.ray.html#module-trimesh.ray.ray_triangle">trimesh.ray.ray_triangle module</a><ul class="simple">
 </ul>
 </li>
@@ -6881,10 +6883,12 @@ trimesh operations on them at any point.</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
 </dd>
-<dt><strong>face_normals</strong></dt>
-<dd></dd>
-<dt><strong>faces</strong></dt>
-<dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
+<dd><p class="first last">Return the unit normal vector for each face.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></dt>
+<dd><p class="first last">The faces of the mesh.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_sparse</span></code></dt>
 <dd><p class="first last">A sparse matrix representation of the faces.</p>
 </dd>
@@ -6987,8 +6991,9 @@ trimesh operations on them at any point.</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
 </dd>
-<dt><strong>vertices</strong></dt>
-<dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertices</span></code></dt>
+<dd><p class="first last">The vertices of the mesh.</p>
+</dd>
 <dt><a class="reference internal" href="#trimesh.primitives.Box.volume" title="trimesh.primitives.Box.volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">volume</span></code></a></dt>
 <dd><p class="first last">Volume of the box Primitive.</p>
 </dd>
@@ -7309,10 +7314,12 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
 </dd>
-<dt><strong>face_normals</strong></dt>
-<dd></dd>
-<dt><strong>faces</strong></dt>
-<dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
+<dd><p class="first last">Return the unit normal vector for each face.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></dt>
+<dd><p class="first last">The faces of the mesh.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_sparse</span></code></dt>
 <dd><p class="first last">A sparse matrix representation of the faces.</p>
 </dd>
@@ -7412,8 +7419,9 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
 </dd>
-<dt><strong>vertices</strong></dt>
-<dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertices</span></code></dt>
+<dd><p class="first last">The vertices of the mesh.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">volume</span></code></dt>
 <dd><p class="first last">Volume of the current mesh.</p>
 </dd>
@@ -7670,10 +7678,12 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
 </dd>
-<dt><strong>face_normals</strong></dt>
-<dd></dd>
-<dt><strong>faces</strong></dt>
-<dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
+<dd><p class="first last">Return the unit normal vector for each face.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></dt>
+<dd><p class="first last">The faces of the mesh.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_sparse</span></code></dt>
 <dd><p class="first last">A sparse matrix representation of the faces.</p>
 </dd>
@@ -7773,8 +7783,9 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
 </dd>
-<dt><strong>vertices</strong></dt>
-<dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertices</span></code></dt>
+<dd><p class="first last">The vertices of the mesh.</p>
+</dd>
 <dt><a class="reference internal" href="#trimesh.primitives.Cylinder.volume" title="trimesh.primitives.Cylinder.volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">volume</span></code></a></dt>
 <dd><p class="first last">The analytic volume of the cylinder primitive.</p>
 </dd>
@@ -8067,10 +8078,12 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
 </dd>
-<dt><strong>face_normals</strong></dt>
-<dd></dd>
-<dt><strong>faces</strong></dt>
-<dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
+<dd><p class="first last">Return the unit normal vector for each face.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></dt>
+<dd><p class="first last">The faces of the mesh.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_sparse</span></code></dt>
 <dd><p class="first last">A sparse matrix representation of the faces.</p>
 </dd>
@@ -8170,8 +8183,9 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
 </dd>
-<dt><strong>vertices</strong></dt>
-<dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertices</span></code></dt>
+<dd><p class="first last">The vertices of the mesh.</p>
+</dd>
 <dt><a class="reference internal" href="#trimesh.primitives.Extrusion.volume" title="trimesh.primitives.Extrusion.volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">volume</span></code></a></dt>
 <dd><p class="first last">The volume of the primitive extrusion.</p>
 </dd>
@@ -8437,8 +8451,9 @@ extrude_direction vector</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounding_box</span></code></dt>
 <dd><p class="first last">An axis aligned bounding box for the current mesh.</p>
 </dd>
-<dt><strong>bounding_box_oriented</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#trimesh.primitives.Sphere.bounding_box_oriented" title="trimesh.primitives.Sphere.bounding_box_oriented"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounding_box_oriented</span></code></a></dt>
+<dd><p class="first last">An oriented bounding box for the current mesh.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounding_cylinder</span></code></dt>
 <dd><p class="first last">A minimum volume bounding cylinder for the current mesh.</p>
 </dd>
@@ -8448,8 +8463,9 @@ extrude_direction vector</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounding_sphere</span></code></dt>
 <dd><p class="first last">A minimum volume bounding sphere for the current mesh.</p>
 </dd>
-<dt><strong>bounds</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#trimesh.primitives.Sphere.bounds" title="trimesh.primitives.Sphere.bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounds</span></code></a></dt>
+<dd><p class="first last">The axis aligned bounds of the mesh.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">center_mass</span></code></dt>
 <dd><p class="first last">The point in space which is the center of mass/volume.</p>
 </dd>
@@ -8507,10 +8523,12 @@ extrude_direction vector</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
 </dd>
-<dt><strong>face_normals</strong></dt>
-<dd></dd>
-<dt><strong>faces</strong></dt>
-<dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
+<dd><p class="first last">Return the unit normal vector for each face.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></dt>
+<dd><p class="first last">The faces of the mesh.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_sparse</span></code></dt>
 <dd><p class="first last">A sparse matrix representation of the faces.</p>
 </dd>
@@ -8610,8 +8628,9 @@ extrude_direction vector</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
 </dd>
-<dt><strong>vertices</strong></dt>
-<dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertices</span></code></dt>
+<dd><p class="first last">The vertices of the mesh.</p>
+</dd>
 <dt><a class="reference internal" href="#trimesh.primitives.Sphere.volume" title="trimesh.primitives.Sphere.volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">volume</span></code></a></dt>
 <dd><p class="first last">Volume of the current sphere primitive.</p>
 </dd>
@@ -12498,7 +12517,7 @@ shorter than: (pitch / edge_factor)</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.32',
+            VERSION:'2.30.33',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
