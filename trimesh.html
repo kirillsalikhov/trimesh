@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.30.31 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.30.32 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                2.30.31
+                2.30.32
               </div>
             
           
@@ -789,9 +789,9 @@ same dimensions as the OBB.</p>
 <dt id="trimesh.base.Trimesh.apply_transform">
 <code class="descname">apply_transform</code><span class="sig-paren">(</span><em>matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.apply_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform mesh by a homogenous transformation matrix.</p>
-<p>Also does bookkeeping to avoid recomputing things, this function
+<p>Does the bookkeeping to avoid recomputing things so this function
 should be used rather than directly modifying self.vertices
-if possible</p>
+if possible.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -3145,8 +3145,7 @@ and clearing cached values based on those changes.</p>
 <dl class="class">
 <dt id="trimesh.caching.Cache">
 <em class="property">class </em><code class="descclassname">trimesh.caching.</code><code class="descname">Cache</code><span class="sig-paren">(</span><em>id_function</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.caching.Cache" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Class to cache values which will be stored until the
+<dd><p>Class to cache values which will be stored until the
 result of an ID function changes.</p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
@@ -3255,8 +3254,7 @@ the value of id_function has changed.</p>
 <dl class="class">
 <dt id="trimesh.caching.DataStore">
 <em class="property">class </em><code class="descclassname">trimesh.caching.</code><code class="descname">DataStore</code><a class="headerlink" href="#trimesh.caching.DataStore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A class to store multiple numpy arrays and track them all
+<dd><p>A class to store multiple numpy arrays and track them all
 for changes.</p>
 <p>Operates like a dict that only stores numpy.ndarray</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -4186,7 +4184,7 @@ transformations and different tesselations.</p>
 <dl class="exception">
 <dt id="trimesh.constants.MeshError">
 <em class="property">exception </em><code class="descclassname">trimesh.constants.</code><code class="descname">MeshError</code><a class="headerlink" href="#trimesh.constants.MeshError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">exceptions.Exception</span></code></p>
 </dd></dl>
 
 <dl class="class">
@@ -4262,7 +4260,7 @@ before escaping the fit early</dd>
 <dl class="exception">
 <dt id="trimesh.constants.TransformError">
 <em class="property">exception </em><code class="descclassname">trimesh.constants.</code><code class="descname">TransformError</code><a class="headerlink" href="#trimesh.constants.TransformError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">exceptions.Exception</span></code></p>
 </dd></dl>
 
 </div>
@@ -5484,7 +5482,7 @@ radius: max distance between points in a cluster</p>
 
 <dl class="function">
 <dt id="trimesh.grouping.float_to_int">
-<code class="descclassname">trimesh.grouping.</code><code class="descname">float_to_int</code><span class="sig-paren">(</span><em>data</em>, <em>digits=None</em>, <em>dtype=&lt;class 'numpy.int32'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.float_to_int" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.grouping.</code><code class="descname">float_to_int</code><span class="sig-paren">(</span><em>data</em>, <em>digits=None</em>, <em>dtype=&lt;type 'numpy.int32'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.float_to_int" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a numpy array of float/bool/int, return as integers.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -6209,105 +6207,38 @@ of convex hulls and voronoi diagrams.</p>
 <dl class="class">
 <dt id="trimesh.permutate.Permutator">
 <em class="property">class </em><code class="descclassname">trimesh.permutate.</code><code class="descname">Permutator</code><span class="sig-paren">(</span><em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.Permutator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
+<dd><p class="rubric">Methods</p>
+<table border="1" class="docutils">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col width="60%" />
+<col width="40%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#trimesh.permutate.Permutator.noise" title="trimesh.permutate.Permutator.noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise</span></code></a>([magnitude])</td>
-<td>Add gaussian noise to every vertex of a mesh.</td>
+<tr class="row-odd"><td><strong>noise</strong></td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.permutate.Permutator.tesselation" title="trimesh.permutate.Permutator.tesselation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tesselation</span></code></a>()</td>
-<td>Subdivide each face of a mesh into three faces with the new vertex randomly placed inside the old face.</td>
+<tr class="row-even"><td><strong>tesselation</strong></td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#trimesh.permutate.Permutator.transform" title="trimesh.permutate.Permutator.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>()</td>
-<td>Return a permutated variant of a mesh by randomly reording faces and rotatating + translating a mesh by a random matrix.</td>
+<tr class="row-odd"><td><strong>transform</strong></td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="trimesh.permutate.Permutator.noise">
 <code class="descname">noise</code><span class="sig-paren">(</span><em>magnitude=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.Permutator.noise" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add gaussian noise to every vertex of a mesh.
-Makes no effort to maintain topology or sanity.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>mesh:      Trimesh object (will not be mutated)</strong></dt>
-<dd></dd>
-<dt><strong>magnitude: float, what is the maximum distance per axis we can displace a vertex.</strong></dt>
-<dd><p class="first last">Default value is mesh.scale/100.0</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>permutated: Trimesh object, input mesh with noise applied</strong></dt>
-<dd></dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="trimesh.permutate.Permutator.tesselation">
 <code class="descname">tesselation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.Permutator.tesselation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Subdivide each face of a mesh into three faces with the new vertex
-randomly placed inside the old face.</p>
-<p>This produces a mesh with exactly the same surface area and volume
-but with different tesselation.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>mesh: Trimesh object</strong></dt>
-<dd></dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>permutated: Trimesh object with remeshed facets</strong></dt>
-<dd></dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="trimesh.permutate.Permutator.transform">
 <code class="descname">transform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.Permutator.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a permutated variant of a mesh by randomly reording faces
-and rotatating + translating a mesh by a random matrix.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>mesh:   Trimesh object (input will not be altered by this function)</strong></dt>
-<dd></dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>permutated: Trimesh object, same faces as input mesh but</strong></dt>
-<dd><p class="first last">rotated and reordered.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -6883,12 +6814,10 @@ trimesh operations on them at any point.</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
-<dd><p class="first last">Return the unit normal vector for each face.</p>
-</dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></dt>
-<dd><p class="first last">The faces of the mesh.</p>
-</dd>
+<dt><strong>face_normals</strong></dt>
+<dd></dd>
+<dt><strong>faces</strong></dt>
+<dd></dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_sparse</span></code></dt>
 <dd><p class="first last">A sparse matrix representation of the faces.</p>
 </dd>
@@ -6991,9 +6920,8 @@ trimesh operations on them at any point.</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertices</span></code></dt>
-<dd><p class="first last">The vertices of the mesh.</p>
-</dd>
+<dt><strong>vertices</strong></dt>
+<dd></dd>
 <dt><a class="reference internal" href="#trimesh.primitives.Box.volume" title="trimesh.primitives.Box.volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">volume</span></code></a></dt>
 <dd><p class="first last">Volume of the box Primitive.</p>
 </dd>
@@ -7314,12 +7242,10 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
-<dd><p class="first last">Return the unit normal vector for each face.</p>
-</dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></dt>
-<dd><p class="first last">The faces of the mesh.</p>
-</dd>
+<dt><strong>face_normals</strong></dt>
+<dd></dd>
+<dt><strong>faces</strong></dt>
+<dd></dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_sparse</span></code></dt>
 <dd><p class="first last">A sparse matrix representation of the faces.</p>
 </dd>
@@ -7419,9 +7345,8 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertices</span></code></dt>
-<dd><p class="first last">The vertices of the mesh.</p>
-</dd>
+<dt><strong>vertices</strong></dt>
+<dd></dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">volume</span></code></dt>
 <dd><p class="first last">Volume of the current mesh.</p>
 </dd>
@@ -7678,12 +7603,10 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
-<dd><p class="first last">Return the unit normal vector for each face.</p>
-</dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></dt>
-<dd><p class="first last">The faces of the mesh.</p>
-</dd>
+<dt><strong>face_normals</strong></dt>
+<dd></dd>
+<dt><strong>faces</strong></dt>
+<dd></dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_sparse</span></code></dt>
 <dd><p class="first last">A sparse matrix representation of the faces.</p>
 </dd>
@@ -7783,9 +7706,8 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertices</span></code></dt>
-<dd><p class="first last">The vertices of the mesh.</p>
-</dd>
+<dt><strong>vertices</strong></dt>
+<dd></dd>
 <dt><a class="reference internal" href="#trimesh.primitives.Cylinder.volume" title="trimesh.primitives.Cylinder.volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">volume</span></code></a></dt>
 <dd><p class="first last">The analytic volume of the cylinder primitive.</p>
 </dd>
@@ -8078,12 +8000,10 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
-<dd><p class="first last">Return the unit normal vector for each face.</p>
-</dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></dt>
-<dd><p class="first last">The faces of the mesh.</p>
-</dd>
+<dt><strong>face_normals</strong></dt>
+<dd></dd>
+<dt><strong>faces</strong></dt>
+<dd></dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_sparse</span></code></dt>
 <dd><p class="first last">A sparse matrix representation of the faces.</p>
 </dd>
@@ -8183,9 +8103,8 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertices</span></code></dt>
-<dd><p class="first last">The vertices of the mesh.</p>
-</dd>
+<dt><strong>vertices</strong></dt>
+<dd></dd>
 <dt><a class="reference internal" href="#trimesh.primitives.Extrusion.volume" title="trimesh.primitives.Extrusion.volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">volume</span></code></a></dt>
 <dd><p class="first last">The volume of the primitive extrusion.</p>
 </dd>
@@ -8451,9 +8370,8 @@ extrude_direction vector</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounding_box</span></code></dt>
 <dd><p class="first last">An axis aligned bounding box for the current mesh.</p>
 </dd>
-<dt><a class="reference internal" href="#trimesh.primitives.Sphere.bounding_box_oriented" title="trimesh.primitives.Sphere.bounding_box_oriented"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounding_box_oriented</span></code></a></dt>
-<dd><p class="first last">An oriented bounding box for the current mesh.</p>
-</dd>
+<dt><strong>bounding_box_oriented</strong></dt>
+<dd></dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounding_cylinder</span></code></dt>
 <dd><p class="first last">A minimum volume bounding cylinder for the current mesh.</p>
 </dd>
@@ -8463,9 +8381,8 @@ extrude_direction vector</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounding_sphere</span></code></dt>
 <dd><p class="first last">A minimum volume bounding sphere for the current mesh.</p>
 </dd>
-<dt><a class="reference internal" href="#trimesh.primitives.Sphere.bounds" title="trimesh.primitives.Sphere.bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounds</span></code></a></dt>
-<dd><p class="first last">The axis aligned bounds of the mesh.</p>
-</dd>
+<dt><strong>bounds</strong></dt>
+<dd></dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">center_mass</span></code></dt>
 <dd><p class="first last">The point in space which is the center of mass/volume.</p>
 </dd>
@@ -8523,12 +8440,10 @@ extrude_direction vector</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
-<dd><p class="first last">Return the unit normal vector for each face.</p>
-</dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></dt>
-<dd><p class="first last">The faces of the mesh.</p>
-</dd>
+<dt><strong>face_normals</strong></dt>
+<dd></dd>
+<dt><strong>faces</strong></dt>
+<dd></dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_sparse</span></code></dt>
 <dd><p class="first last">A sparse matrix representation of the faces.</p>
 </dd>
@@ -8628,9 +8543,8 @@ extrude_direction vector</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertices</span></code></dt>
-<dd><p class="first last">The vertices of the mesh.</p>
-</dd>
+<dt><strong>vertices</strong></dt>
+<dd></dd>
 <dt><a class="reference internal" href="#trimesh.primitives.Sphere.volume" title="trimesh.primitives.Sphere.volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">volume</span></code></a></dt>
 <dd><p class="first last">Volume of the current sphere primitive.</p>
 </dd>
@@ -8810,39 +8724,12 @@ extrude_direction vector</p>
 <dl class="attribute">
 <dt id="trimesh.primitives.Sphere.bounding_box_oriented">
 <code class="descname">bounding_box_oriented</code><a class="headerlink" href="#trimesh.primitives.Sphere.bounding_box_oriented" title="Permalink to this definition">¶</a></dt>
-<dd><p>An oriented bounding box for the current mesh.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>obb: trimesh.primitives.Box object with transform and extents defined</strong></dt>
-<dd><p class="first last">to represent the minimum volume oriented bounding box of the mesh</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="trimesh.primitives.Sphere.bounds">
 <code class="descname">bounds</code><a class="headerlink" href="#trimesh.primitives.Sphere.bounds" title="Permalink to this definition">¶</a></dt>
-<dd><p>The axis aligned bounds of the mesh.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>bounds: (2,3) float, bounding box with [min, max] coordinates</strong></dt>
-<dd></dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="trimesh.primitives.Sphere.moment_inertia">
@@ -11709,7 +11596,7 @@ indexes.</p>
 
 <dl class="function">
 <dt id="trimesh.visual.face_to_vertex_color">
-<code class="descclassname">trimesh.visual.</code><code class="descname">face_to_vertex_color</code><span class="sig-paren">(</span><em>mesh</em>, <em>face_colors</em>, <em>dtype=&lt;class 'numpy.uint8'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.face_to_vertex_color" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.visual.</code><code class="descname">face_to_vertex_color</code><span class="sig-paren">(</span><em>mesh</em>, <em>face_colors</em>, <em>dtype=&lt;type 'numpy.uint8'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.face_to_vertex_color" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a list of face colors into a list of vertex colors.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -11761,7 +11648,7 @@ indexes.</p>
 
 <dl class="function">
 <dt id="trimesh.visual.random_color">
-<code class="descclassname">trimesh.visual.</code><code class="descname">random_color</code><span class="sig-paren">(</span><em>dtype=&lt;class 'numpy.uint8'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.random_color" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.visual.</code><code class="descname">random_color</code><span class="sig-paren">(</span><em>dtype=&lt;type 'numpy.uint8'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.random_color" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a random RGB color using datatype specified.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -11785,7 +11672,7 @@ indexes.</p>
 
 <dl class="function">
 <dt id="trimesh.visual.to_rgba">
-<code class="descclassname">trimesh.visual.</code><code class="descname">to_rgba</code><span class="sig-paren">(</span><em>colors</em>, <em>dtype=&lt;class 'numpy.uint8'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.to_rgba" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.visual.</code><code class="descname">to_rgba</code><span class="sig-paren">(</span><em>colors</em>, <em>dtype=&lt;type 'numpy.uint8'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.to_rgba" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a single or multiple RGB colors to RGBA colors.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -12517,7 +12404,7 @@ shorter than: (pitch / edge_factor)</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.31',
+            VERSION:'2.30.32',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
