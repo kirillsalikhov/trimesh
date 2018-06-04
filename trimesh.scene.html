@@ -216,7 +216,8 @@
 <dl class="class">
 <dt id="trimesh.scene.scene.Scene">
 <em class="property">class </em><code class="descclassname">trimesh.scene.scene.</code><code class="descname">Scene</code><span class="sig-paren">(</span><em>geometry=None</em>, <em>base_frame='world'</em>, <em>metadata={}</em>, <em>graph=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.scene.Scene" title="Permalink to this definition">¶</a></dt>
-<dd><p>A simple scene graph which can be rendered directly via pyglet/openGL,
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A simple scene graph which can be rendered directly via pyglet/openGL,
 or through other endpoints such as a raytracer.</p>
 <p>Meshes and lights are added by name, which can then be moved by updating
 transform in the transform tree.</p>
@@ -898,6 +899,12 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.scene.transforms.EnforcedForest.add_edge" title="trimesh.scene.transforms.EnforcedForest.add_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_edge</span></code></a>(u,&nbsp;v,&nbsp;*args,&nbsp;**kwargs)</td>
+<td>Add an edge between u and v.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.transforms.EnforcedForest.add_edges_from" title="trimesh.scene.transforms.EnforcedForest.add_edges_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_edges_from</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Add all the edges in ebunch_to_add.</td>
+</tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_node</span></code>(node_for_adding,&nbsp;**attr)</td>
 <td>Add a single node <cite>node_for_adding</cite> and update node attributes.</td>
 </tr>
@@ -911,10 +918,10 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 <td>Return an iterator over (node, adjacency dict) tuples for all nodes.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">adjlist_inner_dict_factory</span></code></td>
-<td>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">__builtin__.dict</span></code></td>
+<td>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.dict</span></code></td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">adjlist_outer_dict_factory</span></code></td>
-<td>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">__builtin__.dict</span></code></td>
+<td>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.dict</span></code></td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code>()</td>
 <td>Remove all nodes and edges from the graph.</td>
@@ -923,7 +930,7 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 <td>Return a copy of the graph.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_attr_dict_factory</span></code></td>
-<td>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">__builtin__.dict</span></code></td>
+<td>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.dict</span></code></td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">edge_subgraph</span></code>(edges)</td>
 <td>Returns the subgraph induced by the specified edges.</td>
@@ -959,7 +966,7 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 <td>Return an iterator over successor nodes of n.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">node_dict_factory</span></code></td>
-<td>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">__builtin__.dict</span></code></td>
+<td>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.dict</span></code></td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_of_edges</span></code>([u,&nbsp;v])</td>
 <td>Return the number of edges between two nodes.</td>
@@ -972,6 +979,12 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">predecessors</span></code>(n)</td>
 <td>Return an iterator over predecessor nodes of n.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.transforms.EnforcedForest.remove_edge" title="trimesh.scene.transforms.EnforcedForest.remove_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_edge</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Remove the edge between u and v.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.scene.transforms.EnforcedForest.remove_edges_from" title="trimesh.scene.transforms.EnforcedForest.remove_edges_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_edges_from</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Remove all edges specified in ebunch.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_node</span></code>(n)</td>
 <td>Remove node n.</td>
@@ -1008,12 +1021,6 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 <tr class="row-odd"><td><strong>add_cycle</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><strong>add_edge</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>add_edges_from</strong></td>
-<td>&#160;</td>
-</tr>
 <tr class="row-even"><td><strong>add_path</strong></td>
 <td>&#160;</td>
 </tr>
@@ -1030,12 +1037,6 @@ edge is added which would make the DiGraph not a forest or tree.</p>
 <td>&#160;</td>
 </tr>
 <tr class="row-odd"><td><strong>number_of_selfloops</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>remove_edge</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>remove_edges_from</strong></td>
 <td>&#160;</td>
 </tr>
 <tr class="row-even"><td><strong>selfloop_edges</strong></td>
@@ -1265,7 +1266,8 @@ from the graph. The edges can be:</p>
 <dl class="class">
 <dt id="trimesh.scene.transforms.TransformForest">
 <em class="property">class </em><code class="descclassname">trimesh.scene.transforms.</code><code class="descname">TransformForest</code><span class="sig-paren">(</span><em>base_frame='world'</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1633,29 +1635,47 @@ translation: (3) array</p>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_deactivate</span></code>()</td>
 <td>The window was deactivated.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_expose</span></code>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.scene.viewer.SceneViewer.on_draw" title="trimesh.scene.viewer.SceneViewer.on_draw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_draw</span></code></a>()</td>
+<td>The window contents must be redrawn.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_expose</span></code>()</td>
 <td>A portion of the window needs to be redrawn.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_hide</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_hide</span></code>()</td>
 <td>The window was hidden.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.viewer.SceneViewer.on_key_press" title="trimesh.scene.viewer.SceneViewer.on_key_press"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_key_press</span></code></a>(symbol,&nbsp;modifiers)</td>
+<td>A key on the keyboard was pressed (and held down).</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_key_release</span></code>(modifiers)</td>
 <td>A key on the keyboard was released.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_enter</span></code>(y)</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.viewer.SceneViewer.on_mouse_drag" title="trimesh.scene.viewer.SceneViewer.on_mouse_drag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_drag</span></code></a>(x,&nbsp;y,&nbsp;dx,&nbsp;dy,&nbsp;buttons,&nbsp;modifiers)</td>
+<td>The mouse was moved with one or more mouse buttons pressed.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_enter</span></code>(y)</td>
 <td>The mouse was moved into the window.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_leave</span></code>(y)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_leave</span></code>(y)</td>
 <td>The mouse was moved outside of the window.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_motion</span></code>(y,&nbsp;dx,&nbsp;dy)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_motion</span></code>(y,&nbsp;dx,&nbsp;dy)</td>
 <td>The mouse was moved with no buttons held down.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.viewer.SceneViewer.on_mouse_press" title="trimesh.scene.viewer.SceneViewer.on_mouse_press"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_press</span></code></a>(x,&nbsp;y,&nbsp;buttons,&nbsp;modifiers)</td>
+<td>A mouse button was pressed (and held down).</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_release</span></code>(y,&nbsp;button,&nbsp;modifiers)</td>
 <td>A mouse button was released.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_move</span></code>(y)</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.viewer.SceneViewer.on_mouse_scroll" title="trimesh.scene.viewer.SceneViewer.on_mouse_scroll"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_mouse_scroll</span></code></a>(x,&nbsp;y,&nbsp;dx,&nbsp;dy)</td>
+<td>The mouse wheel was scrolled.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_move</span></code>(y)</td>
 <td>The window was moved.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.viewer.SceneViewer.on_resize" title="trimesh.scene.viewer.SceneViewer.on_resize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_resize</span></code></a>(width,&nbsp;height)</td>
+<td>The window was resized.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_show</span></code>()</td>
 <td>The window was shown.</td>
@@ -1758,37 +1778,16 @@ translation: (3) array</p>
 <tr class="row-odd"><td><strong>init_gl</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><strong>next</strong></td>
+<tr class="row-even"><td><strong>node_flag</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><strong>node_flag</strong></td>
+<tr class="row-odd"><td><strong>toggle_culling</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><strong>on_draw</strong></td>
+<tr class="row-even"><td><strong>toggle_wireframe</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><strong>on_key_press</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>on_mouse_drag</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>on_mouse_press</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>on_mouse_scroll</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>on_resize</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>toggle_culling</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>toggle_wireframe</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><strong>update_flags</strong></td>
+<tr class="row-odd"><td><strong>update_flags</strong></td>
 <td>&#160;</td>
 </tr>
 </tbody>
