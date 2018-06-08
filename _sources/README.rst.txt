@@ -187,7 +187,7 @@ faces and vertices and things derived from them, rather than other
 visual properties or metadata.
 
 It is hopefully useful in other applications, but most of the core
-effort is around the design use case. \`\`\`
+effort is around the design use case.
 
 Viewer
 ------
