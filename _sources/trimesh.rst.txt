@@ -88,6 +88,14 @@ trimesh.creation module
     :undoc-members:
     :show-inheritance:
 
+trimesh.curvature module
+------------------------
+
+.. automodule:: trimesh.curvature
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 trimesh.decomposition module
 ----------------------------
 

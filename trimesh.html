@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.30.39 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.30.40 documentation</title>
   
 
   
@@ -24,8 +24,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -59,7 +58,7 @@
             
             
               <div class="version">
-                2.30.39
+                2.30.40
               </div>
             
           
@@ -123,6 +122,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-trimesh.convex">trimesh.convex module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-trimesh.creation">trimesh.creation module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#creation-py">creation.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-trimesh.curvature">trimesh.curvature module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#curvature-py">curvature.py</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-trimesh.decomposition">trimesh.decomposition module</a></li>
@@ -498,8 +501,17 @@
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.face_adjacency_span" title="trimesh.base.Trimesh.face_adjacency_span"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_span</span></code></a></dt>
 <dd><p class="first last">The approximate perpendicular projection of the non- shared vertices in a pair of adjacent faces onto the shared edge of the two faces.</p>
 </dd>
+<dt><a class="reference internal" href="#trimesh.base.Trimesh.face_adjacency_tree" title="trimesh.base.Trimesh.face_adjacency_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_tree</span></code></a></dt>
+<dd><p class="first last">An R-tree of face adjacencies.</p>
+</dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.face_adjacency_unshared" title="trimesh.base.Trimesh.face_adjacency_unshared"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></a></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
+</dd>
+<dt><a class="reference internal" href="#trimesh.base.Trimesh.face_angles" title="trimesh.base.Trimesh.face_angles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_angles</span></code></a></dt>
+<dd><p class="first last">Returns the angle at each vertex of a face.</p>
+</dd>
+<dt><a class="reference internal" href="#trimesh.base.Trimesh.face_angles_sparse" title="trimesh.base.Trimesh.face_angles_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_angles_sparse</span></code></a></dt>
+<dd><p class="first last">A sparse matrix representation of the face angles.</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.face_normals" title="trimesh.base.Trimesh.face_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></a></dt>
 <dd><p class="first last">Return the unit normal vector for each face.</p>
@@ -599,6 +611,9 @@
 </dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.vertex_adjacency_graph" title="trimesh.base.Trimesh.vertex_adjacency_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_adjacency_graph</span></code></a></dt>
 <dd><p class="first last">Returns a networkx graph representing the vertices and their connections in the mesh.</p>
+</dd>
+<dt><a class="reference internal" href="#trimesh.base.Trimesh.vertex_defects" title="trimesh.base.Trimesh.vertex_defects"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_defects</span></code></a></dt>
+<dd><p class="first last">Return the vertex defects, or (2*pi) minus the sum of the angles of every face that includes that vertex.</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.vertex_neighbors" title="trimesh.base.Trimesh.vertex_neighbors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_neighbors</span></code></a></dt>
 <dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existant.</p>
@@ -1589,6 +1604,25 @@ the two faces.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="trimesh.base.Trimesh.face_adjacency_tree">
+<code class="descname">face_adjacency_tree</code><a class="headerlink" href="#trimesh.base.Trimesh.face_adjacency_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>An R-tree of face adjacencies.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>tree: rtree.index where each edge in self.face_adjacency has a</strong></dt>
+<dd><p class="first last">rectangular cell</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="trimesh.base.Trimesh.face_adjacency_unshared">
 <code class="descname">face_adjacency_unshared</code><a class="headerlink" href="#trimesh.base.Trimesh.face_adjacency_unshared" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the vertex index of the two vertices not in the shared
@@ -1606,6 +1640,44 @@ edge between two adjacent faces</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>vid_unshared: (len(mesh.face_adjacency), 2) int, indexes of mesh.vertices</strong></dt>
 <dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="trimesh.base.Trimesh.face_angles">
+<code class="descname">face_angles</code><a class="headerlink" href="#trimesh.base.Trimesh.face_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the angle at each vertex of a face.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>angles: (n, 3) float, angle at each vertex of a face.</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="trimesh.base.Trimesh.face_angles_sparse">
+<code class="descname">face_angles_sparse</code><a class="headerlink" href="#trimesh.base.Trimesh.face_angles_sparse" title="Permalink to this definition">¶</a></dt>
+<dd><p>A sparse matrix representation of the face angles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>sparse: scipy.sparse.coo_matrix with:</strong></dt>
+<dd><p class="first last">dtype: float
+shape: (len(self.vertices), len(self.faces))</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2767,6 +2839,29 @@ potentially for some simple smoothing techniques.</p>
 graph = mesh.vertex_adjacency_graph
 graph.neighbors(0)
 &gt; [1,2,3,4]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="trimesh.base.Trimesh.vertex_defects">
+<code class="descname">vertex_defects</code><a class="headerlink" href="#trimesh.base.Trimesh.vertex_defects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertex defects, or (2*pi) minus the sum of the angles
+of every face that includes that vertex.</p>
+<p>If a vertex is only included by coplanar triangles, this
+will be zero. For convex regions this is positive, and
+concave negative.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>vertex_defect</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.vertices), ) float</span></dt>
+<dd><p class="first last">Vertex defect at the every vertex</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -4703,6 +4798,187 @@ mesh_faces:    (n, 3) int array of vertex indexes</p>
 <dt id="trimesh.creation.validate_polygon">
 <code class="descclassname">trimesh.creation.</code><code class="descname">validate_polygon</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.validate_polygon" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-trimesh.curvature">
+<span id="trimesh-curvature-module"></span><h2>trimesh.curvature module<a class="headerlink" href="#module-trimesh.curvature" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="curvature-py">
+<h3>curvature.py<a class="headerlink" href="#curvature-py" title="Permalink to this headline">¶</a></h3>
+<p>Query mesh curvature.</p>
+<dl class="function">
+<dt id="trimesh.curvature.discrete_gaussian_curvature_measure">
+<code class="descclassname">trimesh.curvature.</code><code class="descname">discrete_gaussian_curvature_measure</code><span class="sig-paren">(</span><em>mesh</em>, <em>points</em>, <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.curvature.discrete_gaussian_curvature_measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the discrete gaussian curvature measure of a sphere centered
+at a point as detailed in ‘Restricted Delaunay triangulations and normal
+cycle’, Cohen-Steiner and Morvan.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>points</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float, list of points in space</span></dt>
+<dd></dd>
+<dt><strong>radius</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, the sphere radius</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>gaussian_curvature: (n,) float, discrete gaussian curvature measure.</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.curvature.discrete_mean_curvature_measure">
+<code class="descclassname">trimesh.curvature.</code><code class="descname">discrete_mean_curvature_measure</code><span class="sig-paren">(</span><em>mesh</em>, <em>points</em>, <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.curvature.discrete_mean_curvature_measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the discrete mean curvature measure of a sphere centered
+at a point as detailed in ‘Restricted Delaunay triangulations and normal
+cycle’, Cohen-Steiner and Morvan.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>points</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float, list of points in space</span></dt>
+<dd></dd>
+<dt><strong>radius</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, the sphere radius</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>mean_curvature: (n,) float, discrete mean curvature measure.</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.curvature.face_angles">
+<code class="descclassname">trimesh.curvature.</code><code class="descname">face_angles</code><span class="sig-paren">(</span><em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.curvature.face_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the angle at each vertex of a face.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>angles: (n, 3) float, angle at each vertex of a face.</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.curvature.face_angles_sparse">
+<code class="descclassname">trimesh.curvature.</code><code class="descname">face_angles_sparse</code><span class="sig-paren">(</span><em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.curvature.face_angles_sparse" title="Permalink to this definition">¶</a></dt>
+<dd><p>A sparse matrix representation of the face angles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>sparse: scipy.sparse.coo_matrix with:</strong></dt>
+<dd><p class="first last">dtype: float
+shape: (len(mesh.vertices), len(mesh.faces))</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.curvature.line_ball_intersection">
+<code class="descclassname">trimesh.curvature.</code><code class="descname">line_ball_intersection</code><span class="sig-paren">(</span><em>start_points</em>, <em>end_points</em>, <em>center</em>, <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.curvature.line_ball_intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the length of the intersection of a line segment with a ball.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>start_points</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float, list of points in space</span></dt>
+<dd></dd>
+<dt><strong>end_points</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float, list of points in space</span></dt>
+<dd></dd>
+<dt><strong>center</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float, the sphere center</span></dt>
+<dd></dd>
+<dt><strong>radius</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, the sphere radius</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>lengths: (n,) float, the lengths.</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.curvature.sphere_ball_intersection">
+<code class="descclassname">trimesh.curvature.</code><code class="descname">sphere_ball_intersection</code><span class="sig-paren">(</span><em>R</em>, <em>r</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.curvature.sphere_ball_intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the surface area of the intersection of sphere of radius R centered
+at (0, 0, 0) with a ball of radius r centered at (R, 0, 0).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>R</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, sphere radius</span></dt>
+<dd></dd>
+<dt><strong>r</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, ball radius</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>area: float, the surface are.</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.curvature.vertex_defects">
+<code class="descclassname">trimesh.curvature.</code><code class="descname">vertex_defects</code><span class="sig-paren">(</span><em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.curvature.vertex_defects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertex defects, or (2*pi) minus the sum of the angles
+of every face that includes that vertex.</p>
+<p>If a vertex is only included by coplanar triangles, this
+will be zero. For convex regions this is positive, and
+concave negative.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>vertex_defect</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.vertices), ) float</span></dt>
+<dd><p class="first last">Vertex defect at the every vertex</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
 </div>
@@ -6909,8 +7185,17 @@ trimesh operations on them at any point.</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_span</span></code></dt>
 <dd><p class="first last">The approximate perpendicular projection of the non- shared vertices in a pair of adjacent faces onto the shared edge of the two faces.</p>
 </dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_tree</span></code></dt>
+<dd><p class="first last">An R-tree of face adjacencies.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_angles</span></code></dt>
+<dd><p class="first last">Returns the angle at each vertex of a face.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_angles_sparse</span></code></dt>
+<dd><p class="first last">A sparse matrix representation of the face angles.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
 <dd><p class="first last">Return the unit normal vector for each face.</p>
@@ -7013,6 +7298,9 @@ trimesh operations on them at any point.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_adjacency_graph</span></code></dt>
 <dd><p class="first last">Returns a networkx graph representing the vertices and their connections in the mesh.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_defects</span></code></dt>
+<dd><p class="first last">Return the vertex defects, or (2*pi) minus the sum of the angles of every face that includes that vertex.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_neighbors</span></code></dt>
 <dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existant.</p>
@@ -7340,8 +7628,17 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_span</span></code></dt>
 <dd><p class="first last">The approximate perpendicular projection of the non- shared vertices in a pair of adjacent faces onto the shared edge of the two faces.</p>
 </dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_tree</span></code></dt>
+<dd><p class="first last">An R-tree of face adjacencies.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_angles</span></code></dt>
+<dd><p class="first last">Returns the angle at each vertex of a face.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_angles_sparse</span></code></dt>
+<dd><p class="first last">A sparse matrix representation of the face angles.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
 <dd><p class="first last">Return the unit normal vector for each face.</p>
@@ -7441,6 +7738,9 @@ Samples are either ‘step’ distance apart, or there are
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_adjacency_graph</span></code></dt>
 <dd><p class="first last">Returns a networkx graph representing the vertices and their connections in the mesh.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_defects</span></code></dt>
+<dd><p class="first last">Return the vertex defects, or (2*pi) minus the sum of the angles of every face that includes that vertex.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_neighbors</span></code></dt>
 <dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existant.</p>
@@ -7704,8 +8004,17 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_span</span></code></dt>
 <dd><p class="first last">The approximate perpendicular projection of the non- shared vertices in a pair of adjacent faces onto the shared edge of the two faces.</p>
 </dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_tree</span></code></dt>
+<dd><p class="first last">An R-tree of face adjacencies.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_angles</span></code></dt>
+<dd><p class="first last">Returns the angle at each vertex of a face.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_angles_sparse</span></code></dt>
+<dd><p class="first last">A sparse matrix representation of the face angles.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
 <dd><p class="first last">Return the unit normal vector for each face.</p>
@@ -7805,6 +8114,9 @@ Samples are either ‘step’ distance apart, or there are
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_adjacency_graph</span></code></dt>
 <dd><p class="first last">Returns a networkx graph representing the vertices and their connections in the mesh.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_defects</span></code></dt>
+<dd><p class="first last">Return the vertex defects, or (2*pi) minus the sum of the angles of every face that includes that vertex.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_neighbors</span></code></dt>
 <dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existant.</p>
@@ -8104,8 +8416,17 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_span</span></code></dt>
 <dd><p class="first last">The approximate perpendicular projection of the non- shared vertices in a pair of adjacent faces onto the shared edge of the two faces.</p>
 </dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_tree</span></code></dt>
+<dd><p class="first last">An R-tree of face adjacencies.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_angles</span></code></dt>
+<dd><p class="first last">Returns the angle at each vertex of a face.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_angles_sparse</span></code></dt>
+<dd><p class="first last">A sparse matrix representation of the face angles.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
 <dd><p class="first last">Return the unit normal vector for each face.</p>
@@ -8205,6 +8526,9 @@ Samples are either ‘step’ distance apart, or there are
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_adjacency_graph</span></code></dt>
 <dd><p class="first last">Returns a networkx graph representing the vertices and their connections in the mesh.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_defects</span></code></dt>
+<dd><p class="first last">Return the vertex defects, or (2*pi) minus the sum of the angles of every face that includes that vertex.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_neighbors</span></code></dt>
 <dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existant.</p>
@@ -8549,8 +8873,17 @@ extrude_direction vector</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_span</span></code></dt>
 <dd><p class="first last">The approximate perpendicular projection of the non- shared vertices in a pair of adjacent faces onto the shared edge of the two faces.</p>
 </dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_tree</span></code></dt>
+<dd><p class="first last">An R-tree of face adjacencies.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_adjacency_unshared</span></code></dt>
 <dd><p class="first last">Return the vertex index of the two vertices not in the shared</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_angles</span></code></dt>
+<dd><p class="first last">Returns the angle at each vertex of a face.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_angles_sparse</span></code></dt>
+<dd><p class="first last">A sparse matrix representation of the face angles.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_normals</span></code></dt>
 <dd><p class="first last">Return the unit normal vector for each face.</p>
@@ -8650,6 +8983,9 @@ extrude_direction vector</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_adjacency_graph</span></code></dt>
 <dd><p class="first last">Returns a networkx graph representing the vertices and their connections in the mesh.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_defects</span></code></dt>
+<dd><p class="first last">Return the vertex defects, or (2*pi) minus the sum of the angles of every face that includes that vertex.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_neighbors</span></code></dt>
 <dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existant.</p>
@@ -12643,7 +12979,7 @@ shorter than: (pitch / edge_factor)</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.39',
+            VERSION:'2.30.40',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -12657,10 +12993,7 @@ shorter than: (pitch / edge_factor)</p>
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {

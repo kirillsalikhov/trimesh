@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh &mdash; trimesh 2.30.39 documentation</title>
+  <title>trimesh &mdash; trimesh 2.30.40 documentation</title>
   
 
   
@@ -24,8 +24,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -57,7 +56,7 @@
             
             
               <div class="version">
-                2.30.39
+                2.30.40
               </div>
             
           
@@ -176,19 +175,10 @@ queries, no vector path handling, mesh creation, viewer, etc):</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">trimesh</span>
 </pre></div>
 </div>
-<p>For more functionality, the easiest way to get a full Trimesh install is
-a <a class="reference external" href="https://conda.io/miniconda.html">conda environment</a>:</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># install modules for spatial indexing and  polygon manipulation</span>
-<span class="c1"># these generally install cleanly on Linux, Windows, and OSX</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">rtree</span> <span class="n">shapely</span>
-
-<span class="c1"># install pyembree for fast ray queries</span>
-<span class="c1"># Linux and OSX only</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">pyembree</span>
-
-<span class="c1"># install Trimesh and soft dependencies that are easy to install</span>
-<span class="c1"># these generally install cleanly on Linux, Windows, and OSX</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">trimesh</span><span class="p">[</span><span class="n">easy</span><span class="p">]</span>
+<p>For more functionality, the easiest way to get a full <code class="docutils literal notranslate"><span class="pre">trimesh</span></code>
+install is a <a class="reference external" href="https://conda.io/miniconda.html">conda environment</a>:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># this will install all soft dependencies available on your current platform</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">trimesh</span>
 </pre></div>
 </div>
 <p>Further information is available in the <a class="reference external" href="https://trimsh.org/install.html">advanced installation
@@ -275,75 +265,69 @@ example</a>.</p>
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Import binary/ASCII STL, Wavefront OBJ, ASCII OFF, binary/ASCII PLY,
-XAML, 3DXML, etc.</li>
+GLTF/GLB 2.0, 3MF, XAML, 3DXML, etc.</li>
 <li>Import additional mesh formats using
 <a class="reference external" href="http://www.assimp.org/main_features_formats.html">assimp</a>
 (requires pyassimp or cyassimp)</li>
 <li>Import and export 2D or 3D vector paths from/to DXF or SVG files</li>
-<li>Export meshes as binary STL, binary PLY, ASCII OFF, COLLADA,
-dictionaries, JSON- serializable dictionaries (base64 encoded
-arrays), MSGPACK- serializable dictionaries (binary string arrays)</li>
-<li>Preview meshes (requires pyglet)</li>
-<li>Internal caching of computed values (validated with a zlib.adler32
-CRC on face/vertex data)</li>
+<li>Export meshes as binary STL, binary PLY, ASCII OFF, GLTF/GLB 2.0,
+COLLADA, dictionaries, JSON- serializable dictionaries (base64
+encoded arrays), MSGPACK- serializable dictionaries (binary string
+arrays)</li>
+<li>Preview meshes using pyglet</li>
+<li>Preview meshes in- line in jupyter notebooks using three.js</li>
+<li>Automatic hashing of numpy arrays for change tracking (MD5, zlib CRC,
+and xxhash)</li>
+<li>Internal caching of computed values validated using numpy hashes</li>
 <li>Fast loading of binary files through importers written by defining
 custom numpy dtypes</li>
-<li>Calculate face adjacencies quickly (for 234,230 face mesh .248 s)</li>
-<li>Calculate cross sections (.146 s)</li>
+<li>Calculate things like face adjacencies, face angles, vertex defects,
+etc.</li>
+<li>Calculate cross sections (IE the slicing operation used in 3D
+printing)</li>
 <li>Split mesh based on face connectivity using networkx, graph-tool, or
 scipy.sparse</li>
 <li>Calculate mass properties, including volume, center of mass, moment
 of inertia, and principal components of inertia</li>
-<li>Find coplanar and adjacent groups of faces (.454 s)</li>
 <li>Fix triangle winding and normals to be consistent</li>
 <li>Find convex hulls of meshes</li>
 <li>Compute a rotation/translation/tessellation invariant identifier for
 meshes</li>
 <li>Determine duplicate meshes from identifier</li>
-<li>Determine if a mesh is watertight</li>
-<li>Determine if a mesh is convex</li>
+<li>Determine if a mesh is watertight, convex, etc.</li>
 <li>Repair single triangle and single quad holes</li>
 <li>Uniformly sample the surface of a mesh</li>
 <li>Ray-mesh queries including location, triangle id, etc.</li>
 <li>Boolean operations on meshes (intersection, union, difference) using
 OpenSCAD or Blender as backend</li>
 <li>Voxelize watertight meshes</li>
-<li>Unit conversions</li>
 <li>Subdivide faces of a mesh</li>
 <li>Minimum volume oriented bounding boxes for meshes</li>
 <li>Minimum volume bounding sphere / n-spheres</li>
 <li>Symbolic integration of function(x,y,z) over a triangle</li>
-<li>Quick (sympy-numpy lambda) evaluation of symbolic integral result
-over a mesh</li>
 <li>Calculate nearest point on mesh surface and signed distance</li>
 <li>Determine if a point lies inside or outside of a mesh using signed
 distance</li>
-<li>Create meshes with primitive objects (Extrude, Box, Sphere) which are
-subclasses of Trimesh</li>
+<li>Create primitive objects (Box, Sphere, Extrusion) which are
+subclassed Trimesh objects and have all the same features (inertia,
+viewers, etc)</li>
 <li>Simple scene graph and transform tree which can be rendered (pyglet)
 or exported.</li>
 <li>Numerous utility functions, such as transforming points, unitizing
 vectors, tracking arrays for changes, grouping rows, etc.</li>
 </ul>
 </div>
-<div class="section" id="use-cases">
-<h2>Use Cases<a class="headerlink" href="#use-cases" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="design-use-case">
+<h2>Design Use Case<a class="headerlink" href="#design-use-case" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">trimesh.Trimesh</span></code> object is most useful on single body, watertight
-meshes that represents a volume.</p>
-<p>If you expect multibody geometry, you are best off dealing with them as
-a list of <code class="docutils literal notranslate"><span class="pre">Trimesh</span></code> objects, or as a <code class="docutils literal notranslate"><span class="pre">trimesh.Scene</span></code> object which
-includes things like overall bounding boxes, convex hulls, etc:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;multibody.STL&#39;</span><span class="p">)</span>
-
-<span class="c1"># will split meshes into clean watertight chunks</span>
-<span class="c1"># always returns a Scene object</span>
-<span class="n">scene</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">split_scene</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
-
-<span class="c1"># if you want it back as a single multibody mesh, the splitting</span>
-<span class="c1"># will heal problems with individual bodies before concatenating</span>
-<span class="n">multi</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</pre></div>
-</div>
+meshes that represent a volume. The design use case is around analysis
+of geometry exported from a CAD system into a mesh format, for
+applications related to robotics and manufacturing.</p>
+<p>This can be seen in the data model of Trimesh, where the emphasis is on
+faces and vertices and things derived from them, rather than other
+visual properties or metadata.</p>
+<p>It is hopefully useful in other applications, but most of the core
+effort is around the design use case. ```</p>
 </div>
 <div class="section" id="viewer">
 <h2>Viewer<a class="headerlink" href="#viewer" title="Permalink to this headline">¶</a></h2>
@@ -400,7 +384,7 @@ on Docker Hub:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.39',
+            VERSION:'2.30.40',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -414,10 +398,7 @@ on Docker Hub:</p>
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {
