@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.30.43 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.30.44 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.30.43
+                2.30.44
               </div>
             
           
@@ -693,7 +693,7 @@
 <tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.md5" title="trimesh.base.Trimesh.md5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">md5</span></code></a>()</td>
 <td>An MD5 of the core geometry information for the mesh, faces and vertices.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.merge_vertices" title="trimesh.base.Trimesh.merge_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.merge_vertices" title="trimesh.base.Trimesh.merge_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code></a>([distance])</td>
 <td>If a mesh has vertices that are closer than trimesh.constants.tol.merge redefine them to be the same vertex and replace face references</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.outline" title="trimesh.base.Trimesh.outline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">outline</span></code></a>([face_ids])</td>
@@ -2163,9 +2163,22 @@ recalculate the hash occasionally, rather than on every call.</p>
 
 <dl class="method">
 <dt id="trimesh.base.Trimesh.merge_vertices">
-<code class="descname">merge_vertices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.merge_vertices" title="Permalink to this definition">¶</a></dt>
+<code class="descname">merge_vertices</code><span class="sig-paren">(</span><em>distance=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.merge_vertices" title="Permalink to this definition">¶</a></dt>
 <dd><p>If a mesh has vertices that are closer than trimesh.constants.tol.merge
 redefine them to be the same vertex and replace face references</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>distance</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float or None</span></dt>
+<dd><p class="first last">if specified, override tol.merge</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -6025,9 +6038,25 @@ Out[2]: array([-1,  0,  1,  2,  0,  3,  4,  5,  6,  7,  8,  9])</p>
 
 <dl class="function">
 <dt id="trimesh.grouping.merge_vertices_hash">
-<code class="descclassname">trimesh.grouping.</code><code class="descname">merge_vertices_hash</code><span class="sig-paren">(</span><em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.merge_vertices_hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Removes duplicate vertices, based on integer hashes.
-This is roughly 20x faster than querying a KD tree in a loop</p>
+<code class="descclassname">trimesh.grouping.</code><code class="descname">merge_vertices_hash</code><span class="sig-paren">(</span><em>mesh</em>, <em>distance=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.merge_vertices_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes duplicate vertices, based on integer hashes of
+each row.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>mesh</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Trimesh object</span></dt>
+<dd><p class="first last">Mesh to merge vertices of</p>
+</dd>
+<dt><strong>distance</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, or None</span></dt>
+<dd><p class="first last">If not specified uses tol.merge</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -7380,7 +7409,7 @@ trimesh operations on them at any point.</p>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">md5</span></code>()</td>
 <td>An MD5 of the core geometry information for the mesh, faces and vertices.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>([distance])</td>
 <td>If a mesh has vertices that are closer than trimesh.constants.tol.merge redefine them to be the same vertex and replace face references</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">outline</span></code>([face_ids])</td>
@@ -7820,7 +7849,7 @@ Samples are either ‘step’ distance apart, or there are
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">md5</span></code>()</td>
 <td>An MD5 of the core geometry information for the mesh, faces and vertices.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>([distance])</td>
 <td>If a mesh has vertices that are closer than trimesh.constants.tol.merge redefine them to be the same vertex and replace face references</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">outline</span></code>([face_ids])</td>
@@ -8196,7 +8225,7 @@ Samples are either ‘step’ distance apart, or there are
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">md5</span></code>()</td>
 <td>An MD5 of the core geometry information for the mesh, faces and vertices.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>([distance])</td>
 <td>If a mesh has vertices that are closer than trimesh.constants.tol.merge redefine them to be the same vertex and replace face references</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">outline</span></code>([face_ids])</td>
@@ -8611,7 +8640,7 @@ Samples are either ‘step’ distance apart, or there are
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">md5</span></code>()</td>
 <td>An MD5 of the core geometry information for the mesh, faces and vertices.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>()</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>([distance])</td>
 <td>If a mesh has vertices that are closer than trimesh.constants.tol.merge redefine them to be the same vertex and replace face references</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">outline</span></code>([face_ids])</td>
@@ -9065,7 +9094,7 @@ extrude_direction vector</p>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">md5</span></code>()</td>
 <td>An MD5 of the core geometry information for the mesh, faces and vertices.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>([distance])</td>
 <td>If a mesh has vertices that are closer than trimesh.constants.tol.merge redefine them to be the same vertex and replace face references</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">outline</span></code>([face_ids])</td>
@@ -12979,7 +13008,7 @@ shorter than: (pitch / edge_factor)</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.43',
+            VERSION:'2.30.44',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

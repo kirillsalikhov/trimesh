@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.io package &mdash; trimesh 2.30.43 documentation</title>
+  <title>trimesh.io package &mdash; trimesh 2.30.44 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.30.43
+                2.30.44
               </div>
             
           
@@ -262,8 +262,32 @@ file_type: str, file extension (aka ‘stl’)</p>
 <span id="trimesh-io-export-module"></span><h2>trimesh.io.export module<a class="headerlink" href="#module-trimesh.io.export" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="trimesh.io.export.export_collada">
-<code class="descclassname">trimesh.io.export.</code><code class="descname">export_collada</code><span class="sig-paren">(</span><em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.io.export.export_collada" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.io.export.</code><code class="descname">export_collada</code><span class="sig-paren">(</span><em>mesh</em>, <em>digits=8</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.io.export.export_collada" title="Permalink to this definition">¶</a></dt>
 <dd><p>Export a mesh as a COLLADA file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>mesh</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Trimesh object</span></dt>
+<dd><p class="first last">Mesh to be exported</p>
+</dd>
+<dt><strong>digits</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">Number of ASCII digits to include for
+floating point variables</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>dae</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Mesh as a COLLADA file</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -274,7 +298,9 @@ file_type: str, file extension (aka ‘stl’)</p>
 <dl class="function">
 <dt id="trimesh.io.export.export_dict64">
 <code class="descclassname">trimesh.io.export.</code><code class="descname">export_dict64</code><span class="sig-paren">(</span><em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.io.export.export_dict64" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Export a mesh as a dictionary, with data encoded
+to base64.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="trimesh.io.export.export_json">
@@ -308,16 +334,18 @@ mesh: a single Trimesh object, or a list of Trimesh objects,</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>mesh:   Trimesh object</strong></dt>
+<dt><strong>mesh</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Trimesh object</span></dt>
 <dd></dd>
-<dt><strong>digits: int, number of digits to include on floats</strong></dt>
-<dd></dd>
+<dt><strong>digits</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">number of digits to include on floats</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>export: str, string of OFF format output</strong></dt>
-<dd></dd>
+<dt><strong>export</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">OFF format output</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -538,23 +566,23 @@ Tries to extract keys [‘faces’, ‘vertices’, ‘face_normals’, ‘verte
 
 <dl class="function">
 <dt id="trimesh.io.misc.load_off">
-<code class="descclassname">trimesh.io.misc.</code><code class="descname">load_off</code><span class="sig-paren">(</span><em>file_obj</em>, <em>file_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.io.misc.load_off" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.io.misc.</code><code class="descname">load_off</code><span class="sig-paren">(</span><em>file_obj</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.io.misc.load_off" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load an OFF file into the kwargs for a Trimesh constructor</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>file_obj: file object containing an OFF file</strong></dt>
-<dd></dd>
-<dt><strong>file_type: not used</strong></dt>
-<dd></dd>
+<dt><strong>file_obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">file object</span></dt>
+<dd><p class="first last">Contains an OFF file</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>loaded: dict with kwargs for Trimesh constructor (vertices, faces)</strong></dt>
-<dd></dd>
+<dt><strong>loaded</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">kwargs for Trimesh constructor</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -646,7 +674,7 @@ arguments that a Trimesh object constructor will expect.</p>
 
 <dl class="function">
 <dt id="trimesh.io.ply.export_ply">
-<code class="descclassname">trimesh.io.ply.</code><code class="descname">export_ply</code><span class="sig-paren">(</span><em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.io.ply.export_ply" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.io.ply.</code><code class="descname">export_ply</code><span class="sig-paren">(</span><em>mesh</em>, <em>encoding='binary'</em>, <em>vertex_normal=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.io.ply.export_ply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Export a mesh in the PLY format.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -654,6 +682,10 @@ arguments that a Trimesh object constructor will expect.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
 <dt><strong>mesh</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Trimesh object</span></dt>
+<dd></dd>
+<dt><strong>encoding</strong> <span class="classifier-delimiter">:</span> <span class="classifier">[‘ascii’|’binary_little_endian’]</span></dt>
+<dd></dd>
+<dt><strong>vertex_normal</strong> <span class="classifier-delimiter">:</span> <span class="classifier">include vertex normals</span></dt>
 <dd></dd>
 </dl>
 </td>
@@ -1135,7 +1167,7 @@ vertex_normals: (n,3) np.float64, vertex normals</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.43',
+            VERSION:'2.30.44',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
