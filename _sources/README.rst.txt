@@ -1,5 +1,4 @@
-trimesh
-=======
+--------------
 
 |Build Status| |Build status|
 

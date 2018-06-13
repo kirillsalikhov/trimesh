@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.30.46 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.30.49 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.30.46
+                2.30.49
               </div>
             
           
@@ -765,8 +765,8 @@
 <dt id="trimesh.base.Trimesh.apply_obb">
 <code class="descname">apply_obb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.apply_obb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply the oriented bounding box transform to the current mesh.</p>
-<p>This will result in a mesh with an AABB centered at the origin and the
-same dimensions as the OBB.</p>
+<p>This will result in a mesh with an AABB centered at the
+origin and the same dimensions as the OBB.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -12530,7 +12530,7 @@ measure.marching_cubes function to self.matrix.</p>
 
 <dl class="class">
 <dt id="trimesh.voxel.VoxelMesh">
-<em class="property">class </em><code class="descclassname">trimesh.voxel.</code><code class="descname">VoxelMesh</code><span class="sig-paren">(</span><em>mesh</em>, <em>pitch</em>, <em>max_iter=10</em>, <em>size_max=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelMesh" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">trimesh.voxel.</code><code class="descname">VoxelMesh</code><span class="sig-paren">(</span><em>mesh</em>, <em>pitch</em>, <em>max_iter=10</em>, <em>size_max=None</em>, <em>method='subdivide'</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#trimesh.voxel.Voxel" title="trimesh.voxel.Voxel"><code class="xref py py-class docutils literal notranslate"><span class="pre">trimesh.voxel.Voxel</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -12913,40 +12913,6 @@ turn it into a dense (m,o,p) matrix.</p>
 </table>
 </dd></dl>
 
-<dl class="function">
-<dt id="trimesh.voxel.voxelize_subdivide">
-<code class="descclassname">trimesh.voxel.</code><code class="descname">voxelize_subdivide</code><span class="sig-paren">(</span><em>mesh</em>, <em>pitch</em>, <em>max_iter=10</em>, <em>edge_factor=2.0</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.voxelize_subdivide" title="Permalink to this definition">¶</a></dt>
-<dd><p>Voxelize a surface by subdividing a mesh until every edge is
-shorter than: (pitch / edge_factor)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>mesh:        Trimesh object</strong></dt>
-<dd></dd>
-<dt><strong>pitch:       float, side length of a single voxel cube</strong></dt>
-<dd></dd>
-<dt><strong>max_iter:    int, cap maximum subdivisions</strong></dt>
-<dd></dd>
-<dt><strong>edge_factor: float,</strong></dt>
-<dd></dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>voxels_sparse:   (n,3) int, (m,n,p) indexes of filled cells</strong></dt>
-<dd></dd>
-<dt><strong>origin_position: (3,) float, position of the voxel</strong></dt>
-<dd><p class="first last">grid origin in space</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 </div>
 </div>
 <div class="section" id="module-trimesh">
@@ -13008,7 +12974,7 @@ shorter than: (pitch / edge_factor)</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.46',
+            VERSION:'2.30.49',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
