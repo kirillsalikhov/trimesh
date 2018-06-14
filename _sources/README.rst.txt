@@ -1,3 +1,5 @@
+|trimesh|
+
 --------------
 
 |Build Status| |Build status|
@@ -210,6 +212,8 @@ on Docker Hub:
 
 ``docker pull mikedh/trimesh``
 
+.. |trimesh| image:: https://github.com/mikedh/trimesh/blob/master/docs/images/logotype-a.svg
+   :target: http://trimsh.org
 .. |Build Status| image:: https://travis-ci.org/mikedh/trimesh.svg?branch=master
    :target: https://travis-ci.org/mikedh/trimesh
 .. |Build status| image:: https://ci.appveyor.com/api/projects/status/j8h3luwvst1tkghl?svg=true
