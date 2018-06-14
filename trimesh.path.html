@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path package &mdash; trimesh 2.30.51 documentation</title>
+  <title>trimesh.path package &mdash; trimesh 2.30.52 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.30.51
+                2.30.52
               </div>
             
           
@@ -3186,8 +3186,32 @@ to a specified resolution.</p>
 
 <dl class="function">
 <dt id="trimesh.path.polygons.transform_polygon">
-<code class="descclassname">trimesh.path.polygons.</code><code class="descname">transform_polygon</code><span class="sig-paren">(</span><em>polygon</em>, <em>transform</em>, <em>plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.polygons.transform_polygon" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">trimesh.path.polygons.</code><code class="descname">transform_polygon</code><span class="sig-paren">(</span><em>polygon</em>, <em>matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.polygons.transform_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform a polygon by a a 2D homogenous transform.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>polygon</strong> <span class="classifier-delimiter">:</span> <span class="classifier">shapely.geometry.Polygon</span></dt>
+<dd><p class="first last">2D polygon to be transformed.</p>
+</dd>
+<dt><strong>matrix</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3, 3) float</span></dt>
+<dd><p class="first last">2D homogenous transformation.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>result</strong> <span class="classifier-delimiter">:</span> <span class="classifier">shapely.geometry.Polygon</span></dt>
+<dd><p class="first last">Polygon transformed by matrix.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
 <div class="section" id="module-trimesh.path.raster">
@@ -3733,7 +3757,7 @@ generate a</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.51',
+            VERSION:'2.30.52',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

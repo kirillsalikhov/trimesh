@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.io package &mdash; trimesh 2.30.51 documentation</title>
+  <title>trimesh.io package &mdash; trimesh 2.30.52 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.30.51
+                2.30.52
               </div>
             
           
@@ -1000,15 +1000,18 @@ face_normals: (m,3) float, normal vector of each face</p>
 <dd><p>Convert a Trimesh object into a URDF package for physics simulation.
 This breaks the mesh into convex pieces and writes them to the same
 directory as the .urdf file.</p>
-<p>mesh:      Trimesh object
-directory: str, the directory name for the URDF package</p>
+<p>mesh      : Trimesh object
+directory : str</p>
+<blockquote>
+<div>The directory path for the URDF package</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>mesh: The decomposed mesh</strong></dt>
-<dd></dd>
+<dt><strong>mesh</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Trimesh object</span></dt>
+<dd><p class="first last">Multi-body mesh containing convex decomposition</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1048,24 +1051,24 @@ directory: str, the directory name for the URDF package</p>
 <code class="descclassname">trimesh.io.wavefront.</code><code class="descname">load_wavefront</code><span class="sig-paren">(</span><em>file_obj</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.io.wavefront.load_wavefront" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads an ascii Wavefront OBJ file_obj into kwargs
 for the Trimesh constructor.</p>
-<p>Vertices with the same position but different normals or uvs are split
-into multiple vertices.</p>
+<p>Vertices with the same position but different normals or uvs
+are split into multiple vertices.</p>
 <p>Colors are discarded.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>file_obj: file object containing a wavefront file</strong></dt>
-<dd></dd>
-<dt><strong>file_type: not used</strong></dt>
-<dd></dd>
+<dt><strong>file_obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">file object</span></dt>
+<dd><p class="first last">Containing a wavefront file</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>loaded: dict with kwargs for Trimesh constructor (vertices, faces)</strong></dt>
-<dd></dd>
+<dt><strong>loaded</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">kwargs for Trimesh constructor</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1085,16 +1088,19 @@ into multiple vertices.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>file_obj: open file object holding 3DXML file</strong></dt>
-<dd></dd>
+<dt><strong>file_obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">file object</span></dt>
+<dd><p class="first last">open, containing 3DXML</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>geometries: list of dict, kwargs for Trimesh constructor</strong></dt>
-<dd></dd>
-<dt><strong>graph:      list of dict, kwargs for Scene.graph.update</strong></dt>
-<dd></dd>
+<dt><strong>geometries</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list of dict</span></dt>
+<dd><p class="first last">kwargs for Trimesh constructor</p>
+</dd>
+<dt><strong>graph</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list of dict</span></dt>
+<dd><p class="first last">kwargs for Scene.graph.update</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1111,14 +1117,16 @@ into multiple vertices.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>file_obj: open file object</strong></dt>
-<dd></dd>
+<dt><strong>file_obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">file object</span></dt>
+<dd><p class="first last">Open, containing XAML file</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>result: dict, with keys:</strong></dt>
-<dd><p class="first last">vertices:       (n,3) np.float64, points in space
+<dt><strong>result</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">kwargs for a trimesh constructor, including:
+vertices:       (n,3) np.float64, points in space
 faces:          (m,3) np.int64, indices of vertices
 face_colors:    (m,4) np.uint8, RGBA colors
 vertex_normals: (n,3) np.float64, vertex normals</p>
@@ -1133,7 +1141,7 @@ vertex_normals: (n,3) np.float64, vertex normals</p>
 <dl class="function">
 <dt id="trimesh.io.xml_based.print_element">
 <code class="descclassname">trimesh.io.xml_based.</code><code class="descname">print_element</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.io.xml_based.print_element" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pretty- print an lxml.etree element</p>
+<dd><p>Pretty- print an lxml.etree element.</p>
 </dd></dl>
 
 </div>
@@ -1184,7 +1192,7 @@ vertex_normals: (n,3) np.float64, vertex normals</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.51',
+            VERSION:'2.30.52',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

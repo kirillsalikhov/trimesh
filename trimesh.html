@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.30.51 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.30.52 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.30.51
+                2.30.52
               </div>
             
           
@@ -756,7 +756,7 @@
 <tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.update_vertices" title="trimesh.base.Trimesh.update_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code></a>(mask[,&nbsp;inverse])</td>
 <td>Update vertices with a mask.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.voxelized" title="trimesh.base.Trimesh.voxelized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code></a>(pitch[,&nbsp;max_iter])</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.voxelized" title="trimesh.base.Trimesh.voxelized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code></a>(pitch,&nbsp;**kwargs)</td>
 <td>Return a Voxel object representing the current mesh discretized into voxels at the specified pitch</td>
 </tr>
 </tbody>
@@ -2971,7 +2971,7 @@ If the current mesh isn’t watertight this is garbage.</p>
 
 <dl class="method">
 <dt id="trimesh.base.Trimesh.voxelized">
-<code class="descname">voxelized</code><span class="sig-paren">(</span><em>pitch</em>, <em>max_iter=10</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.voxelized" title="Permalink to this definition">¶</a></dt>
+<code class="descname">voxelized</code><span class="sig-paren">(</span><em>pitch</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.voxelized" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a Voxel object representing the current mesh
 discretized into voxels at the specified pitch</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -6452,8 +6452,8 @@ of the plane.</div></blockquote>
 <span id="trimesh-nsphere-module"></span><h2>trimesh.nsphere module<a class="headerlink" href="#module-trimesh.nsphere" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="nsphere-py">
 <h3>nsphere.py<a class="headerlink" href="#nsphere-py" title="Permalink to this headline">¶</a></h3>
-<p>Functions for fitting and minimizing nspheres (circles, spheres,
-hyperspheres, etc.)</p>
+<p>Functions for fitting and minimizing nspheres:
+circles, spheres, hyperspheres, etc.</p>
 <dl class="function">
 <dt id="trimesh.nsphere.fit_nsphere">
 <code class="descclassname">trimesh.nsphere.</code><code class="descname">fit_nsphere</code><span class="sig-paren">(</span><em>points</em>, <em>prior=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.nsphere.fit_nsphere" title="Permalink to this definition">¶</a></dt>
@@ -7481,7 +7481,7 @@ trimesh operations on them at any point.</p>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
 <td>Update vertices with a mask.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch[,&nbsp;max_iter])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
 <td>Return a Voxel object representing the current mesh discretized into voxels at the specified pitch</td>
 </tr>
 </tbody>
@@ -7915,7 +7915,7 @@ Samples are either ‘step’ distance apart, or there are
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
 <td>Update vertices with a mask.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch[,&nbsp;max_iter])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
 <td>Return a Voxel object representing the current mesh discretized into voxels at the specified pitch</td>
 </tr>
 </tbody>
@@ -8291,7 +8291,7 @@ Samples are either ‘step’ distance apart, or there are
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
 <td>Update vertices with a mask.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch[,&nbsp;max_iter])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
 <td>Return a Voxel object representing the current mesh discretized into voxels at the specified pitch</td>
 </tr>
 </tbody>
@@ -8709,7 +8709,7 @@ Samples are either ‘step’ distance apart, or there are
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
 <td>Update vertices with a mask.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch[,&nbsp;max_iter])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
 <td>Return a Voxel object representing the current mesh discretized into voxels at the specified pitch</td>
 </tr>
 </tbody>
@@ -9160,7 +9160,7 @@ extrude_direction vector</p>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
 <td>Update vertices with a mask.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch[,&nbsp;max_iter])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
 <td>Return a Voxel object representing the current mesh discretized into voxels at the specified pitch</td>
 </tr>
 </tbody>
@@ -12974,7 +12974,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.51',
+            VERSION:'2.30.52',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
