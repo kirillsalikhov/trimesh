@@ -44,6 +44,14 @@ trimesh.io.misc module
     :undoc-members:
     :show-inheritance:
 
+trimesh.io.openctm module
+-------------------------
+
+.. automodule:: trimesh.io.openctm
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 trimesh.io.ply module
 ---------------------
 
