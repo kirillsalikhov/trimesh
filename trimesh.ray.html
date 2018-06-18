@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.ray package &mdash; trimesh 2.30.55 documentation</title>
+  <title>trimesh.ray package &mdash; trimesh 2.30.57 documentation</title>
   
 
   
@@ -56,7 +56,7 @@
             
             
               <div class="version">
-                2.30.55
+                2.30.57
               </div>
             
           
@@ -216,7 +216,7 @@
 API wrapped to match our native raytracer.</p>
 <dl class="class">
 <dt id="trimesh.ray.ray_pyembree.RayMeshIntersector">
-<em class="property">class </em><code class="descclassname">trimesh.ray.ray_pyembree.</code><code class="descname">RayMeshIntersector</code><span class="sig-paren">(</span><em>geometry</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.ray.ray_pyembree.RayMeshIntersector" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">trimesh.ray.ray_pyembree.</code><code class="descname">RayMeshIntersector</code><span class="sig-paren">(</span><em>geometry</em>, <em>scale_to_box=True</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.ray.ray_pyembree.RayMeshIntersector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
@@ -628,7 +628,8 @@ passes through the volume occupied by the tree</p>
 <dt id="trimesh.ray.ray_util.contains_points">
 <code class="descclassname">trimesh.ray.ray_util.</code><code class="descname">contains_points</code><span class="sig-paren">(</span><em>intersector</em>, <em>points</em>, <em>check_direction=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.ray.ray_util.contains_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if a mesh contains a set of points, using ray tests.</p>
-<p>If the point is on the surface of the mesh, behavior is undefined.</p>
+<p>If the point is on the surface of the mesh, behavior is
+undefined.</p>
 <p>mesh: Trimesh object
 points: (n,3) points in space</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -636,8 +637,9 @@ points: (n,3) points in space</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>contains: (n) boolean array, whether point is inside mesh or not</strong></dt>
-<dd></dd>
+<dt><strong>contains</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n) bool</span></dt>
+<dd><p class="first last">Whether point is inside mesh or not</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -684,7 +686,7 @@ points: (n,3) points in space</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.55',
+            VERSION:'2.30.57',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
