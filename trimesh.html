@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.30.61 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.30.62 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.30.61
+                2.30.62
               </div>
             
           
@@ -12800,6 +12800,43 @@ np.logical_or</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="trimesh.voxel.local_voxelize">
+<code class="descclassname">trimesh.voxel.</code><code class="descname">local_voxelize</code><span class="sig-paren">(</span><em>mesh</em>, <em>point</em>, <em>pitch</em>, <em>radius</em>, <em>fill=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.local_voxelize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Voxelize a mesh in the region of a cube around a point. When fill=True,
+uses proximity.contains to fill the resulting voxels so may be meaningless
+for non-watertight meshes. Useful to reduce memory cost for small values of
+pitch as opposed to global voxelization.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>mesh:   Trimesh object</strong></dt>
+<dd></dd>
+<dt><strong>point:  (3, ) float, point in space</strong></dt>
+<dd></dd>
+<dt><strong>pitch:  float, side length of a single voxel cube</strong></dt>
+<dd></dd>
+<dt><strong>radius: int, number of voxel cubes to return in each direction.</strong></dt>
+<dd></dd>
+<dt><strong>kwargs: parameters to pass to voxelize_subdivide</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>voxels:          (m, m, m) bool, matrix of local voxels where m=2*radius+1</strong></dt>
+<dd></dd>
+<dt><strong>origin_position: (3,) float, position of the voxel grid origin in space</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="trimesh.voxel.matrix_to_marching_cubes">
 <code class="descclassname">trimesh.voxel.</code><code class="descname">matrix_to_marching_cubes</code><span class="sig-paren">(</span><em>matrix</em>, <em>pitch</em>, <em>origin</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.matrix_to_marching_cubes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert an (n,m,p) matrix into a mesh, using marching_cubes.</p>
@@ -12881,12 +12918,6 @@ np.logical_or</p>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.voxel.sparse_surface_to_filled">
-<code class="descclassname">trimesh.voxel.</code><code class="descname">sparse_surface_to_filled</code><span class="sig-paren">(</span><em>sparse_surface</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.sparse_surface_to_filled" title="Permalink to this definition">¶</a></dt>
-<dd><p>Take a sparse surface and fill in along Z.</p>
 </dd></dl>
 
 <dl class="function">
@@ -12975,7 +13006,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.61',
+            VERSION:'2.30.62',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

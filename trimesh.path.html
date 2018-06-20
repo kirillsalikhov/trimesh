@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path package &mdash; trimesh 2.30.61 documentation</title>
+  <title>trimesh.path package &mdash; trimesh 2.30.62 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.30.61
+                2.30.62
               </div>
             
           
@@ -2125,16 +2125,19 @@ of the world holding the paths, for numerical comparisons.</p>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">rezero</span></code>()</td>
 <td>Translate so that every vertex is positive in the current mesh is positive.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.path.path.Path2D.simplify" title="trimesh.path.path.Path2D.simplify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simplify</span></code></a>(**kwargs)</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.path.path.Path2D.sample" title="trimesh.path.path.Path2D.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>(count,&nbsp;**kwargs)</td>
+<td>Use rejection sampling to generate random points inside a polygon.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.path.path.Path2D.simplify" title="trimesh.path.path.Path2D.simplify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simplify</span></code></a>(**kwargs)</td>
 <td>Return a version of the current path with colinear segments merged, and circles entities replacing segmented circular paths.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#trimesh.path.path.Path2D.simplify_spline" title="trimesh.path.path.Path2D.simplify_spline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simplify_spline</span></code></a>([path_indexes,&nbsp;smooth])</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.path.path.Path2D.simplify_spline" title="trimesh.path.path.Path2D.simplify_spline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simplify_spline</span></code></a>([path_indexes,&nbsp;smooth])</td>
 <td>Convert paths into b-splines.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.path.path.Path2D.split" title="trimesh.path.path.Path2D.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.path.path.Path2D.split" title="trimesh.path.path.Path2D.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>()</td>
 <td>If the current Path2D consists of n ‘root’ curves, split them into a list of n Path2D objects</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#trimesh.path.path.Path2D.to_3D" title="trimesh.path.path.Path2D.to_3D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_3D</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.path.path.Path2D.to_3D" title="trimesh.path.path.Path2D.to_3D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_3D</span></code></a>()</td>
 <td>Convert 2D path to 3D path on the XY plane.</td>
 </tr>
 </tbody>
@@ -2472,6 +2475,44 @@ Also known as ‘shell’ or ‘exterior.</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>root: (n,) int, list of indexes</strong></dt>
 <dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="trimesh.path.path.Path2D.sample">
+<code class="descname">sample</code><span class="sig-paren">(</span><em>count</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.path.Path2D.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use rejection sampling to generate random points inside a
+polygon.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>count</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">Number of points to return
+If there are multiple bodies, there will
+be up to count * bodies points returned</p>
+</dd>
+<dt><strong>factor</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">How many points to test per loop
+IE, count * factor</p>
+</dd>
+<dt><strong>max_iter</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int,</span></dt>
+<dd><p class="first last">Maximum number of intersection loops
+to run, total points sampled is
+count * factor * max_iter</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>hit</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 2) float</span></dt>
+<dd><p class="first last">Random points inside polygon</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -3160,6 +3201,46 @@ to a specified resolution.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="trimesh.path.polygons.sample">
+<code class="descclassname">trimesh.path.polygons.</code><code class="descname">sample</code><span class="sig-paren">(</span><em>polygon</em>, <em>count</em>, <em>factor=1.5</em>, <em>max_iter=10</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.polygons.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use rejection sampling to generate random points inside a
+polygon.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>polygon</strong> <span class="classifier-delimiter">:</span> <span class="classifier">shapely.geometry.Polygon</span></dt>
+<dd><p class="first last">Polygon that will contain points</p>
+</dd>
+<dt><strong>count</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">Number of points to return</p>
+</dd>
+<dt><strong>factor</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">How many points to test per loop
+IE, count * factor</p>
+</dd>
+<dt><strong>max_iter</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int,</span></dt>
+<dd><p class="first last">Maximum number of intersection loops
+to run, total points sampled is
+count * factor * max_iter</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>hit</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 2) float</span></dt>
+<dd><p class="first last">Random points inside polygon
+where n &lt;= count</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="trimesh.path.polygons.stack_boundaries">
 <code class="descclassname">trimesh.path.polygons.</code><code class="descname">stack_boundaries</code><span class="sig-paren">(</span><em>boundaries</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.polygons.stack_boundaries" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stack the boundaries of a polygon into a single
@@ -3757,7 +3838,7 @@ generate a</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.61',
+            VERSION:'2.30.62',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
