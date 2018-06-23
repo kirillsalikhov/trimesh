@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.scene package &mdash; trimesh 2.30.62 documentation</title>
+  <title>trimesh.scene package &mdash; trimesh 2.31.1 documentation</title>
   
 
   
@@ -57,7 +57,7 @@
             
             
               <div class="version">
-                2.30.62
+                2.31.1
               </div>
             
           
@@ -124,6 +124,7 @@
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh.primitives">trimesh.primitives module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh.proximity">trimesh.proximity module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh.remesh">trimesh.remesh module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh.rendering">trimesh.rendering module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh.repair">trimesh.repair module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh.sample">trimesh.sample module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh.transformations">trimesh.transformations module</a></li>
@@ -736,12 +737,15 @@ transforms scaled to the requested factor.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>angles:    (3,) float, initial euler angles in radians</strong></dt>
-<dd></dd>
-<dt><strong>distance:  float, distance away camera should be</strong></dt>
-<dd></dd>
-<dt><strong>center:    (3,) float, point camera should center on</strong></dt>
-<dd></dd>
+<dt><strong>angles</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd><p class="first last">Initial euler angles in radians</p>
+</dd>
+<dt><strong>distance:  float</strong></dt>
+<dd><p class="first last">Distance from centroid</p>
+</dd>
+<dt><strong>center:    (3,) float</strong></dt>
+<dd><p class="first last">Point camera should be center on</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1778,33 +1782,25 @@ translation: (3) array</p>
 <tr class="row-odd"><td><strong>init_gl</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><strong>node_flag</strong></td>
+<tr class="row-even"><td><strong>toggle_culling</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><strong>toggle_culling</strong></td>
+<tr class="row-odd"><td><strong>toggle_wireframe</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><strong>toggle_wireframe</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>update_flags</strong></td>
+<tr class="row-even"><td><strong>update_flags</strong></td>
 <td>&#160;</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="trimesh.scene.viewer.SceneViewer.add_geometry">
-<code class="descname">add_geometry</code><span class="sig-paren">(</span><em>name</em>, <em>geometry</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.viewer.SceneViewer.add_geometry" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_geometry</code><span class="sig-paren">(</span><em>name</em>, <em>geometry</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.viewer.SceneViewer.add_geometry" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="trimesh.scene.viewer.SceneViewer.init_gl">
 <code class="descname">init_gl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.viewer.SceneViewer.init_gl" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="trimesh.scene.viewer.SceneViewer.node_flag">
-<code class="descname">node_flag</code><span class="sig-paren">(</span><em>node</em>, <em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.viewer.SceneViewer.node_flag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2033,26 +2029,28 @@ there is no need to call <cite>switch_to</cite> in this handler.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="trimesh.scene.viewer.geometry_md5">
-<code class="descclassname">trimesh.scene.viewer.</code><code class="descname">geometry_md5</code><span class="sig-paren">(</span><em>geometry</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.viewer.geometry_md5" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="trimesh.scene.viewer.mesh_to_vertex_list">
-<code class="descclassname">trimesh.scene.viewer.</code><code class="descname">mesh_to_vertex_list</code><span class="sig-paren">(</span><em>mesh</em>, <em>group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.viewer.mesh_to_vertex_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert a Trimesh object to arguments for an
-indexed vertex list constructor.</p>
+<dt id="trimesh.scene.viewer.geometry_hash">
+<code class="descclassname">trimesh.scene.viewer.</code><code class="descname">geometry_hash</code><span class="sig-paren">(</span><em>geometry</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.viewer.geometry_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an MD5 for a geometry object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>geometry</strong> <span class="classifier-delimiter">:</span> <span class="classifier">object</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>MD5</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
-
-<dl class="function">
-<dt id="trimesh.scene.viewer.path_to_vertex_list">
-<code class="descclassname">trimesh.scene.viewer.</code><code class="descname">path_to_vertex_list</code><span class="sig-paren">(</span><em>path</em>, <em>group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.viewer.path_to_vertex_list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="trimesh.scene.viewer.points_to_vertex_list">
-<code class="descclassname">trimesh.scene.viewer.</code><code class="descname">points_to_vertex_list</code><span class="sig-paren">(</span><em>points</em>, <em>colors</em>, <em>group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.viewer.points_to_vertex_list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="function">
 <dt id="trimesh.scene.viewer.render_scene">
@@ -2080,6 +2078,13 @@ indexed vertex list constructor.</p>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.scene.viewer.view_to_transform">
+<code class="descclassname">trimesh.scene.viewer.</code><code class="descname">view_to_transform</code><span class="sig-paren">(</span><em>view</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.viewer.view_to_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a dictionary containing view parameters,
+calculate a transformation matrix.</p>
 </dd></dl>
 
 </div>
@@ -2204,7 +2209,7 @@ an IPython/Jupyter notebook.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.62',
+            VERSION:'2.31.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

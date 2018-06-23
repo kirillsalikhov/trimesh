@@ -208,6 +208,14 @@ trimesh.remesh module
     :undoc-members:
     :show-inheritance:
 
+trimesh.rendering module
+------------------------
+
+.. automodule:: trimesh.rendering
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 trimesh.repair module
 ---------------------
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.30.62 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.31.1 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.30.62
+                2.31.1
               </div>
             
           
@@ -176,6 +176,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-trimesh.remesh">trimesh.remesh module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#remesh-py">remesh.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-trimesh.rendering">trimesh.rendering module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rendering-py">rendering.py</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-trimesh.repair">trimesh.repair module</a><ul>
@@ -3270,28 +3274,14 @@ result of an ID function changes.</p>
 <tr class="row-even"><td><a class="reference internal" href="#trimesh.caching.Cache.delete" title="trimesh.caching.Cache.delete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">delete</span></code></a>(key)</td>
 <td>Remove a key from the cache.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#trimesh.caching.Cache.get" title="trimesh.caching.Cache.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(key)</td>
-<td>Get a key from the cache.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.caching.Cache.id_set" title="trimesh.caching.Cache.id_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">id_set</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.caching.Cache.id_set" title="trimesh.caching.Cache.id_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">id_set</span></code></a>()</td>
 <td>Set the current ID to the value of the ID function.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#trimesh.caching.Cache.update" title="trimesh.caching.Cache.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>(items)</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.caching.Cache.update" title="trimesh.caching.Cache.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>(items)</td>
 <td>Update the cache with a set of key, value pairs without checking id_function.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.caching.Cache.verify" title="trimesh.caching.Cache.verify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">verify</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.caching.Cache.verify" title="trimesh.caching.Cache.verify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">verify</span></code></a>()</td>
 <td>Verify that the cached values are still for the same value of id_function and delete all stored items if the value of id_function has changed.</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="docutils">
-<colgroup>
-<col width="41%" />
-<col width="59%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>set</strong></td>
-<td>&#160;</td>
 </tr>
 </tbody>
 </table>
@@ -3308,41 +3298,10 @@ result of an ID function changes.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="trimesh.caching.Cache.get">
-<code class="descname">get</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.caching.Cache.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a key from the cache.</p>
-<p>If the key is unavailable or the cache has been invalidated
-returns None.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>key: hashable value</strong></dt>
-<dd></dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>value: value from cache</strong></dt>
-<dd></dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="trimesh.caching.Cache.id_set">
 <code class="descname">id_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.caching.Cache.id_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the current ID to the value of the ID function.</p>
 </dd></dl>
-
-<dl class="method">
-<dt id="trimesh.caching.Cache.set">
-<code class="descname">set</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.caching.Cache.set" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="method">
 <dt id="trimesh.caching.Cache.update">
@@ -3517,14 +3476,14 @@ for changes.</p>
 <dt id="trimesh.caching.TrackedArray">
 <em class="property">class </em><code class="descclassname">trimesh.caching.</code><code class="descname">TrackedArray</code><a class="headerlink" href="#trimesh.caching.TrackedArray" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
-<p>Track changes in a numpy ndarray.</p>
+<p>Subclass of numpy.ndarray that provides hash methods
+to track changes.</p>
 <p>General method is to agressivly set ‘modified’ flags
-on operations which might alter the array.</p>
+on operations which might (but don’t necessarily) alter
+the array, ideally we sometimes compute hashes when we
+don’t need to, but we don’t return wrong hashes ever.</p>
 <p>We store boolean modified flag for each hash type to
 make checks fast even for queries of different hashes.</p>
-<p>This will force a recompute of a checksum value in some
-cases where nothing has changed but we don’t ever want to
-return a checksum that doesn’t reflect the data.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -3581,20 +3540,20 @@ return a checksum that doesn’t reflect the data.</p>
 </tbody>
 </table>
 <p class="rubric">Methods</p>
-<table border="1" class="docutils">
+<table border="1" class="longtable docutils">
 <colgroup>
-<col width="85%" />
-<col width="15%" />
+<col width="10%" />
+<col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><strong>md5:       returns str, hexadecimal MD5 of array</strong></td>
-<td>&#160;</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.caching.TrackedArray.md5" title="trimesh.caching.TrackedArray.md5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">md5</span></code></a>()</td>
+<td>Return an MD5 hash of the current array.</td>
 </tr>
-<tr class="row-even"><td><strong>crc:       returns int, zlib crc32/adler32 checksum</strong></td>
-<td>&#160;</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.caching.TrackedArray.crc" title="trimesh.caching.TrackedArray.crc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">crc</span></code></a>()</td>
+<td>A zlib.crc32 or zlib.adler32 checksum of the current data.</td>
 </tr>
-<tr class="row-odd"><td><strong>fast_hash: returns int, CRC or xxhash.xx64</strong></td>
-<td>&#160;</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.caching.TrackedArray.fast_hash" title="trimesh.caching.TrackedArray.fast_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fast_hash</span></code></a>()</td>
+<td>An xxhash.b64 hash of the array.</td>
 </tr>
 </tbody>
 </table>
@@ -3653,6 +3612,35 @@ of the current data.</p>
 </table>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.caching.cache_decorator">
+<code class="descclassname">trimesh.caching.</code><code class="descname">cache_decorator</code><span class="sig-paren">(</span><em>function</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.caching.cache_decorator" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator for class methods, replaces &#64;property
+but will store and retrieve function return values
+in object cache.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>function</strong> <span class="classifier-delimiter">:</span> <span class="classifier">class method</span></dt>
+<dd><dl class="first last docutils">
+<dt>This is used as a decorator:</dt>
+<dd><p class="first">&#64;cache_decorator
+def foo(self, things):</p>
+<blockquote class="last">
+<div><p>return ‘happy days’</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -9695,6 +9683,199 @@ make resulting mesh watertight</p>
 
 </div>
 </div>
+<div class="section" id="module-trimesh.rendering">
+<span id="trimesh-rendering-module"></span><h2>trimesh.rendering module<a class="headerlink" href="#module-trimesh.rendering" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rendering-py">
+<h3>rendering.py<a class="headerlink" href="#rendering-py" title="Permalink to this headline">¶</a></h3>
+<p>Functions to convert trimesh objects to pyglet/opengl objects.</p>
+<dl class="function">
+<dt id="trimesh.rendering.colors_to_gl">
+<code class="descclassname">trimesh.rendering.</code><code class="descname">colors_to_gl</code><span class="sig-paren">(</span><em>colors</em>, <em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.colors_to_gl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a list of colors (or None) return a GL- acceptable list of colors</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>colors: (count, (3 or 4)) colors</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>colors_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">color type</p>
+</dd>
+<dt><strong>colors_gl:   (count,) list</strong></dt>
+<dd><p class="first last">Colors to pass to pyglet</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.rendering.convert_to_vertexlist">
+<code class="descclassname">trimesh.rendering.</code><code class="descname">convert_to_vertexlist</code><span class="sig-paren">(</span><em>geometry</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.convert_to_vertexlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to convert various geometry objects to the constructor
+args for a pyglet indexed vertex list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Trimesh, Path2D, Path3D, (n,2) float, (n,3) float</span></dt>
+<dd><p class="first last">Object to render</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>args</strong> <span class="classifier-delimiter">:</span> <span class="classifier">tuple</span></dt>
+<dd><p class="first last">Args to be passed to pyglet indexed vertex list
+constructor.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.rendering.matrix_to_gl">
+<code class="descclassname">trimesh.rendering.</code><code class="descname">matrix_to_gl</code><span class="sig-paren">(</span><em>matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.matrix_to_gl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a numpy row- major homogenous transformation matrix
+to a flat column- major GLfloat transformation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>matrix</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4,4) float</span></dt>
+<dd><p class="first last">Row- major homogenous transform</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>glmatrix</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(16,) pyglet.gl.GLfloat</span></dt>
+<dd><p class="first last">Transform in pyglet format</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.rendering.mesh_to_vertexlist">
+<code class="descclassname">trimesh.rendering.</code><code class="descname">mesh_to_vertexlist</code><span class="sig-paren">(</span><em>mesh</em>, <em>group=None</em>, <em>smooth_threshold=60000</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.mesh_to_vertexlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a Trimesh object to arguments for an
+indexed vertex list constructor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>mesh</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh</span></dt>
+<dd><p class="first last">Mesh to be rendered</p>
+</dd>
+<dt><strong>group</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Rendering group for the vertex list</p>
+</dd>
+<dt><strong>smooth_threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">Maximum number of faces to smooth shade</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>args</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(7,) tuple</span></dt>
+<dd><p class="first last">Args for vertex list constructor</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.rendering.path_to_vertexlist">
+<code class="descclassname">trimesh.rendering.</code><code class="descname">path_to_vertexlist</code><span class="sig-paren">(</span><em>path</em>, <em>group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.path_to_vertexlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a Path3D object to arguments for an
+indexed vertex list constructor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.path.Path3D object</span></dt>
+<dd><p class="first last">Mesh to be rendered</p>
+</dd>
+<dt><strong>group</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Rendering group for the vertex list</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>args</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(7,) tuple</span></dt>
+<dd><p class="first last">Args for vertex list constructor</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.rendering.points_to_vertexlist">
+<code class="descclassname">trimesh.rendering.</code><code class="descname">points_to_vertexlist</code><span class="sig-paren">(</span><em>points</em>, <em>colors=None</em>, <em>group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.points_to_vertexlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a numpy array of 3D points to args for
+a vertex list constructor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>points</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3) float</span></dt>
+<dd><p class="first last">Points to be rendered</p>
+</dd>
+<dt><strong>colors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3) or (n, 4) float</span></dt>
+<dd><p class="first last">Colors for each point</p>
+</dd>
+<dt><strong>group</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Rendering group for the vertex list</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>args</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(7,) tuple</span></dt>
+<dd><p class="first last">Args for vertex list constructor</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.rendering.vector_to_gl">
+<code class="descclassname">trimesh.rendering.</code><code class="descname">vector_to_gl</code><span class="sig-paren">(</span><em>array</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.vector_to_gl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert an array and an optional set of args into a
+flat vector of pyglet.gl.GLfloat</p>
+</dd></dl>
+
+</div>
+</div>
 <div class="section" id="module-trimesh.repair">
 <span id="trimesh-repair-module"></span><h2>trimesh.repair module<a class="headerlink" href="#module-trimesh.repair" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="repair-py">
@@ -10693,16 +10874,6 @@ collision detection</p>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.util.cache_decorator">
-<code class="descclassname">trimesh.util.</code><code class="descname">cache_decorator</code><span class="sig-paren">(</span><em>function</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.cache_decorator" title="Permalink to this definition">¶</a></dt>
-<dd><p>A decorator for methods of classes.</p>
-<p>If the object contains <cite>self.cache</cite>, this function
-will check the values in self.cache for this wrapped function
-by name, and if it is already in the cache it will return that
-value rather than evaluating the function again.</p>
 </dd></dl>
 
 <dl class="function">
@@ -12180,9 +12351,9 @@ indexes.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>face_colors:   (n,3|4) uint8, colors</strong></dt>
+<dt><strong>face_colors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3|4) uint8, colors</span></dt>
 <dd></dd>
-<dt><strong>vertex_colors: (n,3|4) uint8, colors</strong></dt>
+<dt><strong>vertex_colors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3|4) uint8, colors</span></dt>
 <dd></dd>
 <dt><strong>mesh:          Trimesh object</strong></dt>
 <dd></dd>
@@ -13006,7 +13177,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.62',
+            VERSION:'2.31.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

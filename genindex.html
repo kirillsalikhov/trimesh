@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; trimesh 2.30.62 documentation</title>
+  <title>Index &mdash; trimesh 2.31.1 documentation</title>
   
 
   
@@ -57,7 +57,7 @@
             
             
               <div class="version">
-                2.30.62
+                2.31.1
               </div>
             
           
@@ -367,7 +367,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="trimesh.html#trimesh.caching.Cache">Cache (class in trimesh.caching)</a>
 </li>
-      <li><a href="trimesh.html#trimesh.util.cache_decorator">cache_decorator() (in module trimesh.util)</a>
+      <li><a href="trimesh.html#trimesh.caching.cache_decorator">cache_decorator() (in module trimesh.caching)</a>
 </li>
       <li><a href="trimesh.html#trimesh.primitives.Capsule">Capsule (class in trimesh.primitives)</a>
 </li>
@@ -416,6 +416,8 @@
       <li><a href="trimesh.html#trimesh.collision.CollisionManager">CollisionManager (class in trimesh.collision)</a>
 </li>
       <li><a href="trimesh.html#trimesh.points.PointCloud.colors">colors (trimesh.points.PointCloud attribute)</a>
+</li>
+      <li><a href="trimesh.html#trimesh.rendering.colors_to_gl">colors_to_gl() (in module trimesh.rendering)</a>
 </li>
       <li><a href="trimesh.html#trimesh.visual.colors_to_materials">colors_to_materials() (in module trimesh.visual)</a>
 </li>
@@ -468,6 +470,8 @@
 </li>
       </ul></li>
       <li><a href="trimesh.html#trimesh.util.convert_like">convert_like() (in module trimesh.util)</a>
+</li>
+      <li><a href="trimesh.html#trimesh.rendering.convert_to_vertexlist">convert_to_vertexlist() (in module trimesh.rendering)</a>
 </li>
       <li><a href="trimesh.html#trimesh.base.Trimesh.convert_units">convert_units() (trimesh.base.Trimesh method)</a>
 
@@ -861,16 +865,12 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="trimesh.html#trimesh.util.generate_basis">generate_basis() (in module trimesh.util)</a>
 </li>
+      <li><a href="trimesh.scene.html#trimesh.scene.viewer.geometry_hash">geometry_hash() (in module trimesh.scene.viewer)</a>
+</li>
       <li><a href="trimesh.scene.html#trimesh.scene.scene.Scene.geometry_identifiers">geometry_identifiers (trimesh.scene.scene.Scene attribute)</a>
 </li>
-      <li><a href="trimesh.scene.html#trimesh.scene.viewer.geometry_md5">geometry_md5() (in module trimesh.scene.viewer)</a>
+      <li><a href="trimesh.scene.html#trimesh.scene.transforms.TransformForest.get">get() (trimesh.scene.transforms.TransformForest method)</a>
 </li>
-      <li><a href="trimesh.html#trimesh.caching.Cache.get">get() (trimesh.caching.Cache method)</a>
-
-      <ul>
-        <li><a href="trimesh.scene.html#trimesh.scene.transforms.TransformForest.get">(trimesh.scene.transforms.TransformForest method)</a>
-</li>
-      </ul></li>
       <li><a href="trimesh.scene.html#trimesh.scene.transforms.EnforcedForest.get_edge_data_direction">get_edge_data_direction() (trimesh.scene.transforms.EnforcedForest method)</a>
 </li>
       <li><a href="trimesh.path.io.html#trimesh.path.io.dxf.get_key">get_key() (in module trimesh.path.io.dxf)</a>
@@ -1175,6 +1175,8 @@
 </li>
       <li><a href="trimesh.html#trimesh.voxel.VoxelMesh.matrix_surface">matrix_surface (trimesh.voxel.VoxelMesh attribute)</a>
 </li>
+      <li><a href="trimesh.html#trimesh.rendering.matrix_to_gl">matrix_to_gl() (in module trimesh.rendering)</a>
+</li>
       <li><a href="trimesh.html#trimesh.voxel.matrix_to_marching_cubes">matrix_to_marching_cubes() (in module trimesh.voxel)</a>
 </li>
       <li><a href="trimesh.html#trimesh.voxel.matrix_to_points">matrix_to_points() (in module trimesh.voxel)</a>
@@ -1209,10 +1211,10 @@
         <li><a href="trimesh.path.html#trimesh.path.path.Path2D.medial_axis">(trimesh.path.path.Path2D method)</a>
 </li>
       </ul></li>
-      <li><a href="trimesh.path.html#trimesh.path.simplify.merge_colinear">merge_colinear() (in module trimesh.path.simplify)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="trimesh.path.html#trimesh.path.simplify.merge_colinear">merge_colinear() (in module trimesh.path.simplify)</a>
+</li>
       <li><a href="trimesh.html#trimesh.grouping.merge_intervals">merge_intervals() (in module trimesh.grouping)</a>
 </li>
       <li><a href="trimesh.html#trimesh.grouping.merge_runs">merge_runs() (in module trimesh.grouping)</a>
@@ -1233,7 +1235,7 @@
 </li>
       <li><a href="trimesh.html#trimesh.collision.mesh_to_BVH">mesh_to_BVH() (in module trimesh.collision)</a>
 </li>
-      <li><a href="trimesh.scene.html#trimesh.scene.viewer.mesh_to_vertex_list">mesh_to_vertex_list() (in module trimesh.scene.viewer)</a>
+      <li><a href="trimesh.html#trimesh.rendering.mesh_to_vertexlist">mesh_to_vertexlist() (in module trimesh.rendering)</a>
 </li>
       <li><a href="trimesh.html#trimesh.constants.MeshError">MeshError</a>
 </li>
@@ -1276,8 +1278,6 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="trimesh.html#trimesh.proximity.nearby_faces">nearby_faces() (in module trimesh.proximity)</a>
-</li>
-      <li><a href="trimesh.scene.html#trimesh.scene.viewer.SceneViewer.node_flag">node_flag() (trimesh.scene.viewer.SceneViewer method)</a>
 </li>
       <li><a href="trimesh.path.html#trimesh.path.entities.Curve.nodes">nodes (trimesh.path.entities.Curve attribute)</a>
 
@@ -1361,7 +1361,7 @@
 </li>
       <li><a href="trimesh.scene.html#trimesh.scene.transforms.path_to_edges">path_to_edges() (in module trimesh.scene.transforms)</a>
 </li>
-      <li><a href="trimesh.scene.html#trimesh.scene.viewer.path_to_vertex_list">path_to_vertex_list() (in module trimesh.scene.viewer)</a>
+      <li><a href="trimesh.html#trimesh.rendering.path_to_vertexlist">path_to_vertexlist() (in module trimesh.rendering)</a>
 </li>
       <li><a href="trimesh.path.html#trimesh.path.path.Path2D.path_valid">path_valid (trimesh.path.path.Path2D attribute)</a>
 </li>
@@ -1423,7 +1423,7 @@
 </li>
       <li><a href="trimesh.path.html#trimesh.path.simplify.points_to_spline_entity">points_to_spline_entity() (in module trimesh.path.simplify)</a>
 </li>
-      <li><a href="trimesh.scene.html#trimesh.scene.viewer.points_to_vertex_list">points_to_vertex_list() (in module trimesh.scene.viewer)</a>
+      <li><a href="trimesh.html#trimesh.rendering.points_to_vertexlist">points_to_vertexlist() (in module trimesh.rendering)</a>
 </li>
       <li><a href="trimesh.path.html#trimesh.path.polygons.polygon_hash">polygon_hash() (in module trimesh.path.polygons)</a>
 </li>
@@ -1619,8 +1619,6 @@
 </li>
       <li><a href="trimesh.html#trimesh.base.Trimesh.section">section() (trimesh.base.Trimesh method)</a>
 </li>
-      <li><a href="trimesh.html#trimesh.caching.Cache.set">set() (trimesh.caching.Cache method)</a>
-</li>
       <li><a href="trimesh.scene.html#trimesh.scene.scene.Scene.set_camera">set_camera() (trimesh.scene.scene.Scene method)</a>
 </li>
       <li><a href="trimesh.html#trimesh.collision.CollisionManager.set_transform">set_transform() (trimesh.collision.CollisionManager method)</a>
@@ -1647,10 +1645,10 @@
         <li><a href="trimesh.html#trimesh.voxel.VoxelMesh.show">(trimesh.voxel.VoxelMesh method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="trimesh.html#trimesh.util.sigfig_int">sigfig_int() (in module trimesh.util)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="trimesh.html#trimesh.util.sigfig_round">sigfig_round() (in module trimesh.util)</a>
 </li>
       <li><a href="trimesh.html#trimesh.proximity.signed_distance">signed_distance() (in module trimesh.proximity)</a>
@@ -1875,10 +1873,10 @@
 </li>
       <li><a href="trimesh.interfaces.html#module-trimesh.interfaces.scad">trimesh.interfaces.scad (module)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="trimesh.interfaces.html#module-trimesh.interfaces.vhacd">trimesh.interfaces.vhacd (module)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="trimesh.html#module-trimesh.intersections">trimesh.intersections (module)</a>
 </li>
       <li><a href="trimesh.io.html#module-trimesh.io">trimesh.io (module)</a>
@@ -1966,6 +1964,8 @@
       <li><a href="trimesh.ray.html#module-trimesh.ray.ray_util">trimesh.ray.ray_util (module)</a>
 </li>
       <li><a href="trimesh.html#module-trimesh.remesh">trimesh.remesh (module)</a>
+</li>
+      <li><a href="trimesh.html#module-trimesh.rendering">trimesh.rendering (module)</a>
 </li>
       <li><a href="trimesh.html#module-trimesh.repair">trimesh.repair (module)</a>
 </li>
@@ -2081,6 +2081,8 @@
 </li>
       <li><a href="trimesh.html#trimesh.util.vector_hemisphere">vector_hemisphere() (in module trimesh.util)</a>
 </li>
+      <li><a href="trimesh.html#trimesh.rendering.vector_to_gl">vector_to_gl() (in module trimesh.rendering)</a>
+</li>
       <li><a href="trimesh.html#trimesh.util.vector_to_spherical">vector_to_spherical() (in module trimesh.util)</a>
 </li>
       <li><a href="trimesh.html#trimesh.caching.Cache.verify">verify() (trimesh.caching.Cache method)</a>
@@ -2119,6 +2121,8 @@
         <li><a href="trimesh.html#trimesh.points.PointCloud.vertices">(trimesh.points.PointCloud attribute)</a>
 </li>
       </ul></li>
+      <li><a href="trimesh.scene.html#trimesh.scene.viewer.view_to_transform">view_to_transform() (in module trimesh.scene.viewer)</a>
+</li>
       <li><a href="trimesh.html#trimesh.base.Trimesh.volume">volume (trimesh.base.Trimesh attribute)</a>
 
       <ul>
@@ -2204,7 +2208,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.62',
+            VERSION:'2.31.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

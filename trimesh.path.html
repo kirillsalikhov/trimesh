@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path package &mdash; trimesh 2.30.62 documentation</title>
+  <title>trimesh.path package &mdash; trimesh 2.31.1 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.30.62
+                2.31.1
               </div>
             
           
@@ -125,6 +125,7 @@
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh.primitives">trimesh.primitives module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh.proximity">trimesh.proximity module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh.remesh">trimesh.remesh module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh.rendering">trimesh.rendering module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh.repair">trimesh.repair module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh.sample">trimesh.sample module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh.transformations">trimesh.transformations module</a></li>
@@ -2806,23 +2807,29 @@ transform the 2D representation back into 3 dimensions</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>to_2D: (4,4) float, transformation matrix to apply.</strong></dt>
-<dd><p class="first last">If not passed a plane will be fitted to vertices.</p>
+<dt><strong>to_2D: (4,4) float</strong></dt>
+<dd><p class="first last">Homogenous transformation matrix to apply,
+If not passed a plane will be fitted to vertices.</p>
 </dd>
-<dt><strong>normal: (3,) float, normal of plane which is only used if to_2D</strong></dt>
-<dd><p class="first last">is not specified</p>
+<dt><strong>normal: (3,) float</strong></dt>
+<dd><p class="first last">Normal of plane, which is only used if to_2D
+is not specified.</p>
 </dd>
-<dt><strong>check:  bool, raise a ValueError if the points aren’t coplanar after</strong></dt>
-<dd><p class="first last">being transformed</p>
+<dt><strong>check:  bool</strong></dt>
+<dd><p class="first last">Raise a ValueError if the points aren’t coplanar
+after being transformed.</p>
 </dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>planar: Path2D object, current path transformed onto a plane</strong></dt>
-<dd></dd>
-<dt><strong>to_3D:  (4,4), transformation matrix to move planar back into 3D space</strong></dt>
-<dd></dd>
+<dt><strong>planar</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.path.Path2D</span></dt>
+<dd><p class="first last">Current path transformed onto plane</p>
+</dd>
+<dt><strong>to_3D</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4,4) float</span></dt>
+<dd><p class="first last">Homeogenous transformation to move planar
+back into 3D space</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -3838,7 +3845,7 @@ generate a</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.30.62',
+            VERSION:'2.31.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
