@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.31.6 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.31.7 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.6
+                2.31.7
               </div>
             
           
@@ -6862,20 +6862,25 @@ return_error: boolean, if True returns (n) list of euclidean distances</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>points: (n, d) set of points</strong></dt>
-<dd></dd>
-<dt><strong>k: int, number of centroids to compute</strong></dt>
-<dd></dd>
-<dt><strong>**kwargs: passed directly to scipy.cluster.vq.kmeans</strong></dt>
-<dd></dd>
+<dt><strong>points:  (n, d) float</strong></dt>
+<dd><p class="first last">Points in a space</p>
+</dd>
+<dt><strong>k</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">Number of centroids to compute</p>
+</dd>
+<dt><strong>**kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Passed directly to scipy.cluster.vq.kmeans</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>centroids: (k, d) set of points</strong></dt>
-<dd></dd>
-<dt><strong>labels: (n) set of indexes for which points belong to which centroid</strong></dt>
-<dd></dd>
+<dt><strong>centroids</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(k, d) float</span></dt>
+<dd><p class="first last">Points in some space</p>
+</dd>
+<dt><strong>labels: (n) int</strong></dt>
+<dd><p class="first last">Indexes for which points belong to which centroid</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -6909,19 +6914,23 @@ return_error: boolean, if True returns (n) list of euclidean distances</p>
 
 <dl class="function">
 <dt id="trimesh.points.plane_fit">
-<code class="descclassname">trimesh.points.</code><code class="descname">plane_fit</code><span class="sig-paren">(</span><em>points</em>, <em>tolerance=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.points.plane_fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a set of points, find an origin and normal using least squares</p>
-<p>points: (n,3)
-tolerance: how non-planar the result can be without raising an error</p>
+<code class="descclassname">trimesh.points.</code><code class="descname">plane_fit</code><span class="sig-paren">(</span><em>points</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.points.plane_fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a set of points, find an origin and normal using SVD.</p>
+<dl class="docutils">
+<dt>points <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float</span></dt>
+<dd>Points in 3D space</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>C: (3) point on the plane</strong></dt>
-<dd></dd>
-<dt><strong>N: (3) normal vector</strong></dt>
-<dd></dd>
+<dt><strong>C</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd><p class="first last">Point on the plane</p>
+</dd>
+<dt><strong>N</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd><p class="first last">Normal vector of plane</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -6932,7 +6941,7 @@ tolerance: how non-planar the result can be without raising an error</p>
 <dl class="function">
 <dt id="trimesh.points.plot_points">
 <code class="descclassname">trimesh.points.</code><code class="descname">plot_points</code><span class="sig-paren">(</span><em>points</em>, <em>show=True</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.points.plot_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot an (n,3) list of points using matplotlib</p>
+<dd><p>Plot an (n,3) list of points using matplotlib.</p>
 </dd></dl>
 
 <dl class="function">
@@ -10674,15 +10683,20 @@ or pint</p>
 <dt id="trimesh.units.unit_conversion">
 <code class="descclassname">trimesh.units.</code><code class="descname">unit_conversion</code><span class="sig-paren">(</span><em>current</em>, <em>desired</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.units.unit_conversion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the conversion from one set of units to another.</p>
-<p>current: str, unit system values are in now (eg ‘millimeters’)
-desired: str, unit system we’d like values in (eg ‘inches’)</p>
+<dl class="docutils">
+<dt>current <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>Unit system values are in now (eg ‘millimeters’)</dd>
+<dt>desired <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>Unit system we’d like values in (eg ‘inches’)</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>conversion: float, number to multiply by to put values into desired units</strong></dt>
-<dd></dd>
+<dt><strong>conversion</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Number to multiply by to put values into desired units</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -10708,24 +10722,6 @@ it will guess based on the object scale.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>units: str, guess of what the units might be</strong></dt>
-<dd></dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.units.validate">
-<code class="descclassname">trimesh.units.</code><code class="descname">validate</code><span class="sig-paren">(</span><em>units</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.units.validate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check whether a string represents the name of a valid unit</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>valid: bool, is units string a valid unit or not</strong></dt>
 <dd></dd>
 </dl>
 </td>
@@ -13177,7 +13173,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.6',
+            VERSION:'2.31.7',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
