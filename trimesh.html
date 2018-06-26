@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.31.7 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.31.8 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.7
+                2.31.8
               </div>
             
           
@@ -544,6 +544,9 @@
 </dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.facets_on_hull" title="trimesh.base.Trimesh.facets_on_hull"><code class="xref py py-obj docutils literal notranslate"><span class="pre">facets_on_hull</span></code></a></dt>
 <dd><p class="first last">Find which facets of the mesh are on the convex hull.</p>
+</dd>
+<dt><a class="reference internal" href="#trimesh.base.Trimesh.facets_origin" title="trimesh.base.Trimesh.facets_origin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">facets_origin</span></code></a></dt>
+<dd><p class="first last">Return a point on the facet plane.</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.identifier" title="trimesh.base.Trimesh.identifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier</span></code></a></dt>
 <dd><p class="first last">Return a float vector which is unique to the mesh and is robust to rotation and translation.</p>
@@ -1852,8 +1855,9 @@ array([[[    1,  6946],</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>normals: (n,3) float, normal vector of each facet</strong></dt>
-<dd></dd>
+<dt><strong>normals: (len(self.facets), 3) float</strong></dt>
+<dd><p class="first last">A unit normal vector for each facet</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1872,6 +1876,25 @@ array([[[    1,  6946],</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>on_hull: (len(mesh.facets),) bool, is facet on convex hull</strong></dt>
 <dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="trimesh.base.Trimesh.facets_origin">
+<code class="descname">facets_origin</code><a class="headerlink" href="#trimesh.base.Trimesh.facets_origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a point on the facet plane.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>origins</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.facets), 3) float</span></dt>
+<dd><p class="first last">A point on each facet plane</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1978,8 +2001,8 @@ and is robust to rotation and translation.</p>
 <dl class="method">
 <dt id="trimesh.base.Trimesh.invert">
 <code class="descname">invert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.invert" title="Permalink to this definition">¶</a></dt>
-<dd><p>Invert the mesh in- place by reversing the winding of every face
-and negating normals without dumping the cache.</p>
+<dd><p>Invert the mesh in- place by reversing the winding of every
+face and negating normals without dumping the cache.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -7251,6 +7274,9 @@ trimesh operations on them at any point.</p>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">facets_on_hull</span></code></dt>
 <dd><p class="first last">Find which facets of the mesh are on the convex hull.</p>
 </dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">facets_origin</span></code></dt>
+<dd><p class="first last">Return a point on the facet plane.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier</span></code></dt>
 <dd><p class="first last">Return a float vector which is unique to the mesh and is robust to rotation and translation.</p>
 </dd>
@@ -7694,6 +7720,9 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">facets_on_hull</span></code></dt>
 <dd><p class="first last">Find which facets of the mesh are on the convex hull.</p>
 </dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">facets_origin</span></code></dt>
+<dd><p class="first last">Return a point on the facet plane.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier</span></code></dt>
 <dd><p class="first last">Return a float vector which is unique to the mesh and is robust to rotation and translation.</p>
 </dd>
@@ -8069,6 +8098,9 @@ Samples are either ‘step’ distance apart, or there are
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">facets_on_hull</span></code></dt>
 <dd><p class="first last">Find which facets of the mesh are on the convex hull.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">facets_origin</span></code></dt>
+<dd><p class="first last">Return a point on the facet plane.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier</span></code></dt>
 <dd><p class="first last">Return a float vector which is unique to the mesh and is robust to rotation and translation.</p>
@@ -8482,6 +8514,9 @@ Samples are either ‘step’ distance apart, or there are
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">facets_on_hull</span></code></dt>
 <dd><p class="first last">Find which facets of the mesh are on the convex hull.</p>
 </dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">facets_origin</span></code></dt>
+<dd><p class="first last">Return a point on the facet plane.</p>
+</dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier</span></code></dt>
 <dd><p class="first last">Return a float vector which is unique to the mesh and is robust to rotation and translation.</p>
 </dd>
@@ -8773,8 +8808,8 @@ which the polygon will be extruded</p>
 <dl class="method">
 <dt id="trimesh.primitives.Extrusion.slide">
 <code class="descname">slide</code><span class="sig-paren">(</span><em>distance</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.primitives.Extrusion.slide" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alter the transform of the current extrusion to slide it along its
-extrude_direction vector</p>
+<dd><p>Alter the transform of the current extrusion to slide it
+along its extrude_direction vector</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -8938,6 +8973,9 @@ extrude_direction vector</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">facets_on_hull</span></code></dt>
 <dd><p class="first last">Find which facets of the mesh are on the convex hull.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">facets_origin</span></code></dt>
+<dd><p class="first last">Return a point on the facet plane.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier</span></code></dt>
 <dd><p class="first last">Return a float vector which is unique to the mesh and is robust to rotation and translation.</p>
@@ -13173,7 +13211,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.7',
+            VERSION:'2.31.8',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
