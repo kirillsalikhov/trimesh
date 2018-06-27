@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.31.8 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.31.9 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.8
+                2.31.9
               </div>
             
           
@@ -5770,15 +5770,20 @@ set.union</div></blockquote>
 <dt id="trimesh.grouping.clusters">
 <code class="descclassname">trimesh.grouping.</code><code class="descname">clusters</code><span class="sig-paren">(</span><em>points</em>, <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.clusters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find clusters of points which have neighbours closer than radius</p>
-<p>points: (n, d) points (of dimension d)
-radius: max distance between points in a cluster</p>
+<dl class="docutils">
+<dt>points <span class="classifier-delimiter">:</span> <span class="classifier">(n, d) float</span></dt>
+<dd>Points of dimension d</dd>
+<dt>radius <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Max distance between points in a cluster</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>groups: (m) sequence of indices for points</strong></dt>
-<dd></dd>
+<dt><strong>groups</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,) sequence of int</span></dt>
+<dd><p class="first last">Indices of points in a cluster</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -5850,17 +5855,23 @@ radius: max distance between points in a cluster</p>
 <code class="descclassname">trimesh.grouping.</code><code class="descname">group_distance</code><span class="sig-paren">(</span><em>values</em>, <em>distance</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.group_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find groups of points which have neighbours closer than radius,
 where no two points in a group are farther than distance apart.</p>
-<p>points:   (n, d) points (of dimension d)
-distance: max distance between points in a cluster</p>
+<dl class="docutils">
+<dt>points <span class="classifier-delimiter">:</span> <span class="classifier">(n, d) float</span></dt>
+<dd>Points of dimension d</dd>
+<dt>distance <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Max distance between points in a cluster</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>unique: (m, d), median value of group</strong></dt>
-<dd></dd>
-<dt><strong>groups: (m)     sequence of indexes</strong></dt>
-<dd></dd>
+<dt><strong>unique</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m, d) float</span></dt>
+<dd><p class="first last">Median value of each group</p>
+</dd>
+<dt><strong>groups</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m) sequence of int</span></dt>
+<dd><p class="first last">Indexes of points that make up a group</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -5877,16 +5888,19 @@ distance: max distance between points in a cluster</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>groups: (n,) The id of each group corresponding to each element in data</strong></dt>
-<dd></dd>
-<dt><strong>data: (n,) The data to find the minimum of</strong></dt>
-<dd></dd>
+<dt><strong>groups</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) sequence of (q,) int</span></dt>
+<dd><p class="first last">Indexes of each group corresponding to each element in data</p>
+</dd>
+<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,)</span></dt>
+<dd><p class="first last">The data that groups indexes reference</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>minimums: (m,) List of minimums of data, where m is the number of groups</strong></dt>
-<dd></dd>
+<dt><strong>minimums</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,)</span></dt>
+<dd><p class="first last">Minimum value of data per group</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -5942,21 +5956,26 @@ include negative vectors.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>vectors: (n,3) float, vectors in space</strong></dt>
-<dd></dd>
-<dt><strong>angle:   float, angle in radians to group by</strong></dt>
-<dd></dd>
-<dt><strong>include_negative: bool, if True consider for example</strong></dt>
-<dd><p class="first last">[0,0,1] and [0,0,-1] the same</p>
+<dt><strong>vectors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float</span></dt>
+<dd><p class="first last">Direction vector</p>
+</dd>
+<dt><strong>angle</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Group vectors closer than this angle in radians</p>
+</dd>
+<dt><strong>include_negative</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">If True consider the same:
+[0,0,1] and [0,0,-1]</p>
 </dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>new_vectors: (m,3) float, vectors in space</strong></dt>
-<dd></dd>
-<dt><strong>groups:      (m,) sequence of indicies in source vectors</strong></dt>
-<dd></dd>
+<dt><strong>new_vectors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,3) float</span></dt>
+<dd><p class="first last">Direction vector</p>
+</dd>
+<dt><strong>groups</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,) sequence of int</span></dt>
+<dd><p class="first last">Indicies of source vectors</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -5981,31 +6000,6 @@ digits:  how many digits to add to hash, if data is floating point</p>
 <dt><strong>hashable:  (n) length array of custom data which can be sorted</strong></dt>
 <dd><p class="first last">or used as hash keys</p>
 </dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.grouping.merge_intervals">
-<code class="descclassname">trimesh.grouping.</code><code class="descname">merge_intervals</code><span class="sig-paren">(</span><em>intervals</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.merge_intervals" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a list of intervals, merge overlapping ranges into a single list
-of non- overlapping ranges</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>intervals: (n,2) list of [start, end] values for ranges</strong></dt>
-<dd></dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>merged: (m,2) list of [start, end] values of ranges with no overlaps</strong></dt>
-<dd></dd>
 </dl>
 </td>
 </tr>
@@ -13211,7 +13205,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.8',
+            VERSION:'2.31.9',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
