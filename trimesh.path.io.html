@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path.io package &mdash; trimesh 2.31.9 documentation</title>
+  <title>trimesh.path.io package &mdash; trimesh 2.31.11 documentation</title>
   
 
   
@@ -57,7 +57,7 @@
             
             
               <div class="version">
-                2.31.9
+                2.31.11
               </div>
             
           
@@ -304,35 +304,35 @@ process:   boolean flag, whether to process the mesh on load</p>
 <span id="trimesh-path-io-load-module"></span><h2>trimesh.path.io.load module<a class="headerlink" href="#module-trimesh.path.io.load" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="trimesh.path.io.load.load_path">
-<code class="descclassname">trimesh.path.io.load.</code><code class="descname">load_path</code><span class="sig-paren">(</span><em>obj</em>, <em>file_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.io.load.load_path" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.path.io.load.</code><code class="descname">load_path</code><span class="sig-paren">(</span><em>obj</em>, <em>file_type=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.io.load.load_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load a file to a Path object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>obj: one of the following:</strong></dt>
+<dt><strong>obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">One of the following:</span></dt>
 <dd><ul class="first last simple">
 <li>Path, Path2D, or Path3D objects</li>
-<li>open file object</li>
-<li>file name</li>
+<li>open file object (dxf or svg)</li>
+<li>file name (dxf or svg)</li>
 <li>shapely.geometry.Polygon</li>
 <li>shapely.geometry.MultiLineString</li>
 <li>dict with kwargs for Path constructor</li>
 <li>(n,2,(2|3)) float, line segments</li>
 </ul>
 </dd>
-<dt><strong>file_type: str, type of file is required if file</strong></dt>
-<dd><p class="first last">object passed. Currently supported:
-- ‘dxf’
-- ‘svg’</p>
+<dt><strong>file_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Type of file is required if file
+object passed.</p>
 </dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>path: Path2D or Path3D object</strong></dt>
-<dd></dd>
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Path, Path2D, Path3D object</span></dt>
+<dd><p class="first last">Data as a native trimesh Path object</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -343,7 +343,22 @@ process:   boolean flag, whether to process the mesh on load</p>
 <dl class="function">
 <dt id="trimesh.path.io.load.path_formats">
 <code class="descclassname">trimesh.path.io.load.</code><code class="descname">path_formats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.io.load.path_formats" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get a list of supported path formats.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>loaders</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list of str</span></dt>
+<dd><p class="first last">Extensions of loadable formats, ie:
+[‘svg’, ‘dxf’]</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
 <div class="section" id="module-trimesh.path.io.misc">
@@ -430,7 +445,7 @@ face_ids: (n) list of indices of mesh.faces</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>line: (n, 2, 2) float, Path2D object from line segments</strong></dt>
+<dt><strong>lines: (n, 2, 2) float, Path2D object from line segments</strong></dt>
 <dd><p class="first last">(n, 2, 3) float, Path3D object from line segments
 (n, 2) float: Path2D object, assumes vertices are connected
 (n, 3) float: Path3D object, assumes vertices are connected</p>
@@ -439,8 +454,9 @@ face_ids: (n) list of indices of mesh.faces</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>kwargs: dict, kwarg for Path constructor</strong></dt>
-<dd></dd>
+<dt><strong>kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">kwargs for Path constructor</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -597,7 +613,7 @@ face_ids: (n) list of indices of mesh.faces</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.9',
+            VERSION:'2.31.11',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

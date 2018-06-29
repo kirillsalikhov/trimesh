@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.31.9 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.31.11 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.9
+                2.31.11
               </div>
             
           
@@ -732,39 +732,42 @@
 <td>Get a Scene object containing the current mesh.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.section" title="trimesh.base.Trimesh.section"><code class="xref py py-obj docutils literal notranslate"><span class="pre">section</span></code></a>(plane_normal,&nbsp;plane_origin)</td>
-<td>Returns a cross section of the current mesh and plane defined by origin and normal.</td>
+<td>Returns a 3D cross section of the current mesh and a plane defined by origin and normal.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.show" title="trimesh.base.Trimesh.show"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code></a>(**kwargs)</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.section_multiplane" title="trimesh.base.Trimesh.section_multiplane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">section_multiplane</span></code></a>(plane_origin,&nbsp;…)</td>
+<td>Return multiple parallel cross sections of the current mesh in 2D.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.show" title="trimesh.base.Trimesh.show"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code></a>(**kwargs)</td>
 <td>Render the mesh in an opengl window.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.smoothed" title="trimesh.base.Trimesh.smoothed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smoothed</span></code></a>(**kwargs)</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.smoothed" title="trimesh.base.Trimesh.smoothed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smoothed</span></code></a>(**kwargs)</td>
 <td>Return a version of the current mesh which will render nicely.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.split" title="trimesh.base.Trimesh.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>(**kwargs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.split" title="trimesh.base.Trimesh.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>(**kwargs)</td>
 <td>Returns a list of Trimesh objects, based on face connectivity.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.subdivide" title="trimesh.base.Trimesh.subdivide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subdivide</span></code></a>([face_index])</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.subdivide" title="trimesh.base.Trimesh.subdivide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subdivide</span></code></a>([face_index])</td>
 <td>Subdivide a mesh, with each subdivided face replaced with four smaller faces.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.submesh" title="trimesh.base.Trimesh.submesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submesh</span></code></a>(faces_sequence,&nbsp;**kwargs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.submesh" title="trimesh.base.Trimesh.submesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submesh</span></code></a>(faces_sequence,&nbsp;**kwargs)</td>
 <td>Return a subset of the mesh.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.to_dict" title="trimesh.base.Trimesh.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.to_dict" title="trimesh.base.Trimesh.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a>()</td>
 <td>Return a dictionary representation of the current mesh, with keys that can be used as the kwargs for the Trimesh constructor, eg:</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.union" title="trimesh.base.Trimesh.union"><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code></a>(other[,&nbsp;engine])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.union" title="trimesh.base.Trimesh.union"><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code></a>(other[,&nbsp;engine])</td>
 <td>Boolean union between this mesh and n other meshes</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.unmerge_vertices" title="trimesh.base.Trimesh.unmerge_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmerge_vertices</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.unmerge_vertices" title="trimesh.base.Trimesh.unmerge_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmerge_vertices</span></code></a>()</td>
 <td>Removes all face references so that every face contains three unique vertex indices and no faces are adjacent.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.update_faces" title="trimesh.base.Trimesh.update_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_faces</span></code></a>(mask)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.update_faces" title="trimesh.base.Trimesh.update_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_faces</span></code></a>(mask)</td>
 <td>In many cases, we will want to remove specific faces.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.update_vertices" title="trimesh.base.Trimesh.update_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code></a>(mask[,&nbsp;inverse])</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.update_vertices" title="trimesh.base.Trimesh.update_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code></a>(mask[,&nbsp;inverse])</td>
 <td>Update vertices with a mask.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.voxelized" title="trimesh.base.Trimesh.voxelized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code></a>(pitch,&nbsp;**kwargs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.voxelized" title="trimesh.base.Trimesh.voxelized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code></a>(pitch,&nbsp;**kwargs)</td>
 <td>Return a Voxel object representing the current mesh discretized into voxels at the specified pitch</td>
 </tr>
 </tbody>
@@ -1188,8 +1191,8 @@ This raises an error if called on a non- watertight mesh.</p>
 <dl class="attribute">
 <dt id="trimesh.base.Trimesh.convex_hull">
 <code class="descname">convex_hull</code><a class="headerlink" href="#trimesh.base.Trimesh.convex_hull" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a new Trimesh object representing the convex hull of the
-current mesh.</p>
+<dd><p>Get a new Trimesh object representing the convex hull of
+the current mesh.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2471,17 +2474,53 @@ diagonal of the axis aligned bounding box of the mesh.</p>
 <dl class="method">
 <dt id="trimesh.base.Trimesh.section">
 <code class="descname">section</code><span class="sig-paren">(</span><em>plane_normal</em>, <em>plane_origin</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.section" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a cross section of the current mesh and plane defined by
-origin and normal.</p>
-<p>plane_normal: (3) vector for plane normal
-plane_origin: (3) vector for plane origin</p>
+<dd><p>Returns a 3D cross section of the current mesh and a plane
+defined by origin and normal.</p>
+<dl class="docutils">
+<dt>plane_normal: (3) vector for plane normal</dt>
+<dd>Normal vector of section plane</dd>
+<dt>plane_origin <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd>Point on the cross section plane</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>intersections: Path3D of intersections</strong></dt>
-<dd></dd>
+<dt><strong>intersections: Path3D or None</strong></dt>
+<dd><p class="first last">Curve of intersection</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="trimesh.base.Trimesh.section_multiplane">
+<code class="descname">section_multiplane</code><span class="sig-paren">(</span><em>plane_origin</em>, <em>plane_normal</em>, <em>heights</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.section_multiplane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return multiple parallel cross sections of the current
+mesh in 2D.</p>
+<dl class="docutils">
+<dt>plane_normal: (3) vector for plane normal</dt>
+<dd>Normal vector of section plane</dd>
+<dt>plane_origin <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd>Point on the cross section plane</dd>
+<dt>heights <span class="classifier-delimiter">:</span> <span class="classifier">(n,) float</span></dt>
+<dd>Each section is offset by height along
+the plane normal.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>paths</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) Path2D or None</span></dt>
+<dd><p class="first last">2D cross sections at specified heights.
+path.metadata[‘to_3D’] contains transform
+to return 2D section back into 3D space.</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -6368,23 +6407,77 @@ Out[7]: 34.641016151377542</p>
 <h3>intersections.py<a class="headerlink" href="#intersections-py" title="Permalink to this headline">¶</a></h3>
 <p>Primarily mesh-plane intersections (slicing).</p>
 <dl class="function">
+<dt id="trimesh.intersections.mesh_multiplane">
+<code class="descclassname">trimesh.intersections.</code><code class="descname">mesh_multiplane</code><span class="sig-paren">(</span><em>mesh</em>, <em>plane_origin</em>, <em>plane_normal</em>, <em>heights</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.intersections.mesh_multiplane" title="Permalink to this definition">¶</a></dt>
+<dd><p>A utility function for slicing a mesh by multiple
+parallel planes, which caches the dot product operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>mesh</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh</span></dt>
+<dd><p class="first last">Geometry to be sliced by planes</p>
+</dd>
+<dt><strong>plane_normal</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd><p class="first last">Normal vector of plane</p>
+</dd>
+<dt><strong>plane_origin</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd><p class="first last">Point on a plane</p>
+</dd>
+<dt><strong>heights</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,) float</span></dt>
+<dd><p class="first last">Offset distances from plane to slice at</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>lines</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,) sequence of (n, 2, 2) float</span></dt>
+<dd><p class="first last">Lines in space for m planes</p>
+</dd>
+<dt><strong>to_3D</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m, 4, 4) float</span></dt>
+<dd><p class="first last">Transform to move each section back to 3D</p>
+</dd>
+<dt><strong>face_index</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,) sequence of (n,) int</span></dt>
+<dd><p class="first last">Indexes of mesh.faces for each segment</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="trimesh.intersections.mesh_plane">
-<code class="descclassname">trimesh.intersections.</code><code class="descname">mesh_plane</code><span class="sig-paren">(</span><em>mesh</em>, <em>plane_normal</em>, <em>plane_origin</em>, <em>return_faces=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.intersections.mesh_plane" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.intersections.</code><code class="descname">mesh_plane</code><span class="sig-paren">(</span><em>mesh</em>, <em>plane_normal</em>, <em>plane_origin</em>, <em>return_faces=False</em>, <em>cached_dots=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.intersections.mesh_plane" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find a the intersections between a mesh and a plane,
 returning a set of line segments on that plane.</p>
-<p>mesh:          Trimesh object
-plane_normal:  (3,) float, plane normal
-plane_origin:  (3,) float, plane origin
-return_faces:  bool, if True return face index line is from</p>
+<dl class="docutils">
+<dt>mesh <span class="classifier-delimiter">:</span> <span class="classifier">Trimesh object</span></dt>
+<dd>Source mesh to slice</dd>
+<dt>plane_normal <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd>Normal vector of plane to intersect with mesh</dd>
+<dt>plane_origin:  (3,) float</dt>
+<dd>Point on plane to intersect with mesh</dd>
+<dt>return_faces:  bool</dt>
+<dd>If True return face index each line is from</dd>
+<dt>cached_dots <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3) float</span></dt>
+<dd>If an external function has stored dot
+products pass them here to avoid recomputing</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>lines:      (m, 2, 3) float, list of 3D line segments</strong></dt>
-<dd></dd>
-<dt><strong>face_index: (m,) int, index of mesh.faces for each line</strong></dt>
-<dd></dd>
+<dt><strong>lines</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m, 2, 3) float</span></dt>
+<dd><p class="first last">List of 3D line segments in space</p>
+</dd>
+<dt><strong>face_index</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,) int</span></dt>
+<dd><p class="first last">Index of mesh.faces for each line
+Only returned if return_faces was True</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -6396,22 +6489,29 @@ return_faces:  bool, if True return face index line is from</p>
 <dt id="trimesh.intersections.plane_lines">
 <code class="descclassname">trimesh.intersections.</code><code class="descname">plane_lines</code><span class="sig-paren">(</span><em>plane_origin</em>, <em>plane_normal</em>, <em>endpoints</em>, <em>line_segments=True</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.intersections.plane_lines" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate plane-line intersections</p>
-<p>plane_origin:  plane origin, (3) list
-plane_normal:  plane direction (3) list
-endpoints:     (2, n, 3) points defining lines to be intersect tested
-line_segments: if True, only returns intersections as valid if</p>
-<blockquote>
-<div>vertices from endpoints are on different sides
-of the plane.</div></blockquote>
+<dl class="docutils">
+<dt>plane_origin <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd>Point on plane</dd>
+<dt>plane_normal <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd>Plane normal vector</dd>
+<dt>endpoints <span class="classifier-delimiter">:</span> <span class="classifier">(2, n, 3) float</span></dt>
+<dd>Points defining lines to be tested</dd>
+<dt>line_segments <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>If True, only returns intersections as valid if
+vertices from endpoints are on different sides
+of the plane.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>intersections: (m, 3) list of cartesian intersection points</strong></dt>
-<dd></dd>
-<dt><strong>valid</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3) list of booleans indicating whether a valid</span></dt>
-<dd><p class="first last">intersection occurred</p>
+<dt><strong>intersections</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m, 3) float</span></dt>
+<dd><p class="first last">Cartesian intersection points</p>
+</dd>
+<dt><strong>valid</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3) bool</span></dt>
+<dd><p class="first last">Indicate whether a valid intersection exists
+for each input line segment</p>
 </dd>
 </dl>
 </td>
@@ -6423,28 +6523,34 @@ of the plane.</div></blockquote>
 <dl class="function">
 <dt id="trimesh.intersections.planes_lines">
 <code class="descclassname">trimesh.intersections.</code><code class="descname">planes_lines</code><span class="sig-paren">(</span><em>plane_origins</em>, <em>plane_normals</em>, <em>line_origins</em>, <em>line_directions</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.intersections.planes_lines" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given one line per plane, find the intersection points</p>
+<dd><p>Given one line per plane, find the intersection points.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>plane_origins:   (n,3) float, plane origins</strong></dt>
-<dd></dd>
-<dt><strong>plane_normals:   (n,3) float, plane normals</strong></dt>
-<dd></dd>
-<dt><strong>line_origins:    (n,3) float, line origins</strong></dt>
-<dd></dd>
-<dt><strong>line_directions: (n,3) float, line directions</strong></dt>
-<dd></dd>
+<dt><strong>plane_origins</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float</span></dt>
+<dd><p class="first last">Point on each plane</p>
+</dd>
+<dt><strong>plane_normals</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float</span></dt>
+<dd><p class="first last">Normal vector of each plane</p>
+</dd>
+<dt><strong>line_origins</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float</span></dt>
+<dd><p class="first last">Point at origin of each line</p>
+</dd>
+<dt><strong>line_directions</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float</span></dt>
+<dd><p class="first last">Direction vector of each line</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>on_plane: (n,3) float, points on specified planes</strong></dt>
-<dd></dd>
-<dt><strong>valid:    (n,) bool, did plane intersect line or not</strong></dt>
-<dd></dd>
+<dt><strong>on_plane</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float</span></dt>
+<dd><p class="first last">Points on specified planes</p>
+</dd>
+<dt><strong>valid</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) bool</span></dt>
+<dd><p class="first last">Did plane intersect line or not</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -7464,42 +7570,45 @@ trimesh operations on them at any point.</p>
 <td>Get a Scene object containing the current mesh.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">section</span></code>(plane_normal,&nbsp;plane_origin)</td>
-<td>Returns a cross section of the current mesh and plane defined by origin and normal.</td>
+<td>Returns a 3D cross section of the current mesh and a plane defined by origin and normal.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(**kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">section_multiplane</span></code>(plane_origin,&nbsp;…)</td>
+<td>Return multiple parallel cross sections of the current mesh in 2D.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(**kwargs)</td>
 <td>Render the mesh in an opengl window.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">smoothed</span></code>(**kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">smoothed</span></code>(**kwargs)</td>
 <td>Return a version of the current mesh which will render nicely.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code>(**kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code>(**kwargs)</td>
 <td>Returns a list of Trimesh objects, based on face connectivity.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">subdivide</span></code>([face_index])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">subdivide</span></code>([face_index])</td>
 <td>Subdivide a mesh, with each subdivided face replaced with four smaller faces.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">submesh</span></code>(faces_sequence,&nbsp;**kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">submesh</span></code>(faces_sequence,&nbsp;**kwargs)</td>
 <td>Return a subset of the mesh.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code>()</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code>()</td>
 <td>Return a dictionary representation of the current mesh, with keys that can be used as the kwargs for the Trimesh constructor, eg:</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_mesh</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_mesh</span></code>()</td>
 <td>Return a copy of the Primitive object as a Trimesh object.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code>(other[,&nbsp;engine])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code>(other[,&nbsp;engine])</td>
 <td>Boolean union between this mesh and n other meshes</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmerge_vertices</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmerge_vertices</span></code>()</td>
 <td>Removes all face references so that every face contains three unique vertex indices and no faces are adjacent.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_faces</span></code>(mask)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_faces</span></code>(mask)</td>
 <td>In many cases, we will want to remove specific faces.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
 <td>Update vertices with a mask.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
 <td>Return a Voxel object representing the current mesh discretized into voxels at the specified pitch</td>
 </tr>
 </tbody>
@@ -7901,42 +8010,45 @@ Samples are either ‘step’ distance apart, or there are
 <td>Get a Scene object containing the current mesh.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">section</span></code>(plane_normal,&nbsp;plane_origin)</td>
-<td>Returns a cross section of the current mesh and plane defined by origin and normal.</td>
+<td>Returns a 3D cross section of the current mesh and a plane defined by origin and normal.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(**kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">section_multiplane</span></code>(plane_origin,&nbsp;…)</td>
+<td>Return multiple parallel cross sections of the current mesh in 2D.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(**kwargs)</td>
 <td>Render the mesh in an opengl window.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">smoothed</span></code>(**kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">smoothed</span></code>(**kwargs)</td>
 <td>Return a version of the current mesh which will render nicely.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code>(**kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code>(**kwargs)</td>
 <td>Returns a list of Trimesh objects, based on face connectivity.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">subdivide</span></code>([face_index])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">subdivide</span></code>([face_index])</td>
 <td>Subdivide a mesh, with each subdivided face replaced with four smaller faces.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">submesh</span></code>(faces_sequence,&nbsp;**kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">submesh</span></code>(faces_sequence,&nbsp;**kwargs)</td>
 <td>Return a subset of the mesh.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code>()</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code>()</td>
 <td>Return a dictionary representation of the current mesh, with keys that can be used as the kwargs for the Trimesh constructor, eg:</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_mesh</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_mesh</span></code>()</td>
 <td>Return a copy of the Primitive object as a Trimesh object.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code>(other[,&nbsp;engine])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code>(other[,&nbsp;engine])</td>
 <td>Boolean union between this mesh and n other meshes</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmerge_vertices</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmerge_vertices</span></code>()</td>
 <td>Removes all face references so that every face contains three unique vertex indices and no faces are adjacent.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_faces</span></code>(mask)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_faces</span></code>(mask)</td>
 <td>In many cases, we will want to remove specific faces.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
 <td>Update vertices with a mask.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
 <td>Return a Voxel object representing the current mesh discretized into voxels at the specified pitch</td>
 </tr>
 </tbody>
@@ -8280,42 +8392,45 @@ Samples are either ‘step’ distance apart, or there are
 <td>Get a Scene object containing the current mesh.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">section</span></code>(plane_normal,&nbsp;plane_origin)</td>
-<td>Returns a cross section of the current mesh and plane defined by origin and normal.</td>
+<td>Returns a 3D cross section of the current mesh and a plane defined by origin and normal.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(**kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">section_multiplane</span></code>(plane_origin,&nbsp;…)</td>
+<td>Return multiple parallel cross sections of the current mesh in 2D.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(**kwargs)</td>
 <td>Render the mesh in an opengl window.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">smoothed</span></code>(**kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">smoothed</span></code>(**kwargs)</td>
 <td>Return a version of the current mesh which will render nicely.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code>(**kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code>(**kwargs)</td>
 <td>Returns a list of Trimesh objects, based on face connectivity.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">subdivide</span></code>([face_index])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">subdivide</span></code>([face_index])</td>
 <td>Subdivide a mesh, with each subdivided face replaced with four smaller faces.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">submesh</span></code>(faces_sequence,&nbsp;**kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">submesh</span></code>(faces_sequence,&nbsp;**kwargs)</td>
 <td>Return a subset of the mesh.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code>()</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code>()</td>
 <td>Return a dictionary representation of the current mesh, with keys that can be used as the kwargs for the Trimesh constructor, eg:</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_mesh</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_mesh</span></code>()</td>
 <td>Return a copy of the Primitive object as a Trimesh object.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code>(other[,&nbsp;engine])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code>(other[,&nbsp;engine])</td>
 <td>Boolean union between this mesh and n other meshes</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmerge_vertices</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmerge_vertices</span></code>()</td>
 <td>Removes all face references so that every face contains three unique vertex indices and no faces are adjacent.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_faces</span></code>(mask)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_faces</span></code>(mask)</td>
 <td>In many cases, we will want to remove specific faces.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
 <td>Update vertices with a mask.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
 <td>Return a Voxel object representing the current mesh discretized into voxels at the specified pitch</td>
 </tr>
 </tbody>
@@ -8698,45 +8813,48 @@ Samples are either ‘step’ distance apart, or there are
 <td>Get a Scene object containing the current mesh.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">section</span></code>(plane_normal,&nbsp;plane_origin)</td>
-<td>Returns a cross section of the current mesh and plane defined by origin and normal.</td>
+<td>Returns a 3D cross section of the current mesh and a plane defined by origin and normal.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(**kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">section_multiplane</span></code>(plane_origin,&nbsp;…)</td>
+<td>Return multiple parallel cross sections of the current mesh in 2D.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(**kwargs)</td>
 <td>Render the mesh in an opengl window.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.primitives.Extrusion.slide" title="trimesh.primitives.Extrusion.slide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slide</span></code></a>(distance)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.primitives.Extrusion.slide" title="trimesh.primitives.Extrusion.slide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slide</span></code></a>(distance)</td>
 <td>Alter the transform of the current extrusion to slide it along its extrude_direction vector</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">smoothed</span></code>(**kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">smoothed</span></code>(**kwargs)</td>
 <td>Return a version of the current mesh which will render nicely.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code>(**kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code>(**kwargs)</td>
 <td>Returns a list of Trimesh objects, based on face connectivity.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">subdivide</span></code>([face_index])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">subdivide</span></code>([face_index])</td>
 <td>Subdivide a mesh, with each subdivided face replaced with four smaller faces.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">submesh</span></code>(faces_sequence,&nbsp;**kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">submesh</span></code>(faces_sequence,&nbsp;**kwargs)</td>
 <td>Return a subset of the mesh.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code>()</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code>()</td>
 <td>Return a dictionary representation of the current mesh, with keys that can be used as the kwargs for the Trimesh constructor, eg:</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_mesh</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_mesh</span></code>()</td>
 <td>Return a copy of the Primitive object as a Trimesh object.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code>(other[,&nbsp;engine])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code>(other[,&nbsp;engine])</td>
 <td>Boolean union between this mesh and n other meshes</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmerge_vertices</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmerge_vertices</span></code>()</td>
 <td>Removes all face references so that every face contains three unique vertex indices and no faces are adjacent.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_faces</span></code>(mask)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_faces</span></code>(mask)</td>
 <td>In many cases, we will want to remove specific faces.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
 <td>Update vertices with a mask.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
 <td>Return a Voxel object representing the current mesh discretized into voxels at the specified pitch</td>
 </tr>
 </tbody>
@@ -9155,42 +9273,45 @@ along its extrude_direction vector</p>
 <td>Get a Scene object containing the current mesh.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">section</span></code>(plane_normal,&nbsp;plane_origin)</td>
-<td>Returns a cross section of the current mesh and plane defined by origin and normal.</td>
+<td>Returns a 3D cross section of the current mesh and a plane defined by origin and normal.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(**kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">section_multiplane</span></code>(plane_origin,&nbsp;…)</td>
+<td>Return multiple parallel cross sections of the current mesh in 2D.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(**kwargs)</td>
 <td>Render the mesh in an opengl window.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">smoothed</span></code>(**kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">smoothed</span></code>(**kwargs)</td>
 <td>Return a version of the current mesh which will render nicely.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code>(**kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code>(**kwargs)</td>
 <td>Returns a list of Trimesh objects, based on face connectivity.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">subdivide</span></code>([face_index])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">subdivide</span></code>([face_index])</td>
 <td>Subdivide a mesh, with each subdivided face replaced with four smaller faces.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">submesh</span></code>(faces_sequence,&nbsp;**kwargs)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">submesh</span></code>(faces_sequence,&nbsp;**kwargs)</td>
 <td>Return a subset of the mesh.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code>()</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code>()</td>
 <td>Return a dictionary representation of the current mesh, with keys that can be used as the kwargs for the Trimesh constructor, eg:</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_mesh</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_mesh</span></code>()</td>
 <td>Return a copy of the Primitive object as a Trimesh object.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code>(other[,&nbsp;engine])</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code>(other[,&nbsp;engine])</td>
 <td>Boolean union between this mesh and n other meshes</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmerge_vertices</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">unmerge_vertices</span></code>()</td>
 <td>Removes all face references so that every face contains three unique vertex indices and no faces are adjacent.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_faces</span></code>(mask)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_faces</span></code>(mask)</td>
 <td>In many cases, we will want to remove specific faces.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_vertices</span></code>(mask[,&nbsp;inverse])</td>
 <td>Update vertices with a mask.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelized</span></code>(pitch,&nbsp;**kwargs)</td>
 <td>Return a Voxel object representing the current mesh discretized into voxels at the specified pitch</td>
 </tr>
 </tbody>
@@ -13205,7 +13326,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.9',
+            VERSION:'2.31.11',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
