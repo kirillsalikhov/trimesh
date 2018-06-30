@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path package &mdash; trimesh 2.31.12 documentation</title>
+  <title>trimesh.path package &mdash; trimesh 2.31.13 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.12
+                2.31.13
               </div>
             
           
@@ -3627,19 +3627,36 @@ Only one vertex (at the endpoint) will be added.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="trimesh.path.traversal.arctan2_points">
-<code class="descclassname">trimesh.path.traversal.</code><code class="descname">arctan2_points</code><span class="sig-paren">(</span><em>points</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.traversal.arctan2_points" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
 <dt id="trimesh.path.traversal.closed_paths">
 <code class="descclassname">trimesh.path.traversal.</code><code class="descname">closed_paths</code><span class="sig-paren">(</span><em>entities</em>, <em>vertices</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.traversal.closed_paths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Paths are lists of entity indices.
 We first generate vertex paths using graph cycle algorithms,
-and then convert them to entity paths using
-a frankly worrying number of loops and conditionals…</p>
-<p>This will also change the ordering of entity.points in place, so that
-a path may be traversed without having to reverse the entity</p>
+and then convert them to entity paths.</p>
+<p>This will also change the ordering of entity.points in place
+so a path may be traversed without having to reverse the entity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>entities</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) entity objects</span></dt>
+<dd><p class="first last">Entity objects</p>
+</dd>
+<dt><strong>vertices</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m, dimension) float</span></dt>
+<dd><p class="first last">Vertex points in space</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>entity_paths</strong> <span class="classifier-delimiter">:</span> <span class="classifier">sequence of (n,) int</span></dt>
+<dd><p class="first last">Ordered traversals of entities</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -3656,24 +3673,27 @@ a path may be traversed without having to reverse the entity</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>entities: list of entity objects</strong></dt>
-<dd></dd>
-<dt><strong>vertices: (n, dimension) float, vertices referenced by entities</strong></dt>
-<dd></dd>
-<dt><strong>path:     (m,) int, indexes of entities</strong></dt>
-<dd></dd>
-<dt><strong>scale:    float, overall scale of drawing</strong></dt>
-<dd></dd>
+<dt><strong>entities</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(j,) entity objects</span></dt>
+<dd><p class="first last">Objects like ‘Line’, ‘Arc’, etc.</p>
+</dd>
+<dt><strong>vertices: (n, dimension) float</strong></dt>
+<dd><p class="first last">Vertex points in space.</p>
+</dd>
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,) int</span></dt>
+<dd><p class="first last">Indexes of entities</p>
+</dd>
+<dt><strong>scale</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Overall scale of drawing used for
+numeric tolerances in certain cases</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>discrete:</strong></dt>
-<dd></dd>
-<dt><strong>Return a (n, dimension) list of vertices.</strong></dt>
-<dd></dd>
-<dt><strong>Samples arcs/curves to be line segments</strong></dt>
-<dd></dd>
+<dt><strong>discrete</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(p, dimension) float</span></dt>
+<dd><p class="first last">Connected points in space that lie on the
+path and can be connected with line segments.</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -3697,18 +3717,22 @@ Result can have a specific distance (np.arange) by specifying step</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>points:   (n,d) sequence of points in space</strong></dt>
-<dd></dd>
-<dt><strong>count:    number of points to sample to (aka np.linspace)</strong></dt>
-<dd></dd>
-<dt><strong>step:     distance each step should take along the path (aka np.arange)</strong></dt>
-<dd></dd>
+<dt><strong>points:   (n, d) float</strong></dt>
+<dd><p class="first last">Points in space</p>
+</dd>
+<dt><strong>count</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int,</span></dt>
+<dd><p class="first last">Number of points to sample evenly (aka np.linspace)</p>
+</dd>
+<dt><strong>step</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Distance each step should take along the path (aka np.arange)</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>resampled: (j,d) set of points on the path</strong></dt>
-<dd></dd>
+<dt><strong>resampled</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(j,d) float</span></dt>
+<dd><p class="first last">Points on the path</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -3719,8 +3743,31 @@ Result can have a specific distance (np.arange) by specifying step</p>
 <dl class="function">
 <dt id="trimesh.path.traversal.vertex_graph">
 <code class="descclassname">trimesh.path.traversal.</code><code class="descname">vertex_graph</code><span class="sig-paren">(</span><em>entities</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.traversal.vertex_graph" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a set of entity objects (which have node and closed attributes)
-generate a</p>
+<dd><p>Given a set of entity objects generate a networkx.Graph
+that represents their vertex nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>entities</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd><p class="first last">Objects with ‘closed’ and ‘nodes’ attributes</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>graph</strong> <span class="classifier-delimiter">:</span> <span class="classifier">networkx.Graph</span></dt>
+<dd><p class="first last">Graph where node indexes represent vertices</p>
+</dd>
+<dt><strong>closed</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) int</span></dt>
+<dd><p class="first last">Indexes of entities which are ‘closed’</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -3732,20 +3779,25 @@ generate a</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>vertex_path: (n,) int, list of vertex indicies</strong></dt>
-<dd></dd>
-<dt><strong>graph:       nx.Graph of the vertex connectivity</strong></dt>
-<dd></dd>
-<dt><strong>entities:    (m,) list of entity objects</strong></dt>
-<dd></dd>
-<dt><strong>vertices:    (p, d) float, list of vertices</strong></dt>
-<dd></dd>
+<dt><strong>vertex_path</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) int</span></dt>
+<dd><p class="first last">Ordered list of vertex indicies representing a path</p>
+</dd>
+<dt><strong>graph</strong> <span class="classifier-delimiter">:</span> <span class="classifier">nx.Graph</span></dt>
+<dd><p class="first last">Vertex connectivity</p>
+</dd>
+<dt><strong>entities</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,) list</span></dt>
+<dd><p class="first last">Entity objects</p>
+</dd>
+<dt><strong>vertices</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(p, dimension) float</span></dt>
+<dd><p class="first last">Vertex points in space</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>entity_path: (q,) int, list of entity indices which make up vertex_path</strong></dt>
-<dd></dd>
+<dt><strong>entity_path</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(q,) int</span></dt>
+<dd><p class="first last">Entity indices which make up vertex_path</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -3852,7 +3904,7 @@ generate a</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.12',
+            VERSION:'2.31.13',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
