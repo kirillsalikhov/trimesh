@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.31.13 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.31.14 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.13
+                2.31.14
               </div>
             
           
@@ -4770,13 +4770,20 @@ along an arbitrary 3D path.</p>
 
 <dl class="function">
 <dt id="trimesh.creation.triangulate_polygon">
-<code class="descclassname">trimesh.creation.</code><code class="descname">triangulate_polygon</code><span class="sig-paren">(</span><em>polygon</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.triangulate_polygon" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a shapely polygon create a triangulation using
-meshpy.triangle</p>
-<p>polygon: Shapely.geometry.Polygon
-kwargs: passed directly to meshpy.triangle.build:</p>
-<blockquote>
-<div><dl class="docutils">
+<code class="descclassname">trimesh.creation.</code><code class="descname">triangulate_polygon</code><span class="sig-paren">(</span><em>polygon</em>, <em>triangle_args='pq0D'</em>, <em>engine='auto'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.triangulate_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a shapely polygon create a triangulation using one of
+the python interfaces to triangle.c:
+pip install meshpy
+pip install triangle</p>
+<dl class="docutils">
+<dt>polygon <span class="classifier-delimiter">:</span> <span class="classifier">Shapely.geometry.Polygon</span></dt>
+<dd>Polygon object to be triangulated</dd>
+<dt>triangle_args <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>Passed to triangle.triangulate</dd>
+<dt>engine <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>‘meshpy’, ‘triangle’, or ‘auto’</dd>
+<dt>kwargs: passed directly to meshpy.triangle.build:</dt>
+<dd><dl class="first last docutils">
 <dt>triangle.build(mesh_info,</dt>
 <dd>verbose=False,
 refinement_func=None,
@@ -4790,9 +4797,14 @@ generate_edges=None,
 generate_faces=False,
 min_angle=None)</dd>
 </dl>
-</div></blockquote>
-<p>mesh_vertices: (n, 2) float array of 2D points
-mesh_faces:    (n, 3) int array of vertex indexes</p>
+</dd>
+</dl>
+<dl class="docutils">
+<dt>vertices <span class="classifier-delimiter">:</span> <span class="classifier">(n, 2) float</span></dt>
+<dd>Points in space</dd>
+<dt>faces <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3) int</span></dt>
+<dd>Index of vertices that make up triangles</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -13294,7 +13306,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.13',
+            VERSION:'2.31.14',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
