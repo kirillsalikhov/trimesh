@@ -200,6 +200,14 @@ trimesh.proximity module
     :undoc-members:
     :show-inheritance:
 
+trimesh.registration module
+---------------------------
+
+.. automodule:: trimesh.registration
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 trimesh.remesh module
 ---------------------
 

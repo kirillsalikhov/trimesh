@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.31.15 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.31.16 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.15
+                2.31.16
               </div>
             
           
@@ -172,6 +172,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-trimesh.proximity">trimesh.proximity module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#proximity-py">proximity.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-trimesh.registration">trimesh.registration module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#registration-py">registration.py</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-trimesh.remesh">trimesh.remesh module</a><ul>
@@ -9746,6 +9750,95 @@ centered at the queried point and extending to the nearest vertex.</p>
 
 </div>
 </div>
+<div class="section" id="module-trimesh.registration">
+<span id="trimesh-registration-module"></span><h2>trimesh.registration module<a class="headerlink" href="#module-trimesh.registration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="registration-py">
+<h3>registration.py<a class="headerlink" href="#registration-py" title="Permalink to this headline">¶</a></h3>
+<p>Functions for registering (aligning) point clouds with meshes.</p>
+<dl class="function">
+<dt id="trimesh.registration.icp">
+<code class="descclassname">trimesh.registration.</code><code class="descname">icp</code><span class="sig-paren">(</span><em>a, b, initial=array([[1., 0., 0., 0.],        [0., 1., 0., 0.],        [0., 0., 1., 0.],        [0., 0., 0., 1.]]), threshold=1e-05, max_iterations=20, **kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.registration.icp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the iterative closest point algorithm to align a point cloud with
+another point cloud or mesh. Will only produce reasonable results if the
+initial transformation is roughly correct. Initial transformation can be
+found by applying Procrustes’ analysis to a suitable set of landmark
+points (often picked manually).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>a</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float, list of points in space.</span></dt>
+<dd></dd>
+<dt><strong>b</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,3) float or Trimesh, list of points in space or mesh.</span></dt>
+<dd></dd>
+<dt><strong>initial</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4,4) float, initial transformation.</span></dt>
+<dd></dd>
+<dt><strong>threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, stop when change in cost is less than threshold</span></dt>
+<dd></dd>
+<dt><strong>max_iterations</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, maximum number of iterations</span></dt>
+<dd></dd>
+<dt><strong>kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict, args to pass to procrustes</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>matrix</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4,4) float, the transformation matrix sending a to b</span></dt>
+<dd></dd>
+<dt><strong>transformed</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float, the image of a under the transformation</span></dt>
+<dd></dd>
+<dt><strong>cost</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, the cost of the transformation</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.registration.procrustes">
+<code class="descclassname">trimesh.registration.</code><code class="descname">procrustes</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>reflection=True</em>, <em>translation=True</em>, <em>scale=True</em>, <em>return_cost=True</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.registration.procrustes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform Procrustes’ analysis subject to constraints. Finds the
+transformation T mapping a to b which minimizes the sums-of-squares
+distances between Ta and b, also called the cost.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>a</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float, list of points in space</span></dt>
+<dd></dd>
+<dt><strong>b</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float, list of points in space</span></dt>
+<dd></dd>
+<dt><strong>reflection</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, if the transformation is allowed reflections</span></dt>
+<dd></dd>
+<dt><strong>translation</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, if the transformation is allowed translations</span></dt>
+<dd></dd>
+<dt><strong>scale</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, if the transformation is allowed scaling</span></dt>
+<dd></dd>
+<dt><strong>return_cost</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, whether to return the cost and transformed a as well</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>matrix</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4,4) float, the transformation matrix sending a to b</span></dt>
+<dd></dd>
+<dt><strong>transformed</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float, the image of a under the transformation</span></dt>
+<dd></dd>
+<dt><strong>cost</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, the cost of the transformation</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
 <div class="section" id="module-trimesh.remesh">
 <span id="trimesh-remesh-module"></span><h2>trimesh.remesh module<a class="headerlink" href="#module-trimesh.remesh" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="remesh-py">
@@ -13306,7 +13399,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.15',
+            VERSION:'2.31.16',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
