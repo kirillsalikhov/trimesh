@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path package &mdash; trimesh 2.31.16 documentation</title>
+  <title>trimesh.path package &mdash; trimesh 2.31.17 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.16
+                2.31.17
               </div>
             
           
@@ -2336,7 +2336,8 @@ min_angle=None)</p>
 <dt id="trimesh.path.path.Path2D.medial_axis">
 <code class="descname">medial_axis</code><span class="sig-paren">(</span><em>resolution=None</em>, <em>clip=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.path.Path2D.medial_axis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the approximate medial axis based
-on a voronoi diagram of evenly spaced points on the boundary of the polygon.</p>
+on a voronoi diagram of evenly spaced points on the
+boundary of the polygon.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2972,19 +2973,24 @@ and then do polygon queries for a final result</p>
 <dl class="function">
 <dt id="trimesh.path.polygons.medial_axis">
 <code class="descclassname">trimesh.path.polygons.</code><code class="descname">medial_axis</code><span class="sig-paren">(</span><em>polygon</em>, <em>resolution=0.01</em>, <em>clip=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.polygons.medial_axis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a shapely polygon, find the approximate medial axis based
-on a voronoi diagram of evenly spaced points on the boundary of the polygon.</p>
+<dd><p>Given a shapely polygon, find the approximate medial axis
+using a voronoi diagram of evenly spaced points on the
+boundary of the polygon.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>polygon:    a shapely.geometry.Polygon</strong></dt>
-<dd></dd>
-<dt><strong>resolution: target distance between each sample on the polygon boundary</strong></dt>
-<dd></dd>
-<dt><strong>clip:       [minimum number of samples, maximum number of samples]</strong></dt>
-<dd><p class="first last">specifying a very fine resolution can cause the sample count to
+<dt><strong>polygon</strong> <span class="classifier-delimiter">:</span> <span class="classifier">shapely.geometry.Polygon</span></dt>
+<dd><p class="first last">The source geometry</p>
+</dd>
+<dt><strong>resolution</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Distance between each sample on the polygon boundary</p>
+</dd>
+<dt><strong>clip</strong> <span class="classifier-delimiter">:</span> <span class="classifier">None, or (2,) float</span></dt>
+<dd><p class="first last">Clip the lower and upper bound of sample count to:
+[minimum number of samples, maximum number of samples]
+specifying a very fine resolution can cause the sample count to
 explode, so clip specifies a minimum and maximum number of samples
 to use per boundary region. To not clip, this can be specified as:
 [0, np.inf]</p>
@@ -3905,7 +3911,7 @@ that represents their vertex nodes.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.16',
+            VERSION:'2.31.17',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

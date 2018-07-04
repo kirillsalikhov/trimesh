@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.31.16 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.31.17 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.16
+                2.31.17
               </div>
             
           
@@ -5426,17 +5426,19 @@ groups = nx.connected_components(graph_connected)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>mesh: Trimesh object</strong></dt>
+<dt><strong>mesh</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh</span></dt>
 <dd></dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>radii: (n,) float, approximate radius between faces.</strong></dt>
-<dd><p class="first last">Parallel faces will have a value of np.inf</p>
+<dt><strong>radii</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.face_adjacency),) float</span></dt>
+<dd><p class="first last">Approximate radius between faces
+Parallel faces will have a value of np.inf</p>
 </dd>
-<dt><strong>span:  (n,) float, perpendicular projection distance of two</strong></dt>
-<dd><p class="first last">unshared vertices onto the shared edge</p>
+<dt><strong>span</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.face_adjacency),) float</span></dt>
+<dd><p class="first last">Perpendicular projection distance of two
+unshared vertices onto the shared edge</p>
 </dd>
 </dl>
 </td>
@@ -5474,15 +5476,19 @@ edge between two adjacent faces</p>
 <dt id="trimesh.graph.facets">
 <code class="descclassname">trimesh.graph.</code><code class="descname">facets</code><span class="sig-paren">(</span><em>mesh</em>, <em>engine=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.facets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the list of parallel adjacent faces.</p>
-<p>mesh:  Trimesh
-engine: str, which graph engine to use (‘scipy’, ‘networkx’, ‘graphtool’)</p>
+<p>mesh :  trimesh.Trimesh
+engine : str</p>
+<blockquote>
+<div>Which graph engine to use:
+(‘scipy’, ‘networkx’, ‘graphtool’)</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>facets: list of groups of face indexes (mesh.faces) of parallel</strong></dt>
-<dd><p class="first last">adjacent faces.</p>
+<dt><strong>facets</strong> <span class="classifier-delimiter">:</span> <span class="classifier">sequence of (n,) int</span></dt>
+<dd><p class="first last">Groups of face indexes of
+parallel adjacent faces.</p>
 </dd>
 </dl>
 </td>
@@ -5664,6 +5670,39 @@ and will attempt single triangle/quad repairs.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>meshes: list of Trimesh objects</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.graph.split_traversal">
+<code class="descclassname">trimesh.graph.</code><code class="descname">split_traversal</code><span class="sig-paren">(</span><em>edges</em>, <em>traversal</em>, <em>edge_hash=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.split_traversal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a traversal over a list of edges split it if
+a sequential index pair is not in the edges.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>edges</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 2) int</span></dt>
+<dd><p class="first last">Graph edge indexes</p>
+</dd>
+<dt><strong>traversal</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,) int</span></dt>
+<dd><p class="first last">Traversal through edges</p>
+</dd>
+<dt><strong>edge_hash</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,)</span></dt>
+<dd><p class="first last">Edges sorted on axis=1 and
+passed to grouping.hashable_rows</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>split</strong> <span class="classifier-delimiter">:</span> <span class="classifier">sequence of (p,) int</span></dt>
 <dd></dd>
 </dl>
 </td>
@@ -11914,22 +11953,26 @@ individual line segments with duplicated consecutive values.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>mesh: Trimesh object</strong></dt>
-<dd></dd>
-<dt><strong>faces_sequence: sequence of face indices from mesh</strong></dt>
-<dd></dd>
-<dt><strong>only_watertight: only return submeshes which are watertight.</strong></dt>
-<dd></dd>
-<dt><strong>append: return a single mesh which has the faces specified appended.</strong></dt>
-<dd><p class="first last">if this flag is set, only_watertight is ignored</p>
+<dt><strong>mesh</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Trimesh</span></dt>
+<dd><p class="first last">Source mesh to take geometry from</p>
+</dd>
+<dt><strong>faces_sequence</strong> <span class="classifier-delimiter">:</span> <span class="classifier">sequence (p,) int</span></dt>
+<dd><p class="first last">Indexes of mesh.faces</p>
+</dd>
+<dt><strong>only_watertight</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Only return submeshes which are watertight.</p>
+</dd>
+<dt><strong>append</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Return a single mesh which has the faces appended,
+if this flag is set, only_watertight is ignored</p>
 </dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>if append: Trimesh object</strong></dt>
+<dt><strong>if append</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Trimesh object</span></dt>
 <dd></dd>
-<dt><strong>else:      list of Trimesh objects</strong></dt>
+<dt><strong>else        list of Trimesh objects</strong></dt>
 <dd></dd>
 </dl>
 </td>
@@ -13399,7 +13442,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.16',
+            VERSION:'2.31.17',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
