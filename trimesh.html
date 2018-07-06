@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.31.17 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.31.19 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.17
+                2.31.19
               </div>
             
           
@@ -5292,16 +5292,19 @@ backends.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>edges: (n, 2) int, edges of a graph</strong></dt>
-<dd></dd>
-<dt><strong>node_count: int, the largest node in the graph.</strong></dt>
-<dd></dd>
+<dt><strong>edges</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 2) int</span></dt>
+<dd><p class="first last">Edges of a graph</p>
+</dd>
+<dt><strong>node_count</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, or None</span></dt>
+<dd><p class="first last">The largest node in the graph.</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>labels: (node_count,) int, component labels for each node</strong></dt>
-<dd></dd>
+<dt><strong>labels</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(node_count,) int</span></dt>
+<dd><p class="first last">Component labels for each node</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -5498,6 +5501,41 @@ parallel adjacent faces.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="trimesh.graph.fill_traversals">
+<code class="descclassname">trimesh.graph.</code><code class="descname">fill_traversals</code><span class="sig-paren">(</span><em>traversals</em>, <em>edges</em>, <em>edges_hash=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.fill_traversals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a traversal of a list of edges into a sequence of
+traversals where every pair of consecutive node indexes
+is an edge in a passed edge list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>traversals</strong> <span class="classifier-delimiter">:</span> <span class="classifier">sequence of (m,) int</span></dt>
+<dd><p class="first last">Node indexes of traversals of a graph</p>
+</dd>
+<dt><strong>edges</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 2) int</span></dt>
+<dd><p class="first last">Pairs of connected node indexes</p>
+</dd>
+<dt><strong>edges_hash</strong> <span class="classifier-delimiter">:</span> <span class="classifier">None, or (n,) int</span></dt>
+<dd><p class="first last">Edges sorted along axis 1 then hashed
+using grouping.hashable_rows</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>splits</strong> <span class="classifier-delimiter">:</span> <span class="classifier">sequence of (p,) int</span></dt>
+<dd><p class="first last">Node indexes of connected traversals</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="trimesh.graph.graph_to_svg">
 <code class="descclassname">trimesh.graph.</code><code class="descname">graph_to_svg</code><span class="sig-paren">(</span><em>graph</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.graph_to_svg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Turn a networkx graph into an SVG string, using graphviz dot.</p>
@@ -5680,9 +5718,9 @@ and will attempt single triangle/quad repairs.</p>
 
 <dl class="function">
 <dt id="trimesh.graph.split_traversal">
-<code class="descclassname">trimesh.graph.</code><code class="descname">split_traversal</code><span class="sig-paren">(</span><em>edges</em>, <em>traversal</em>, <em>edge_hash=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.split_traversal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a traversal over a list of edges split it if
-a sequential index pair is not in the edges.</p>
+<code class="descclassname">trimesh.graph.</code><code class="descname">split_traversal</code><span class="sig-paren">(</span><em>traversal</em>, <em>edges</em>, <em>edges_hash=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.split_traversal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a traversal as a list of nodes, split the traversal
+if a sequential index pair is not in the given edges.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -5721,9 +5759,9 @@ depth first search traversals, using scipy.csgraph routines.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>edges: (n,2) int, undirected edges of a graph</strong></dt>
+<dt><strong>edges</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,2) int, undirected edges of a graph</span></dt>
 <dd></dd>
-<dt><strong>mode:  str, ‘bfs’, or ‘dfs’</strong></dt>
+<dt><strong>mode</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, ‘bfs’, or ‘dfs’</span></dt>
 <dd></dd>
 </dl>
 </td>
@@ -13442,7 +13480,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.17',
+            VERSION:'2.31.19',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
