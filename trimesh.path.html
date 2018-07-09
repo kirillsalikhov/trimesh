@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path package &mdash; trimesh 2.31.22 documentation</title>
+  <title>trimesh.path package &mdash; trimesh 2.31.23 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.22
+                2.31.23
               </div>
             
           
@@ -597,7 +597,7 @@ vertex indices rather than vertices themselves.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">closed</span></code></dt>
-<dd><p class="first last">If the first point is the same as the end point, the entity is closed</p>
+<dd><p class="first last">If the first point is the same as the end point</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">end_points</span></code></dt>
 <dd><p class="first last">Returns the first and last points.</p>
@@ -674,7 +674,7 @@ vertex indices rather than vertices themselves.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">closed</span></code></dt>
-<dd><p class="first last">If the first point is the same as the end point, the entity is closed</p>
+<dd><p class="first last">If the first point is the same as the end point</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">end_points</span></code></dt>
 <dd><p class="first last">Returns the first and last points.</p>
@@ -745,7 +745,7 @@ vertex indices rather than vertices themselves.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">closed</span></code></dt>
-<dd><p class="first last">If the first point is the same as the end point, the entity is closed</p>
+<dd><p class="first last">If the first point is the same as the end point</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">end_points</span></code></dt>
 <dd><p class="first last">Returns the first and last points.</p>
@@ -820,7 +820,7 @@ returns:      [[0,1], [1,2]]</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
 <dt><a class="reference internal" href="#trimesh.path.entities.Entity.closed" title="trimesh.path.entities.Entity.closed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">closed</span></code></a></dt>
-<dd><p class="first last">If the first point is the same as the end point, the entity is closed</p>
+<dd><p class="first last">If the first point is the same as the end point</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.path.entities.Entity.end_points" title="trimesh.path.entities.Entity.end_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">end_points</span></code></a></dt>
 <dd><p class="first last">Returns the first and last points.</p>
@@ -890,7 +890,8 @@ returns:      [[0,1], [1,2]]</p>
 <dl class="attribute">
 <dt id="trimesh.path.entities.Entity.closed">
 <code class="descname">closed</code><a class="headerlink" href="#trimesh.path.entities.Entity.closed" title="Permalink to this definition">¶</a></dt>
-<dd><p>If the first point is the same as the end point, the entity is closed</p>
+<dd><p>If the first point is the same as the end point
+the entity is closed</p>
 </dd></dl>
 
 <dl class="method">
@@ -969,7 +970,8 @@ returns:      [[0,1], [1,2]]</p>
 <dl class="method">
 <dt id="trimesh.path.entities.Entity.to_dict">
 <code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.entities.Entity.to_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a dictionary with all of the information about the entity.</p>
+<dd><p>Returns a dictionary with all of the information
+about the entity.</p>
 </dd></dl>
 
 </dd></dl>
@@ -985,7 +987,7 @@ returns:      [[0,1], [1,2]]</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">closed</span></code></dt>
-<dd><p class="first last">If the first point is the same as the end point, the entity is closed</p>
+<dd><p class="first last">If the first point is the same as the end point</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">end_points</span></code></dt>
 <dd><p class="first last">Returns the first and last points.</p>
@@ -3667,11 +3669,6 @@ so a path may be traversed without having to reverse the entity.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="trimesh.path.traversal.connected_open">
-<code class="descclassname">trimesh.path.traversal.</code><code class="descname">connected_open</code><span class="sig-paren">(</span><em>graph</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.traversal.connected_open" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
 <dt id="trimesh.path.traversal.discretize_path">
 <code class="descclassname">trimesh.path.traversal.</code><code class="descname">discretize_path</code><span class="sig-paren">(</span><em>entities</em>, <em>vertices</em>, <em>path</em>, <em>scale=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.traversal.discretize_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Turn a list of entity indices into a path of connected points.</p>
@@ -3911,7 +3908,7 @@ that represents their vertex nodes.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.22',
+            VERSION:'2.31.23',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
