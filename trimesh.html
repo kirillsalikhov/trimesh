@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.31.23 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.31.24 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.23
+                2.31.24
               </div>
             
           
@@ -5845,13 +5845,19 @@ only_nonzero: bool, only return blocks of non- zero values</p>
 <dt id="trimesh.grouping.boolean_rows">
 <code class="descclassname">trimesh.grouping.</code><code class="descname">boolean_rows</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>operation=&lt;function intersect1d&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.boolean_rows" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the rows in two arrays which occur in both rows.</p>
-<p>a: (n,d) array
-b: (m,d) array
-operation: boolean set operation function:</p>
-<blockquote>
-<div>set.intersection
-set.difference
-set.union</div></blockquote>
+<dl class="docutils">
+<dt>a: (n, d) int</dt>
+<dd>Array with row vectors</dd>
+<dt>b: (m, d) int</dt>
+<dd>Array with row vectors</dd>
+<dt>operation <span class="classifier-delimiter">:</span> <span class="classifier">function</span></dt>
+<dd><dl class="first last docutils">
+<dt>Numpy boolean set operation function:</dt>
+<dd>-np.intersect1d
+-np.setdiff1d</dd>
+</dl>
+</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -13480,7 +13486,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.23',
+            VERSION:'2.31.24',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
