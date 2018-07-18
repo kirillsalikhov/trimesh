@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path package &mdash; trimesh 2.31.25 documentation</title>
+  <title>trimesh.path package &mdash; trimesh 2.31.26 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.25
+                2.31.26
               </div>
             
           
@@ -1444,6 +1444,9 @@ order of which rectangles are inserted onto the larger sheet.</p>
 <tr class="row-even"><td><a class="reference internal" href="#trimesh.path.path.Path.rezero" title="trimesh.path.path.Path.rezero"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rezero</span></code></a>()</td>
 <td>Translate so that every vertex is positive in the current mesh is positive.</td>
 </tr>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.path.path.Path.scene" title="trimesh.path.path.Path.scene"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scene</span></code></a>()</td>
+<td>Get a scene object containing the current Path3D object.</td>
+</tr>
 </tbody>
 </table>
 <table border="1" class="docutils">
@@ -1455,10 +1458,7 @@ order of which rectangles are inserted onto the larger sheet.</p>
 <tr class="row-odd"><td><strong>export</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><strong>show</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>to_dict</strong></td>
+<tr class="row-even"><td><strong>to_dict</strong></td>
 <td>&#160;</td>
 </tr>
 </tbody>
@@ -1919,9 +1919,22 @@ of the world holding the paths, for numerical comparisons.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="trimesh.path.path.Path.show">
-<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.path.Path.show" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="trimesh.path.path.Path.scene">
+<code class="descname">scene</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.path.Path.scene" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a scene object containing the current Path3D object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>scene: trimesh.scene.Scene object containing current path</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="trimesh.path.path.Path.to_dict">
@@ -2132,6 +2145,12 @@ of the world holding the paths, for numerical comparisons.</p>
 <tr class="row-even"><td><a class="reference internal" href="#trimesh.path.path.Path2D.sample" title="trimesh.path.path.Path2D.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>(count,&nbsp;**kwargs)</td>
 <td>Use rejection sampling to generate random points inside a polygon.</td>
 </tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">scene</span></code>()</td>
+<td>Get a scene object containing the current Path3D object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.path.path.Path2D.show" title="trimesh.path.path.Path2D.show"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code></a>()</td>
+<td>Plot the current Path2D object using matplotlib.</td>
+</tr>
 <tr class="row-odd"><td><a class="reference internal" href="#trimesh.path.path.Path2D.simplify" title="trimesh.path.path.Path2D.simplify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simplify</span></code></a>(**kwargs)</td>
 <td>Return a version of the current path with colinear segments merged, and circles entities replacing segmented circular paths.</td>
 </tr>
@@ -2155,10 +2174,7 @@ of the world holding the paths, for numerical comparisons.</p>
 <tr class="row-odd"><td><strong>export</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><strong>show</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>to_dict</strong></td>
+<tr class="row-even"><td><strong>to_dict</strong></td>
 <td>&#160;</td>
 </tr>
 </tbody>
@@ -2526,6 +2542,12 @@ count * factor * max_iter</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="trimesh.path.path.Path2D.show">
+<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.path.Path2D.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the current Path2D object using matplotlib.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="trimesh.path.path.Path2D.simplify">
 <code class="descname">simplify</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.path.Path2D.simplify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a version of the current path with colinear segments
@@ -2709,53 +2731,53 @@ split them into a list of n Path2D objects</p>
 <td>Merges vertices which are identical and replace references.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#trimesh.path.path.Path3D.plot_discrete" title="trimesh.path.path.Path3D.plot_discrete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_discrete</span></code></a>([show])</td>
-<td>Plot the discrete closed curves.</td>
+<td>Plot closed curves</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.path.path.Path3D.plot_entities" title="trimesh.path.path.Path3D.plot_entities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_entities</span></code></a>([show])</td>
+<td>Plot discrete version of entities without regards for connectivity.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code>()</td>
 <td>Apply basic cleaning functions to the Path object, in- place.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_duplicate_entities</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_duplicate_entities</span></code>()</td>
 <td>Remove entities that are duplicated</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_entities</span></code>(entity_ids)</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_entities</span></code>(entity_ids)</td>
 <td>Remove entities by index.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_invalid</span></code>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_invalid</span></code>()</td>
 <td>Remove entities which declare themselves invalid</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_unreferenced_vertices</span></code>()</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_unreferenced_vertices</span></code>()</td>
 <td>Removes all vertices which aren’t used by an entity.</td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_vertex_references</span></code>(mask)</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_vertex_references</span></code>(mask)</td>
 <td>Replace the vertex index references in every entity.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">rezero</span></code>()</td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">rezero</span></code>()</td>
 <td>Translate so that every vertex is positive in the current mesh is positive.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.path.path.Path3D.scene" title="trimesh.path.path.Path3D.scene"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scene</span></code></a>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">scene</span></code>()</td>
 <td>Get a scene object containing the current Path3D object.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#trimesh.path.path.Path3D.show" title="trimesh.path.path.Path3D.show"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.path.path.Path3D.show" title="trimesh.path.path.Path3D.show"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code></a>()</td>
 <td>Show the current Path3D object.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.path.path.Path3D.to_planar" title="trimesh.path.path.Path3D.to_planar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_planar</span></code></a>([to_2D,&nbsp;normal,&nbsp;check])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.path.path.Path3D.to_planar" title="trimesh.path.path.Path3D.to_planar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_planar</span></code></a>([to_2D,&nbsp;normal,&nbsp;check])</td>
 <td>Check to see if current vectors are all coplanar.</td>
 </tr>
 </tbody>
 </table>
 <table border="1" class="docutils">
 <colgroup>
-<col width="63%" />
-<col width="37%" />
+<col width="52%" />
+<col width="48%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><strong>export</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><strong>plot_entities</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>to_dict</strong></td>
+<tr class="row-even"><td><strong>to_dict</strong></td>
 <td>&#160;</td>
 </tr>
 </tbody>
@@ -2763,14 +2785,15 @@ split them into a list of n Path2D objects</p>
 <dl class="method">
 <dt id="trimesh.path.path.Path3D.plot_discrete">
 <code class="descname">plot_discrete</code><span class="sig-paren">(</span><em>show=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.path.Path3D.plot_discrete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot the discrete closed curves.</p>
+<dd><p>Plot closed curves</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>show:</strong></dt>
-<dd></dd>
+<dt><strong>show</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">If False will not execute matplotlib.pyplot.show</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2781,19 +2804,16 @@ split them into a list of n Path2D objects</p>
 <dl class="method">
 <dt id="trimesh.path.path.Path3D.plot_entities">
 <code class="descname">plot_entities</code><span class="sig-paren">(</span><em>show=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.path.Path3D.plot_entities" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="trimesh.path.path.Path3D.scene">
-<code class="descname">scene</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.path.Path3D.scene" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a scene object containing the current Path3D object.</p>
+<dd><p>Plot discrete version of entities without regards
+for connectivity.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>scene: trimesh.scene.Scene object containing current path</strong></dt>
-<dd></dd>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>show</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">If False will not execute matplotlib.pyplot.show</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2822,13 +2842,14 @@ transform the 2D representation back into 3 dimensions</p>
 <dd><p class="first last">Homogenous transformation matrix to apply,
 If not passed a plane will be fitted to vertices.</p>
 </dd>
-<dt><strong>normal: (3,) float</strong></dt>
-<dd><p class="first last">Normal of plane, which is only used if to_2D
-is not specified.</p>
+<dt><strong>normal: (3,) float, or None</strong></dt>
+<dd><p class="first last">Approximate normal of direction of plane
+if to_2D is not specified
+Sign will be applied to fit plane normal</p>
 </dd>
 <dt><strong>check:  bool</strong></dt>
-<dd><p class="first last">Raise a ValueError if the points aren’t coplanar
-after being transformed.</p>
+<dd><p class="first last">If True: Raise a ValueError if
+points aren’t coplanar</p>
 </dd>
 </dl>
 </td>
@@ -3908,7 +3929,7 @@ that represents their vertex nodes.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.25',
+            VERSION:'2.31.26',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

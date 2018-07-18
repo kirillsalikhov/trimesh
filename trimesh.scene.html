@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.scene package &mdash; trimesh 2.31.25 documentation</title>
+  <title>trimesh.scene package &mdash; trimesh 2.31.26 documentation</title>
   
 
   
@@ -57,7 +57,7 @@
             
             
               <div class="version">
-                2.31.25
+                2.31.26
               </div>
             
           
@@ -219,10 +219,10 @@
 <dt id="trimesh.scene.scene.Scene">
 <em class="property">class </em><code class="descclassname">trimesh.scene.scene.</code><code class="descname">Scene</code><span class="sig-paren">(</span><em>geometry=None</em>, <em>base_frame='world'</em>, <em>metadata={}</em>, <em>graph=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.scene.Scene" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A simple scene graph which can be rendered directly via pyglet/openGL,
-or through other endpoints such as a raytracer.</p>
-<p>Meshes and lights are added by name, which can then be moved by updating
-transform in the transform tree.</p>
+<p>A simple scene graph which can be rendered directly via
+pyglet/openGL or through other endpoints such as a
+raytracer. Meshes are added by name, which can then be
+moved by updating transform in the transform tree.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -818,6 +818,35 @@ None: automatically pick based on whether or not</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="trimesh.scene.scene.append_scenes">
+<code class="descclassname">trimesh.scene.scene.</code><code class="descname">append_scenes</code><span class="sig-paren">(</span><em>iterable, common=['world']</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.scene.append_scenes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenate multiple scene objects into one scene.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>iterable</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) Trimesh or Scene</span></dt>
+<dd><p class="first last">Geometries that should be appended</p>
+</dd>
+<dt><strong>common</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) str</span></dt>
+<dd><p class="first last">Nodes that shouldn’t be remapped</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>result</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Scene</span></dt>
+<dd><p class="first last">Scene containing all geometry</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="trimesh.scene.scene.split_scene">
 <code class="descclassname">trimesh.scene.scene.</code><code class="descname">split_scene</code><span class="sig-paren">(</span><em>geometry</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.scene.split_scene" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a geometry, list of geometries, or a Scene
@@ -1298,8 +1327,14 @@ from the graph. The edges can be:</p>
 <tr class="row-odd"><td><a class="reference internal" href="#trimesh.scene.transforms.TransformForest.copy" title="trimesh.scene.transforms.TransformForest.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>()</td>
 <td>Return a copy of the current TransformForest</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.transforms.TransformForest.get" title="trimesh.scene.transforms.TransformForest.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(frame_to[,&nbsp;frame_from])</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.transforms.TransformForest.from_edgelist" title="trimesh.scene.transforms.TransformForest.from_edgelist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_edgelist</span></code></a>(edges[,&nbsp;strict])</td>
+<td>Load transform data from an edge list into the current scene graph.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.scene.transforms.TransformForest.get" title="trimesh.scene.transforms.TransformForest.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(frame_to[,&nbsp;frame_from])</td>
 <td>Get the transform from one frame to another, assuming they are connected in the transform tree.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.scene.transforms.TransformForest.load" title="trimesh.scene.transforms.TransformForest.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(edgelist)</td>
+<td>Load transform data from an edge list into the current scene graph.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#trimesh.scene.transforms.TransformForest.md5" title="trimesh.scene.transforms.TransformForest.md5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">md5</span></code></a>()</td>
 <td>MD5 of transforms.</td>
@@ -1330,10 +1365,7 @@ from the graph. The edges can be:</p>
 <tr class="row-odd"><td><strong>clear</strong></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td><strong>load</strong></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><strong>to_svg</strong></td>
+<tr class="row-even"><td><strong>to_svg</strong></td>
 <td>&#160;</td>
 </tr>
 </tbody>
@@ -1354,6 +1386,30 @@ from the graph. The edges can be:</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>copied: TransformForest</strong></dt>
 <dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="trimesh.scene.transforms.TransformForest.from_edgelist">
+<code class="descname">from_edgelist</code><span class="sig-paren">(</span><em>edges</em>, <em>strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.from_edgelist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load transform data from an edge list into the current
+scene graph.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>edgelist</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) tuples</span></dt>
+<dd><p class="first last">(node_a, node_b, {key: value})</p>
+</dd>
+<dt><strong>strict</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">If true, raise a ValueError when a
+malformed edge is passed in a tuple.</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1389,7 +1445,22 @@ in the transform tree.</p>
 <dl class="method">
 <dt id="trimesh.scene.transforms.TransformForest.load">
 <code class="descname">load</code><span class="sig-paren">(</span><em>edgelist</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.load" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Load transform data from an edge list into the current
+scene graph.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>edgelist</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) tuples</span></dt>
+<dd><p class="first last">(node_a, node_b, {key: value})</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="trimesh.scene.transforms.TransformForest.md5">
@@ -1504,8 +1575,8 @@ Flattens tree.</p>
 quaternion:  (4) quaternion
 axis:        (3) array
 angle:       float, radians
-translation: (3) array</p>
-<p>geometry: Geometry object name</p>
+translation: (3) array
+geometry : Geometry object name</p>
 </dd></dl>
 
 </dd></dl>
@@ -2210,7 +2281,7 @@ an IPython/Jupyter notebook.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.25',
+            VERSION:'2.31.26',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
