@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path package &mdash; trimesh 2.31.32 documentation</title>
+  <title>trimesh.path package &mdash; trimesh 2.31.33 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.32
+                2.31.33
               </div>
             
           
@@ -525,8 +525,9 @@ vertex indices rather than vertices themselves.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>vertices: (n, dimension) float, vertices in space</strong></dt>
-<dd></dd>
+<dt><strong>vertices</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, dimension) float</span></dt>
+<dd><p class="first last">Vertices in space</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -568,10 +569,12 @@ vertex indices rather than vertices themselves.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>vertices: (n, dimension) float, points in space</strong></dt>
-<dd></dd>
-<dt><strong>scale:    float, size of overall scene for numerical comparisons</strong></dt>
-<dd></dd>
+<dt><strong>vertices</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, dimension) float</span></dt>
+<dd><p class="first last">Points in space</p>
+</dd>
+<dt><strong>scale</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Size of overall scene for numerical comparisons</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -659,7 +662,8 @@ vertex indices rather than vertices themselves.</p>
 <dl class="method">
 <dt id="trimesh.path.entities.BSpline.to_dict">
 <code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.entities.BSpline.to_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a dictionary with all of the information about the entity.</p>
+<dd><p>Returns a dictionary with all of the information
+about the entity.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1621,8 +1625,9 @@ self.paths.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>discrete: (len(self.paths),) sequence of (m*, dimension) float</strong></dt>
-<dd></dd>
+<dt><strong>discrete</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.paths),)</span></dt>
+<dd><p class="first last">A sequence of (m*, dimension) float</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1909,8 +1914,9 @@ of the world holding the paths, for numerical comparisons.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>scale: float, approximate size of the world holding this path</strong></dt>
-<dd></dd>
+<dt><strong>scale</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Approximate size of the world holding this path</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2373,7 +2379,7 @@ to use per boundary region. To not clip, this can be specified as:
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>medial:     Path2D object</strong></dt>
+<dt><strong>medial</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Path2D object</span></dt>
 <dd></dd>
 </dl>
 </td>
@@ -3022,7 +3028,7 @@ to use per boundary region. To not clip, this can be specified as:
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>lines:     (n,2,2) set of line segments</strong></dt>
+<dt><strong>medial</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Path2D object</span></dt>
 <dd></dd>
 </dl>
 </td>
@@ -3041,18 +3047,19 @@ valid shapely Polygon objects.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>paths: (n,) sequence, of (m,2) float, closed paths</strong></dt>
-<dd></dd>
-<dt><strong>scale: float, scale of drawing</strong></dt>
-<dd></dd>
+<dt><strong>paths</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) sequence</span></dt>
+<dd><p class="first last">Of (m,2) float, closed paths</p>
+</dd>
+<dt><strong>scale: float</strong></dt>
+<dd><p class="first last">Approximate scale of drawing for precision</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>polys: (p,) list of shapely.geometry.Polygons</strong></dt>
-<dd></dd>
-<dt><strong>valid: (n,) bool, whether input path was valid:</strong></dt>
-<dd><p class="first last">valid.sum() == p</p>
+<dt><strong>polys: (p,) list</strong></dt>
+<dd><p class="first last">shapely.geometry.Polygon
+None</p>
 </dd>
 </dl>
 </td>
@@ -3766,6 +3773,11 @@ Result can have a specific distance (np.arange) by specifying step</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="trimesh.path.traversal.split">
+<code class="descclassname">trimesh.path.traversal.</code><code class="descname">split</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.traversal.split" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
 <dt id="trimesh.path.traversal.vertex_graph">
 <code class="descclassname">trimesh.path.traversal.</code><code class="descname">vertex_graph</code><span class="sig-paren">(</span><em>entities</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.traversal.vertex_graph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a set of entity objects generate a networkx.Graph
@@ -3929,7 +3941,7 @@ that represents their vertex nodes.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.32',
+            VERSION:'2.31.33',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
