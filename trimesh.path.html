@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path package &mdash; trimesh 2.31.33 documentation</title>
+  <title>trimesh.path package &mdash; trimesh 2.31.34 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.33
+                2.31.34
               </div>
             
           
@@ -2449,8 +2449,9 @@ by checking which closed polygons enclose which other polygons.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>full: list of shapely.geometry.Polygon objects</strong></dt>
-<dd></dd>
+<dt><strong>full</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.root),) shapely.geometry.Polygon</span></dt>
+<dd><p class="first last">Polygons containing interiors</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2972,25 +2973,29 @@ representing lines, generate a list of polygons.</p>
 <dl class="function">
 <dt id="trimesh.path.polygons.enclosure_tree">
 <code class="descclassname">trimesh.path.polygons.</code><code class="descname">enclosure_tree</code><span class="sig-paren">(</span><em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.polygons.enclosure_tree" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a list of shapely polygons, which are the root (aka outermost)
-polygons, and which represent the holes which penetrate the root
-curve. We do this by creating an R-tree for rough collision detection,
-and then do polygon queries for a final result</p>
+<dd><p>Given a list of shapely polygons with only exteriors,
+find which curves represent the exterior shell or root curve
+and which represent holes which penetrate the exterior.</p>
+<p>This is done with an R-tree for rough overlap detection,
+and then exact polygon queries for a final result.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>polygons: (n,) list of shapely.geometry.Polygon objects</strong></dt>
-<dd></dd>
+<dt><strong>polygons</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) shapely.geometry.Polygon</span></dt>
+<dd><p class="first last">Polygons which only have exteriors and may overlap</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>roots: (m,) int, index of polygons which are root</strong></dt>
-<dd></dd>
-<dt><strong>contains:  networkx.DiGraph, edges indicate a polygon</strong></dt>
-<dd><p class="first last">contained by another polygon</p>
+<dt><strong>roots</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,) int</span></dt>
+<dd><p class="first last">Index of polygons which are root</p>
+</dd>
+<dt><strong>contains</strong> <span class="classifier-delimiter">:</span> <span class="classifier">networkx.DiGraph</span></dt>
+<dd><p class="first last">Edges indicate a polygon is
+contained by another polygon</p>
 </dd>
 </dl>
 </td>
@@ -3941,7 +3946,7 @@ that represents their vertex nodes.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.33',
+            VERSION:'2.31.34',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
