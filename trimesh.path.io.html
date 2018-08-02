@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path.io package &mdash; trimesh 2.31.48 documentation</title>
+  <title>trimesh.path.io package &mdash; trimesh 2.31.49 documentation</title>
   
 
   
@@ -57,7 +57,7 @@
             
             
               <div class="version">
-                2.31.48
+                2.31.49
               </div>
             
           
@@ -219,7 +219,7 @@
 <span id="trimesh-path-io-dxf-module"></span><h2>trimesh.path.io.dxf module<a class="headerlink" href="#module-trimesh.path.io.dxf" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="trimesh.path.io.dxf.export_dxf">
-<code class="descclassname">trimesh.path.io.dxf.</code><code class="descname">export_dxf</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.io.dxf.export_dxf" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.path.io.dxf.</code><code class="descname">export_dxf</code><span class="sig-paren">(</span><em>path</em>, <em>include_metadata=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.io.dxf.export_dxf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Export a 2D path object to a DXF file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -303,11 +303,12 @@ entities.</p>
 <dl class="function">
 <dt id="trimesh.path.io.export.export_dict">
 <code class="descclassname">trimesh.path.io.export.</code><code class="descname">export_dict</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.io.export.export_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Export a path as a dict of kwargs for the Path constructor.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="trimesh.path.io.export.export_path">
-<code class="descclassname">trimesh.path.io.export.</code><code class="descname">export_path</code><span class="sig-paren">(</span><em>path</em>, <em>file_type</em>, <em>file_obj=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.io.export.export_path" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.path.io.export.</code><code class="descname">export_path</code><span class="sig-paren">(</span><em>path</em>, <em>file_type</em>, <em>file_obj=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.io.export.export_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Export a Path object to a file- like object, or to a filename</p>
 <p>file_obj:  a filename string or a file-like object
 file_type: str representing file type (eg: ‘svg’)
@@ -641,7 +642,7 @@ face_ids: (n) list of indices of mesh.faces</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.48',
+            VERSION:'2.31.49',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
