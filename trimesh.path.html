@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path package &mdash; trimesh 2.31.51 documentation</title>
+  <title>trimesh.path package &mdash; trimesh 2.31.52 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.51
+                2.31.52
               </div>
             
           
@@ -365,9 +365,9 @@ points on the arc.</p>
 <dl class="function">
 <dt id="trimesh.path.curve.binomial">
 <code class="descclassname">trimesh.path.curve.</code><code class="descname">binomial</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.curve.binomial" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return all binomial coefficents for a given order.</p>
+<dd><p>Return all binomial coefficients for a given order.</p>
 <p>For n &gt; 5, scipy.special.binom is used, below we hardcode
-to avoid the scipy.special dependancy.</p>
+to avoid the scipy.special dependency.</p>
 </dd></dl>
 
 <dl class="function">
@@ -470,7 +470,7 @@ vertex indices rather than vertices themselves.</p>
 <td>Return the AABB of the arc entity.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#trimesh.path.entities.Arc.center" title="trimesh.path.entities.Arc.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">center</span></code></a>(vertices)</td>
-<td>Return the center information about the arc entitiy.</td>
+<td>Return the center information about the arc entity.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code>()</td>
 <td>Return a copy of the current entity.</td>
@@ -519,7 +519,7 @@ vertex indices rather than vertices themselves.</p>
 <dl class="method">
 <dt id="trimesh.path.entities.Arc.center">
 <code class="descname">center</code><span class="sig-paren">(</span><em>vertices</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.entities.Arc.center" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the center information about the arc entitiy.</p>
+<dd><p>Return the center information about the arc entity.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1419,7 +1419,7 @@ order of which rectangles are inserted onto the larger sheet.</p>
 <td>Turn every multi- segment entity into single segment entities, in- place</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#trimesh.path.path.Path.fill_gaps" title="trimesh.path.path.Path.fill_gaps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_gaps</span></code></a>([max_distance])</td>
-<td>Find vertexes with degree 1 and try to connect them to other vertices of degree 1, in place.</td>
+<td>Find vertices with degree 1 and try to connect them to other vertices of degree 1, in place.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#trimesh.path.path.Path.md5" title="trimesh.path.path.Path.md5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">md5</span></code></a>()</td>
 <td>An MD5 hash of the current vertices and entities.</td>
@@ -1691,7 +1691,7 @@ self.paths.</p>
 <dl class="method">
 <dt id="trimesh.path.path.Path.fill_gaps">
 <code class="descname">fill_gaps</code><span class="sig-paren">(</span><em>max_distance=inf</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.path.Path.fill_gaps" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find vertexes with degree 1 and try to connect them to other
+<dd><p>Find vertices with degree 1 and try to connect them to other
 vertices of degree 1, in place.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2107,7 +2107,7 @@ of the world holding the paths, for numerical comparisons.</p>
 <td>Extrude the current 2D path into a 3D mesh.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_gaps</span></code>([max_distance])</td>
-<td>Find vertexes with degree 1 and try to connect them to other vertices of degree 1, in place.</td>
+<td>Find vertices with degree 1 and try to connect them to other vertices of degree 1, in place.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">md5</span></code>()</td>
 <td>An MD5 hash of the current vertices and entities.</td>
@@ -2731,7 +2731,7 @@ that transform will be used.</p>
 <td>Turn every multi- segment entity into single segment entities, in- place</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_gaps</span></code>([max_distance])</td>
-<td>Find vertexes with degree 1 and try to connect them to other vertices of degree 1, in place.</td>
+<td>Find vertices with degree 1 and try to connect them to other vertices of degree 1, in place.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">md5</span></code>()</td>
 <td>An MD5 hash of the current vertices and entities.</td>
@@ -3086,7 +3086,7 @@ None</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>polygon: shapely.geometry.Polygon object</strong></dt>
 <dd></dd>
-<dt><strong>show:    bool, if True will display immediatly</strong></dt>
+<dt><strong>show:    bool, if True will display immediately</strong></dt>
 <dd></dd>
 </dl>
 </td>
@@ -3824,7 +3824,7 @@ that represents their vertex nodes.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
 <dt><strong>vertex_path</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) int</span></dt>
-<dd><p class="first last">Ordered list of vertex indicies representing a path</p>
+<dd><p class="first last">Ordered list of vertex indices representing a path</p>
 </dd>
 <dt><strong>graph</strong> <span class="classifier-delimiter">:</span> <span class="classifier">nx.Graph</span></dt>
 <dd><p class="first last">Vertex connectivity</p>
@@ -3948,7 +3948,7 @@ that represents their vertex nodes.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.51',
+            VERSION:'2.31.52',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

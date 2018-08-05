@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.31.51 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.31.52 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.51
+                2.31.52
               </div>
             
           
@@ -556,7 +556,7 @@
 <dd><p class="first last">Return a float vector which is unique to the mesh and is robust to rotation and translation.</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.identifier_md5" title="trimesh.base.Trimesh.identifier_md5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier_md5</span></code></a></dt>
-<dd><p class="first last">An MD5 of the rotation invarient identifier vector</p>
+<dd><p class="first last">An MD5 of the rotation invariant identifier vector</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.is_convex" title="trimesh.base.Trimesh.is_convex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_convex</span></code></a></dt>
 <dd><p class="first last">Check if a mesh is convex or not.</p>
@@ -628,7 +628,7 @@
 <dd><p class="first last">Return the vertex defects, or (2*pi) minus the sum of the angles of every face that includes that vertex.</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.vertex_neighbors" title="trimesh.base.Trimesh.vertex_neighbors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_neighbors</span></code></a></dt>
-<dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existant.</p>
+<dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existent.</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.vertex_normals" title="trimesh.base.Trimesh.vertex_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></a></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
@@ -1391,7 +1391,7 @@ remove_unreferenced_vertices</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>euler_number: int, topological invarient</strong></dt>
+<dt><strong>euler_number: int, topological invariant</strong></dt>
 <dd></dd>
 </dl>
 </td>
@@ -1971,7 +1971,7 @@ and is robust to rotation and translation.</p>
 <dl class="attribute">
 <dt id="trimesh.base.Trimesh.identifier_md5">
 <code class="descname">identifier_md5</code><a class="headerlink" href="#trimesh.base.Trimesh.identifier_md5" title="Permalink to this definition">¶</a></dt>
-<dd><p>An MD5 of the rotation invarient identifier vector</p>
+<dd><p>An MD5 of the rotation invariant identifier vector</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2298,7 +2298,7 @@ at the origin.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>tranform: (4,4) float, homogenous transformation matrix</strong></dt>
+<dt><strong>transform: (4,4) float, homogenous transformation matrix</strong></dt>
 <dd></dd>
 </dl>
 </td>
@@ -2952,7 +2952,7 @@ concave negative.</p>
 <dt id="trimesh.base.Trimesh.vertex_neighbors">
 <code class="descname">vertex_neighbors</code><a class="headerlink" href="#trimesh.base.Trimesh.vertex_neighbors" title="Permalink to this definition">¶</a></dt>
 <dd><p>The vertex neighbors of each vertex of the mesh, determined from
-the cached vertex_adjacency_graph, if already existant.</p>
+the cached vertex_adjacency_graph, if already existent.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -3824,12 +3824,12 @@ replace it.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>is_collision: bool,  True if a collision occured between any pair of objects</strong></dt>
+<dt><strong>is_collision: bool,  True if a collision occurred between any pair of objects</strong></dt>
 <dd><p class="first last">and False otherwise</p>
 </dd>
 <dt><strong>names: set of 2-tup, The set of pairwise collisions. Each tuple</strong></dt>
 <dd><p class="first last">contains two names in alphabetical order indicating
-that the two correspoinding objects are in collision.</p>
+that the two corresponding objects are in collision.</p>
 </dd>
 <dt><strong>contacts: list of ContactData, All contacts detected</strong></dt>
 <dd></dd>
@@ -3860,13 +3860,13 @@ that the two correspoinding objects are in collision.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>is_collision: bool,  True if a collision occured between any pair of objects</strong></dt>
+<dt><strong>is_collision: bool,  True if a collision occurred between any pair of objects</strong></dt>
 <dd><p class="first last">and False otherwise</p>
 </dd>
 <dt><strong>names: set of 2-tup, The set of pairwise collisions. Each tuple</strong></dt>
 <dd><p class="first last">contains two names (first from this manager,
 second from the other_manager) indicating
-that the two correspoinding objects are in collision.</p>
+that the two corresponding objects are in collision.</p>
 </dd>
 <dt><strong>contacts: list of ContactData, All contacts detected</strong></dt>
 <dd></dd>
@@ -4293,7 +4293,7 @@ the given name.</p>
 <dl class="function">
 <dt id="trimesh.comparison.identifier_hash">
 <code class="descclassname">trimesh.comparison.</code><code class="descname">identifier_hash</code><span class="sig-paren">(</span><em>identifier</em>, <em>sigfig=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.comparison.identifier_hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hash an identifier array to a specified number of signifigant figures.</p>
+<dd><p>Hash an identifier array to a specified number of significant figures.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -4578,7 +4578,7 @@ Requires scipy &gt;.12.</p>
 <dd></dd>
 <dt><strong>radius: float, radius of the cylinder and hemispheres</strong></dt>
 <dd></dd>
-<dt><strong>count:  (2,) int, number of sections on lattitude and longitude</strong></dt>
+<dt><strong>count:  (2,) int, number of sections on latitude and longitude</strong></dt>
 <dd></dd>
 </dl>
 </td>
@@ -4823,7 +4823,7 @@ min_angle=None)</dd>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
 <dt><strong>radius: float, radius of sphere</strong></dt>
 <dd></dd>
-<dt><strong>count: (2,) int, number of lattitude and longitude lines</strong></dt>
+<dt><strong>count: (2,) int, number of latitude and longitude lines</strong></dt>
 <dd></dd>
 <dt><strong>theta: (n,) float, optional</strong></dt>
 <dd></dd>
@@ -6087,7 +6087,7 @@ include negative vectors.</p>
 <dd><p class="first last">Direction vector</p>
 </dd>
 <dt><strong>groups</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,) sequence of int</span></dt>
-<dd><p class="first last">Indicies of source vectors</p>
+<dd><p class="first last">Indices of source vectors</p>
 </dd>
 </dl>
 </td>
@@ -6183,14 +6183,14 @@ each row.</p>
 <code class="descclassname">trimesh.grouping.</code><code class="descname">unique_float</code><span class="sig-paren">(</span><em>data</em>, <em>return_index=False</em>, <em>return_inverse=False</em>, <em>digits=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.unique_float" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identical to the numpy.unique command, except evaluates floating point
 numbers, using a specified number of digits.</p>
-<p>If digits isn’t specified, the libray default TOL_MERGE will be used.</p>
+<p>If digits isn’t specified, the library default TOL_MERGE will be used.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="trimesh.grouping.unique_ordered">
 <code class="descclassname">trimesh.grouping.</code><code class="descname">unique_ordered</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.unique_ordered" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the same as np.unique, but ordered as per the
-first occurance of the unique value in data.</p>
+first occurrence of the unique value in data.</p>
 <p class="rubric">Examples</p>
 <p>In [1]: a = [0, 3, 3, 4, 1, 3, 0, 3, 2, 1]</p>
 <p>In [2]: np.unique(a)
@@ -6284,7 +6284,7 @@ Out[3]: array([-1,  1, -1,  1,  1], dtype=int8)</p>
 <h3>inertia.py<a class="headerlink" href="#inertia-py" title="Permalink to this headline">¶</a></h3>
 <p>Functions for dealing with inertia tensors.</p>
 <p>Results validated against known geometries and for internal
-consistancy.</p>
+consistency.</p>
 <dl class="function">
 <dt id="trimesh.inertia.cylinder_inertia">
 <code class="descclassname">trimesh.inertia.</code><code class="descname">cylinder_inertia</code><span class="sig-paren">(</span><em>mass</em>, <em>radius</em>, <em>height</em>, <em>transform=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.inertia.cylinder_inertia" title="Permalink to this definition">¶</a></dt>
@@ -6740,7 +6740,7 @@ of convex hulls and voronoi diagrams.</p>
 <tr class="row-odd"><td><a class="reference internal" href="#trimesh.permutate.Permutator.noise" title="trimesh.permutate.Permutator.noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise</span></code></a>([magnitude])</td>
 <td>Add gaussian noise to every vertex of a mesh.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#trimesh.permutate.Permutator.tesselation" title="trimesh.permutate.Permutator.tesselation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tesselation</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.permutate.Permutator.tessellation" title="trimesh.permutate.Permutator.tessellation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tessellation</span></code></a>()</td>
 <td>Subdivide each face of a mesh into three faces with the new vertex randomly placed inside the old face.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#trimesh.permutate.Permutator.transform" title="trimesh.permutate.Permutator.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>()</td>
@@ -6777,12 +6777,12 @@ Makes no effort to maintain topology or sanity.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="trimesh.permutate.Permutator.tesselation">
-<code class="descname">tesselation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.Permutator.tesselation" title="Permalink to this definition">¶</a></dt>
+<dt id="trimesh.permutate.Permutator.tessellation">
+<code class="descname">tessellation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.Permutator.tessellation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Subdivide each face of a mesh into three faces with the new vertex
 randomly placed inside the old face.</p>
 <p>This produces a mesh with exactly the same surface area and volume
-but with different tesselation.</p>
+but with different tessellation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -6860,12 +6860,12 @@ Makes no effort to maintain topology or sanity.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="trimesh.permutate.tesselation">
-<code class="descclassname">trimesh.permutate.</code><code class="descname">tesselation</code><span class="sig-paren">(</span><em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.tesselation" title="Permalink to this definition">¶</a></dt>
+<dt id="trimesh.permutate.tessellation">
+<code class="descclassname">trimesh.permutate.</code><code class="descname">tessellation</code><span class="sig-paren">(</span><em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.tessellation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Subdivide each face of a mesh into three faces with the new vertex
 randomly placed inside the old face.</p>
 <p>This produces a mesh with exactly the same surface area and volume
-but with different tesselation.</p>
+but with different tessellation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -7456,7 +7456,7 @@ trimesh operations on them at any point.</p>
 <dd><p class="first last">Return a float vector which is unique to the mesh and is robust to rotation and translation.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier_md5</span></code></dt>
-<dd><p class="first last">An MD5 of the rotation invarient identifier vector</p>
+<dd><p class="first last">An MD5 of the rotation invariant identifier vector</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_convex</span></code></dt>
 <dd><p class="first last">Check if a mesh is convex or not.</p>
@@ -7531,7 +7531,7 @@ trimesh operations on them at any point.</p>
 <dd><p class="first last">Return the vertex defects, or (2*pi) minus the sum of the angles of every face that includes that vertex.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_neighbors</span></code></dt>
-<dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existant.</p>
+<dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existent.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
@@ -7905,7 +7905,7 @@ Samples are either ‘step’ distance apart, or there are
 <dd><p class="first last">Return a float vector which is unique to the mesh and is robust to rotation and translation.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier_md5</span></code></dt>
-<dd><p class="first last">An MD5 of the rotation invarient identifier vector</p>
+<dd><p class="first last">An MD5 of the rotation invariant identifier vector</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_convex</span></code></dt>
 <dd><p class="first last">Check if a mesh is convex or not.</p>
@@ -7977,7 +7977,7 @@ Samples are either ‘step’ distance apart, or there are
 <dd><p class="first last">Return the vertex defects, or (2*pi) minus the sum of the angles of every face that includes that vertex.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_neighbors</span></code></dt>
-<dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existant.</p>
+<dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existent.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
@@ -8287,7 +8287,7 @@ Samples are either ‘step’ distance apart, or there are
 <dd><p class="first last">Return a float vector which is unique to the mesh and is robust to rotation and translation.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier_md5</span></code></dt>
-<dd><p class="first last">An MD5 of the rotation invarient identifier vector</p>
+<dd><p class="first last">An MD5 of the rotation invariant identifier vector</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_convex</span></code></dt>
 <dd><p class="first last">Check if a mesh is convex or not.</p>
@@ -8359,7 +8359,7 @@ Samples are either ‘step’ distance apart, or there are
 <dd><p class="first last">Return the vertex defects, or (2*pi) minus the sum of the angles of every face that includes that vertex.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_neighbors</span></code></dt>
-<dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existant.</p>
+<dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existent.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
@@ -8705,7 +8705,7 @@ Samples are either ‘step’ distance apart, or there are
 <dd><p class="first last">Return a float vector which is unique to the mesh and is robust to rotation and translation.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier_md5</span></code></dt>
-<dd><p class="first last">An MD5 of the rotation invarient identifier vector</p>
+<dd><p class="first last">An MD5 of the rotation invariant identifier vector</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_convex</span></code></dt>
 <dd><p class="first last">Check if a mesh is convex or not.</p>
@@ -8777,7 +8777,7 @@ Samples are either ‘step’ distance apart, or there are
 <dd><p class="first last">Return the vertex defects, or (2*pi) minus the sum of the angles of every face that includes that vertex.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_neighbors</span></code></dt>
-<dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existant.</p>
+<dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existent.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
@@ -9168,7 +9168,7 @@ along its extrude_direction vector</p>
 <dd><p class="first last">Return a float vector which is unique to the mesh and is robust to rotation and translation.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier_md5</span></code></dt>
-<dd><p class="first last">An MD5 of the rotation invarient identifier vector</p>
+<dd><p class="first last">An MD5 of the rotation invariant identifier vector</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_convex</span></code></dt>
 <dd><p class="first last">Check if a mesh is convex or not.</p>
@@ -9240,7 +9240,7 @@ along its extrude_direction vector</p>
 <dd><p class="first last">Return the vertex defects, or (2*pi) minus the sum of the angles of every face that includes that vertex.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_neighbors</span></code></dt>
-<dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existant.</p>
+<dd><p class="first last">The vertex neighbors of each vertex of the mesh, determined from the cached vertex_adjacency_graph, if already existent.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_normals</span></code></dt>
 <dd><p class="first last">The vertex normals of the mesh.</p>
@@ -9748,7 +9748,7 @@ DOI: 10.1080/16864360.2015.1084186</p>
 <dl class="function">
 <dt id="trimesh.proximity.nearby_faces">
 <code class="descclassname">trimesh.proximity.</code><code class="descname">nearby_faces</code><span class="sig-paren">(</span><em>mesh</em>, <em>points</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.proximity.nearby_faces" title="Permalink to this definition">¶</a></dt>
-<dd><p>For each point find nearby faces relativly quickly.</p>
+<dd><p>For each point find nearby faces relatively quickly.</p>
 <p>The closest point on the mesh to the queried point is guaranteed to be
 on one of the faces listed.</p>
 <p>Does this by finding the nearest vertex on the mesh to each point, and
@@ -9944,7 +9944,7 @@ distances between Ta and b, also called the cost.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>vertices: (n,3) float, verticies</strong></dt>
+<dt><strong>vertices: (n,3) float, vertices</strong></dt>
 <dd></dd>
 <dt><strong>faces:    (n,3) int,   indexes of vertices which make up triangular faces</strong></dt>
 <dd></dd>
@@ -11276,7 +11276,7 @@ collision detection</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
 <dt><strong>decimal:    float</strong></dt>
 <dd></dd>
-<dt><strong>min_digits: int, minumum number of digits to return</strong></dt>
+<dt><strong>min_digits: int, minimum number of digits to return</strong></dt>
 <dd></dd>
 </dl>
 </td>
@@ -11344,7 +11344,7 @@ of the archive as open file objects in a dict.</p>
 <dd><p>Dot product by row of a and b.</p>
 <p>Same as np.diag(np.dot(a, b.T)) but without the monstrous
 intermediate matrix.</p>
-<p>Also equivilant to:
+<p>Also equivalent to:
 np.einsum(‘ij,ij-&gt;i’, a, b)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -11853,7 +11853,7 @@ If a key occurs multiple times, stack the values into an array.</p>
 <dt id="trimesh.util.sigfig_int">
 <code class="descclassname">trimesh.util.</code><code class="descname">sigfig_int</code><span class="sig-paren">(</span><em>values</em>, <em>sigfig</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.sigfig_int" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a set of floating point values into integers with a specified number
-of signifigant figures and an exponent.</p>
+of significant figures and an exponent.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -11861,7 +11861,7 @@ of signifigant figures and an exponent.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
 <dt><strong>values: (n,) float or int, array of values</strong></dt>
 <dd></dd>
-<dt><strong>sigfig: (n,) int, number of signifigant figures to keep</strong></dt>
+<dt><strong>sigfig: (n,) int, number of significant figures to keep</strong></dt>
 <dd></dd>
 </dl>
 </td>
@@ -11882,7 +11882,7 @@ of signifigant figures and an exponent.</p>
 <dl class="function">
 <dt id="trimesh.util.sigfig_round">
 <code class="descclassname">trimesh.util.</code><code class="descname">sigfig_round</code><span class="sig-paren">(</span><em>values</em>, <em>sigfig=1</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.sigfig_round" title="Permalink to this definition">¶</a></dt>
-<dd><p>Round a single value to a specified number of signifigant figures.</p>
+<dd><p>Round a single value to a specified number of significant figures.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -11890,13 +11890,13 @@ of signifigant figures and an exponent.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
 <dt><strong>values: float, value to be rounded</strong></dt>
 <dd></dd>
-<dt><strong>sigfig: int, number of signifigant figures to reduce to</strong></dt>
+<dt><strong>sigfig: int, number of significant figures to reduce to</strong></dt>
 <dd></dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>rounded: values, but rounded to the specified number of signifigant figures</strong></dt>
+<dt><strong>rounded: values, but rounded to the specified number of significant figures</strong></dt>
 <dd></dd>
 </dl>
 </td>
@@ -11930,7 +11930,7 @@ special case multipart file extensions (like .tar.gz)</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
 <dt><strong>file_name: str, file name</strong></dt>
 <dd></dd>
-<dt><strong>special:   list of str, multipart exensions</strong></dt>
+<dt><strong>special:   list of str, multipart extensions</strong></dt>
 <dd><p class="first last">eg: [‘tar.bz2’, ‘tar.gz’]</p>
 </dd>
 </dl>
@@ -12076,7 +12076,7 @@ points: (n,3) set of points</p>
 <dt id="trimesh.util.triangle_strips_to_faces">
 <code class="descclassname">trimesh.util.</code><code class="descname">triangle_strips_to_faces</code><span class="sig-paren">(</span><em>strips</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.triangle_strips_to_faces" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a sequence of triangle strips, convert them to (n,3) faces.</p>
-<p>Processes all strips at once using np.concatenate and is signifigantly
+<p>Processes all strips at once using np.concatenate and is significantly
 faster than loop- based methods.</p>
 <p>From the OpenGL programming guide describing a single triangle
 strip [v0, v1, v2, v3, v4]:</p>
@@ -12151,7 +12151,7 @@ First 16 bits are time- incrementing, followed by randomness.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>length:    int, length of resuling identifier</strong></dt>
+<dt><strong>length:    int, length of resulting identifier</strong></dt>
 <dd></dd>
 <dt><strong>increment: int, number to add to header uint16</strong></dt>
 <dd><p class="first last">useful if calling this function repeatedly
@@ -12377,7 +12377,7 @@ a value should transparently change the mode. Color modes are:</p>
 <dd><p class="first last">What color mode has been set.</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.visual.ColorVisuals.main_color" title="trimesh.visual.ColorVisuals.main_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main_color</span></code></a></dt>
-<dd><p class="first last">What is the most commonly occuring color.</p>
+<dd><p class="first last">What is the most commonly occurring color.</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.visual.ColorVisuals.transparency" title="trimesh.visual.ColorVisuals.transparency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transparency</span></code></a></dt>
 <dd><p class="first last">Does the current object contain any transparency.</p>
@@ -12542,7 +12542,7 @@ a value should transparently change the mode. Color modes are:</p>
 <dl class="attribute">
 <dt id="trimesh.visual.ColorVisuals.main_color">
 <code class="descname">main_color</code><a class="headerlink" href="#trimesh.visual.ColorVisuals.main_color" title="Permalink to this definition">¶</a></dt>
-<dd><p>What is the most commonly occuring color.</p>
+<dd><p>What is the most commonly occurring color.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -13497,7 +13497,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.51',
+            VERSION:'2.31.52',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
