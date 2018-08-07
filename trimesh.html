@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.31.54 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.32.0 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.31.54
+                2.32.0
               </div>
             
           
@@ -10993,9 +10993,9 @@ two are aligned</p>
 <span id="trimesh-units-module"></span><h2>trimesh.units module<a class="headerlink" href="#module-trimesh.units" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="units-py">
 <h3>units.py<a class="headerlink" href="#units-py" title="Permalink to this headline">¶</a></h3>
-<p>Deal with physical unit systems.</p>
-<p>Very basic, only here to avoid requiring sympy.physics.units
-or pint</p>
+<p>Deal with physical unit systems (i.e. inches, mm)</p>
+<p>Very basic conversions, and no requirement for
+sympy.physics.units or pint.</p>
 <dl class="function">
 <dt id="trimesh.units.unit_conversion">
 <code class="descclassname">trimesh.units.</code><code class="descname">unit_conversion</code><span class="sig-paren">(</span><em>current</em>, <em>desired</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.units.unit_conversion" title="Permalink to this definition">¶</a></dt>
@@ -11024,22 +11024,26 @@ or pint</p>
 <dl class="function">
 <dt id="trimesh.units.units_from_metadata">
 <code class="descclassname">trimesh.units.</code><code class="descname">units_from_metadata</code><span class="sig-paren">(</span><em>obj</em>, <em>guess=True</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.units.units_from_metadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>Wild ass guess for the units of a drawing or model.</p>
-<p>Will try to extract hints from metadata, and failing that
-it will guess based on the object scale.</p>
+<dd><p>Try to extract hints from metadata and if that fails
+guess based on the object scale.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>obj: object, with ‘metadata’ dict and ‘scale’ float</strong></dt>
-<dd></dd>
+<dt><strong>obj: object</strong></dt>
+<dd><p class="first last">Has attributes ‘metadata’ (dict) and ‘scale’ (float)</p>
+</dd>
+<dt><strong>guess</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">If metadata doesn’t indicate units, guess from scale</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>units: str, guess of what the units might be</strong></dt>
-<dd></dd>
+<dt><strong>units: str</strong></dt>
+<dd><p class="first last">A guess of what the units might be</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -11060,21 +11064,30 @@ or imported inside of a function</p>
 <dl class="function">
 <dt id="trimesh.util.append_faces">
 <code class="descclassname">trimesh.util.</code><code class="descname">append_faces</code><span class="sig-paren">(</span><em>vertices_seq</em>, <em>faces_seq</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.append_faces" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a sequence of zero- indexed faces and vertices,
-combine them into a single (n,3) list of faces and (m,3) vertices</p>
-<p>vertices_seq: (n) sequence of (m,d) vertex arrays
-faces_seq     (n) sequence of (p,j) faces, zero indexed</p>
-<blockquote>
-<div>and referencing their counterpoint vertices</div></blockquote>
+<dd><p>Given a sequence of zero- indexed faces and vertices
+combine them into a single array of faces and
+a single array of vertices.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>vertices: (i, d) float, vertices</strong></dt>
-<dd></dd>
-<dt><strong>faces:    (j, 3) int, faces</strong></dt>
-<dd></dd>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>vertices_seq</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, ) sequence of (m, d) float</span></dt>
+<dd><p class="first last">Multiple arrays of verticesvertex arrays</p>
+</dd>
+<dt><strong>faces_seq</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, ) sequence of (p, j) int</span></dt>
+<dd><p class="first last">Zero indexed faces for matching vertices</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>vertices</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(i, d) float</span></dt>
+<dd><p class="first last">Points in space</p>
+</dd>
+<dt><strong>faces</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(j, 3) int</span></dt>
+<dd><p class="first last">Reference vertex indices</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -11086,18 +11099,29 @@ faces_seq     (n) sequence of (p,j) faces, zero indexed</p>
 <dt id="trimesh.util.array_to_encoded">
 <code class="descclassname">trimesh.util.</code><code class="descname">array_to_encoded</code><span class="sig-paren">(</span><em>array</em>, <em>dtype=None</em>, <em>encoding='base64'</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.array_to_encoded" title="Permalink to this definition">¶</a></dt>
 <dd><p>Export a numpy array to a compact serializable dictionary.</p>
-<p>array: numpy array
-dtype: optional, what dtype should array be encoded with.
-encoding: str, ‘base64’ or ‘binary’</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>encoded: dict with keys:</strong></dt>
-<dd><p class="first last">dtype: string of dtype
-shape: int tuple of shape
-base64: base64 encoded string of flat array</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>array</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array</span></dt>
+<dd><p class="first last">Any numpy array</p>
+</dd>
+<dt><strong>dtype</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str or None</span></dt>
+<dd><p class="first last">Optional dtype to encode array</p>
+</dd>
+<dt><strong>encoding</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">‘base64’ or ‘binary’</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>encoded</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Has keys:
+‘dtype’:  str, of dtype
+‘shape’:  tuple of shape
+‘base64’: str, base64 encoded string</p>
 </dd>
 </dl>
 </td>
@@ -11109,28 +11133,39 @@ base64: base64 encoded string of flat array</p>
 <dl class="function">
 <dt id="trimesh.util.array_to_string">
 <code class="descclassname">trimesh.util.</code><code class="descname">array_to_string</code><span class="sig-paren">(</span><em>array</em>, <em>col_delim=' '</em>, <em>row_delim='\n'</em>, <em>digits=8</em>, <em>value_format='{}'</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.array_to_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert a 1 or 2D array into a string with a specified number of digits
-and delimiter.</p>
+<dd><p>Convert a 1 or 2D array into a string with a specified number
+of digits and delimiter. The reason this exists is that the
+basic numpy array to string conversions are suprisingly bad.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>array:     (n,) or (n,d) float/int, array to be converted</strong></dt>
-<dd><p class="first last">If (n,) only column delimiter will be used</p>
+<dt><strong>array</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) or (n, d) float or int</span></dt>
+<dd><p class="first last">Data to be converted
+If shape is (n,) only column delimiter will be used</p>
 </dd>
-<dt><strong>col_delim: str, what string should separate values in a column</strong></dt>
-<dd></dd>
-<dt><strong>row_delim: str, what string should separate values in a row</strong></dt>
-<dd></dd>
-<dt><strong>digits:    int, how many digits should floating point numbers include</strong></dt>
-<dd></dd>
+<dt><strong>col_delim</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">What string should separate values in a column</p>
+</dd>
+<dt><strong>row_delim</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">What string should separate values in a row</p>
+</dd>
+<dt><strong>digits</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">How many digits should floating point numbers include</p>
+</dd>
+<dt><strong>value_format</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Format string for each value or sequence of values
+If multiple values per value_format it must divide
+into array evenly.</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>formatted: str, string representation of original array</strong></dt>
-<dd></dd>
+<dt><strong>formatted</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">String representation of original array</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -11294,15 +11329,20 @@ collision detection</p>
 <dl class="function">
 <dt id="trimesh.util.decode_keys">
 <code class="descclassname">trimesh.util.</code><code class="descname">decode_keys</code><span class="sig-paren">(</span><em>store</em>, <em>encoding='utf-8'</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.decode_keys" title="Permalink to this definition">¶</a></dt>
-<dd><p>If a dictionary has keys that are bytes encode them (utf-8 default)</p>
-<p>store: dict</p>
+<dd><p>If a dictionary has keys that are bytes decode them to a str.</p>
+<dl class="docutils">
+<dt>store <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd>Dictionary with data</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>store: dict, with same data and if keys were bytes they have been encoded</strong></dt>
-<dd></dd>
+<dt><strong>result</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Values are untouched but keys that were bytes
+are converted to ASCII strings.</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -11400,17 +11440,21 @@ np.einsum(‘ij,ij-&gt;i’, a, b)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>encoded: dict with keys:</strong></dt>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>encoded</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><dl class="first last docutils">
+<dt>Has keys:</dt>
 <dd><p class="first last">dtype: string of dtype
 shape: int tuple of shape
 base64: base64 encoded string of flat array
 binary:  decode result coming from numpy.tostring</p>
 </dd>
-<dt><strong>Returns</strong></dt>
-<dd></dd>
-<dt><strong>———-</strong></dt>
-<dd></dd>
+</dl>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>array: numpy array</strong></dt>
 <dd></dd>
 </dl>
@@ -11429,16 +11473,19 @@ binary:  decode result coming from numpy.tostring</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>a: (n,) float, vector A</strong></dt>
-<dd></dd>
-<dt><strong>b: (n,) float, vector B</strong></dt>
-<dd></dd>
+<dt><strong>a</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) float</span></dt>
+<dd><p class="first last">First vector</p>
+</dd>
+<dt><strong>b</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) float</span></dt>
+<dd><p class="first last">Second vector</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>distance: float, euclidean distance between A and B</strong></dt>
-<dd></dd>
+<dt><strong>distance</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Euclidean distance between A and B</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -11551,14 +11598,16 @@ Should work in both Python 2 and 3</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>obj: object to be checked</strong></dt>
-<dd></dd>
+<dt><strong>obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">object</span></dt>
+<dd><p class="first last">Any object type to be checked</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>is_file: bool, True if object is a file</strong></dt>
-<dd></dd>
+<dt><strong>is_file</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">True if object is a file</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -11571,15 +11620,20 @@ Should work in both Python 2 and 3</p>
 <code class="descclassname">trimesh.util.</code><code class="descname">is_instance_named</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.is_instance_named" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given an object, if it is a member of the class ‘name’,
 or a subclass of ‘name’, return True.</p>
-<p>obj: instance of a class
-name: string</p>
+<dl class="docutils">
+<dt>obj <span class="classifier-delimiter">:</span> <span class="classifier">instance</span></dt>
+<dd>Some object of some class</dd>
+<dt>name: str</dt>
+<dd>The name of the class we want to check for</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>bool, whether the object is a member of the named class</strong></dt>
-<dd></dd>
+<dt><strong>is_instance</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Whether the object is a member of the named class</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -11597,14 +11651,16 @@ name: string</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>obj: object to be checked</strong></dt>
-<dd></dd>
+<dt><strong>obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">object</span></dt>
+<dd><p class="first last">Any object type to be checked</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>is_none: bool, True if obj is None</strong></dt>
-<dd></dd>
+<dt><strong>is_none</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">True if obj is None or numpy None-like</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -11621,14 +11677,16 @@ name: string</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>obj: object to be checked</strong></dt>
-<dd></dd>
+<dt><strong>obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">object</span></dt>
+<dd><p class="first last">Any object type to be checked</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>is_sequence: bool, True if object is sequence</strong></dt>
-<dd></dd>
+<dt><strong>is_sequence</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">True if object is sequence</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -11643,11 +11701,13 @@ name: string</p>
 with any value less than zero being considered a wildcard</p>
 <p>Note that if a list- like object is passed that is not a numpy
 array, this function will not convert it and will return False.</p>
-<p>obj:   np.ndarray to check the shape of
-shape: list or tuple of shape.</p>
-<blockquote>
-<div>Any negative term will be considered a wildcard
-Any tuple term will be evaluated as an OR</div></blockquote>
+<dl class="docutils">
+<dt>obj <span class="classifier-delimiter">:</span> <span class="classifier">np.ndarray</span></dt>
+<dd>Array to check the shape on</dd>
+<dt>shape <span class="classifier-delimiter">:</span> <span class="classifier">list or tuple</span></dt>
+<dd>Any negative term will be considered a wildcard
+Any tuple term will be evaluated as an OR</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -11661,18 +11721,18 @@ Any tuple term will be evaluated as an OR</div></blockquote>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
-<p>In [1]: a = np.random.random((100,3))</p>
+<p>In [1]: a = np.random.random((100, 3))</p>
 <p>In [2]: a.shape
 Out[2]: (100, 3)</p>
-<p>In [3]: trimesh.util.is_shape(a, (-1,3))
+<p>In [3]: trimesh.util.is_shape(a, (-1, 3))
 Out[3]: True</p>
-<p>In [4]: trimesh.util.is_shape(a, (-1,3,5))
+<p>In [4]: trimesh.util.is_shape(a, (-1, 3, 5))
 Out[4]: False</p>
-<p>In [5]: trimesh.util.is_shape(a, (100,-1))
+<p>In [5]: trimesh.util.is_shape(a, (100, -1))
 Out[5]: True</p>
-<p>In [6]: trimesh.util.is_shape(a, (-1,(3,4)))
+<p>In [6]: trimesh.util.is_shape(a, (-1, (3, 4)))
 Out[6]: True</p>
-<p>In [7]: trimesh.util.is_shape(a, (-1,(4,5)))
+<p>In [7]: trimesh.util.is_shape(a, (-1, (4, 5)))
 Out[7]: False</p>
 </dd></dl>
 
@@ -11685,14 +11745,16 @@ Out[7]: False</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>obj: object to be checked</strong></dt>
-<dd></dd>
+<dt><strong>obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">object</span></dt>
+<dd><p class="first last">Any object type to be checked</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>is_string: bool, True if obj is a string</strong></dt>
-<dd></dd>
+<dt><strong>is_string</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">True if obj is a string</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -11740,14 +11802,16 @@ objects and other times return lists of objects.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>obj: object to be made a sequence</strong></dt>
-<dd></dd>
+<dt><strong>obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">object</span></dt>
+<dd><p class="first last">An object to be made a sequence</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>as_sequence: (n,) sequence containing input</strong></dt>
-<dd></dd>
+<dt><strong>as_sequence</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) sequence</span></dt>
+<dd><p class="first last">Contains input value</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -11834,14 +11898,16 @@ If a key occurs multiple times, stack the values into an array.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>iterable: flat list</strong></dt>
-<dd></dd>
+<dt><strong>iterable</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m, ) list</span></dt>
+<dd><p class="first last">A sequence of values</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>pairs: (n,) seq of (2,) pairs of items</strong></dt>
-<dd></dd>
+<dt><strong>pairs: (n, 2)</strong></dt>
+<dd><p class="first last">Pairs of sequential values</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -11916,6 +11982,26 @@ Out[3]: 0.0001405</p>
 <dt id="trimesh.util.spherical_to_vector">
 <code class="descclassname">trimesh.util.</code><code class="descname">spherical_to_vector</code><span class="sig-paren">(</span><em>spherical</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.spherical_to_vector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a set of (n,2) spherical vectors to (n,3) vectors</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>spherical</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n , 2) float</span></dt>
+<dd><p class="first last">Angles, in radians</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>vectors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3) float</span></dt>
+<dd><p class="first last">Unit vectors</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -12114,7 +12200,8 @@ part of a surface.</p>
 <dl class="function">
 <dt id="trimesh.util.type_named">
 <code class="descclassname">trimesh.util.</code><code class="descname">type_named</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.type_named" title="Permalink to this definition">¶</a></dt>
-<dd><p>Similar to the type() builtin, but looks in class bases for named instance.</p>
+<dd><p>Similar to the type() builtin, but looks in class bases
+for named instance.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -12175,18 +12262,25 @@ can increment the header</p>
 <dt id="trimesh.util.unitize">
 <code class="descclassname">trimesh.util.</code><code class="descname">unitize</code><span class="sig-paren">(</span><em>vectors</em>, <em>check_valid=False</em>, <em>threshold=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.unitize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unitize a vector or an array or row- vectors.</p>
-<p>vectors:      (n,m) or (j) float, vectors
-check_valid:  bool, return mask of nonzero vectors
-threshold:    float, cutoff to be considered zero.</p>
+<dl class="docutils">
+<dt>vectors <span class="classifier-delimiter">:</span> <span class="classifier">(n,m) or (j) float</span></dt>
+<dd>Vector or vectors to be unitized</dd>
+<dt>check_valid <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>If set, will return mask of nonzero vectors</dd>
+<dt>threshold <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Cutoff for a value to be considered zero.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>unit:  (n,m) or (j) float, unit vectors</strong></dt>
-<dd></dd>
-<dt><strong>valid: (n) bool, mask of nonzero vectors if check_valid</strong></dt>
-<dd></dd>
+<dt><strong>unit</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,m) or (j) float</span></dt>
+<dd><p class="first last">Input vectors but unitized</p>
+</dd>
+<dt><strong>valid</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) bool or bool</span></dt>
+<dd><p class="first last">Mask of nonzero vectors returned if <cite>check_valid</cite></p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -12197,11 +12291,12 @@ threshold:    float, cutoff to be considered zero.</p>
 <dl class="function">
 <dt id="trimesh.util.vector_hemisphere">
 <code class="descclassname">trimesh.util.</code><code class="descname">vector_hemisphere</code><span class="sig-paren">(</span><em>vectors</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.vector_hemisphere" title="Permalink to this definition">¶</a></dt>
-<dd><p>For a set of 3D vectors alter the sign so they are all in the upper
-hemisphere.</p>
-<p>If the vector lies on the plane, all vectors with negative Y will be reversed.
-If the vector has a zero Z and Y value, vectors with a negative X value
-will be reversed</p>
+<dd><p>For a set of 3D vectors alter the sign so they are all in the
+upper hemisphere.</p>
+<p>If the vector lies on the plane all vectors with negative Y
+will be reversed.</p>
+<p>If the vector has a zero Z and Y value vectors with a
+negative X value will be reversed.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -12226,7 +12321,28 @@ will be reversed</p>
 <dl class="function">
 <dt id="trimesh.util.vector_to_spherical">
 <code class="descclassname">trimesh.util.</code><code class="descname">vector_to_spherical</code><span class="sig-paren">(</span><em>cartesian</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.vector_to_spherical" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert a set of cartesian points to (n,2) spherical vectors</p>
+<dd><p>Convert a set of cartesian points to (n,2) spherical unit
+vectors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>cartesian</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3) float</span></dt>
+<dd><p class="first last">Points in space</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>spherical</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 2) float</span></dt>
+<dd><p class="first last">Angles, in radians</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -13497,7 +13613,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.31.54',
+            VERSION:'2.32.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
