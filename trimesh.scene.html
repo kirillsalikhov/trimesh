@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.scene package &mdash; trimesh 2.32.1 documentation</title>
+  <title>trimesh.scene package &mdash; trimesh 2.32.3 documentation</title>
   
 
   
@@ -57,7 +57,7 @@
             
             
               <div class="version">
-                2.32.1
+                2.32.3
               </div>
             
           
@@ -452,9 +452,22 @@ a specific frame.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>units: str, target unit system. EG ‘inches’, ‘mm’, etc</strong></dt>
-<dd></dd>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>desired</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Desired final unit system: ‘inches’, ‘mm’, etc.</p>
+</dd>
+<dt><strong>guess</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Is the converter allowed to guess scale when models
+don’t have it specified in their metadata.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>scaled</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Scene</span></dt>
+<dd><p class="first last">Copy of scene with scaling applied
+and units set for each model.</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2288,7 +2301,7 @@ an IPython/Jupyter notebook.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.32.1',
+            VERSION:'2.32.3',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

@@ -2,7 +2,8 @@
 
 --------------
 
-|Build Status| |Build status| |Coverage Status| |PyPI version|
+|Build Status| |Build status| |Coverage Status| |PyPI version| |Join the
+chat at https://gitter.im/trimsh/Lobby|
 
 Trimesh is a Python (2.7- 3.3+) library for loading and using
 `triangular meshes <https://en.wikipedia.org/wiki/Triangle_mesh>`__ with
@@ -219,3 +220,5 @@ on Docker Hub:
    :target: https://coveralls.io/github/mikedh/trimesh
 .. |PyPI version| image:: https://badge.fury.io/py/trimesh.svg
    :target: https://badge.fury.io/py/trimesh
+.. |Join the chat at https://gitter.im/trimsh/Lobby| image:: https://badges.gitter.im/trimsh/Lobby.svg
+   :target: https://gitter.im/trimsh/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge

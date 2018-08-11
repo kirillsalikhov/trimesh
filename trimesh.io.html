@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.io package &mdash; trimesh 2.32.1 documentation</title>
+  <title>trimesh.io package &mdash; trimesh 2.32.3 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.32.1
+                2.32.3
               </div>
             
           
@@ -503,23 +503,31 @@ Trimesh, Path2D, Path3D, Scene</p>
 
 <dl class="function">
 <dt id="trimesh.io.load.load_compressed">
-<code class="descclassname">trimesh.io.load.</code><code class="descname">load_compressed</code><span class="sig-paren">(</span><em>file_obj</em>, <em>file_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.io.load.load_compressed" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a compressed archive, load all the geometry that we can from it.</p>
+<code class="descclassname">trimesh.io.load.</code><code class="descname">load_compressed</code><span class="sig-paren">(</span><em>file_obj</em>, <em>file_type=None</em>, <em>mixed=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.io.load.load_compressed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a compressed archive load all the geometry that
+we can from it.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>file_obj: open file-like object</strong></dt>
-<dd></dd>
-<dt><strong>file_type: str, type of file</strong></dt>
-<dd></dd>
+<dt><strong>file_obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">open file-like object</span></dt>
+<dd><p class="first last">Containing compressed data</p>
+</dd>
+<dt><strong>file_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Type of the archive file</p>
+</dd>
+<dt><strong>mixed</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">If False, for archives containing both 2D and 3D
+data will only load the 3D data into the Scene.</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>geometries: list of geometry objects</strong></dt>
-<dd></dd>
+<dt><strong>scene</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Scene</span></dt>
+<dd><p class="first last">Geometry loaded in to a Scene object</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1279,7 +1287,7 @@ vertex_normals: (n,3) np.float64, vertex normals</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.32.1',
+            VERSION:'2.32.3',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
