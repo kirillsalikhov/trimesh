@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.32.6 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.32.8 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.32.6
+                2.32.8
               </div>
             
           
@@ -3173,16 +3173,19 @@ discretized into voxels at the specified pitch</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>bounds: (2, dimension) float, axis aligned bounding box</strong></dt>
-<dd></dd>
-<dt><strong>points: (n, dimension) float, points in space</strong></dt>
-<dd></dd>
+<dt><strong>bounds</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(2, dimension) float</span></dt>
+<dd><p class="first last">Axis aligned bounding box</p>
+</dd>
+<dt><strong>points</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, dimension) float</span></dt>
+<dd><p class="first last">Points in space</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>points_inside: (n,) bool, True if points are inside the AABB</strong></dt>
-<dd></dd>
+<dt><strong>points_inside</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) bool</span></dt>
+<dd><p class="first last">True if points are inside the AABB</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -3200,14 +3203,16 @@ discretized into voxels at the specified pitch</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>bounds: (2,3) or (2,2) float, axis aligned bounds</strong></dt>
-<dd></dd>
+<dt><strong>bounds</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(2,3) or (2,2) float</span></dt>
+<dd><p class="first last">Axis aligned bounds</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>corners: (8,3) float, corner vertices of the cube</strong></dt>
-<dd></dd>
+<dt><strong>corners</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(8,3) float</span></dt>
+<dd><p class="first last">Corner vertices of the cube</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -3218,8 +3223,8 @@ discretized into voxels at the specified pitch</p>
 <dl class="function">
 <dt id="trimesh.bounds.minimum_cylinder">
 <code class="descclassname">trimesh.bounds.</code><code class="descname">minimum_cylinder</code><span class="sig-paren">(</span><em>obj</em>, <em>sample_count=10</em>, <em>angle_tol=0.001</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.bounds.minimum_cylinder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find the approximate minimum volume cylinder which contains a mesh or
-list of points.</p>
+<dd><p>Find the approximate minimum volume cylinder which contains
+a mesh or a a list of points.</p>
 <p>Samples a hemisphere then uses scipy.optimize to pick the
 final orientation of the cylinder.</p>
 <p>A nice discussion about better ways to implement this is here:
@@ -3229,23 +3234,28 @@ final orientation of the cylinder.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>obj: Trimesh object OR</strong></dt>
-<dd><p class="first last">(n,3) float, points in space</p>
+<dt><strong>obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh, or (n, 3) float</span></dt>
+<dd><p class="first last">Mesh object or points in space</p>
 </dd>
-<dt><strong>sample_count: int, how densely should we sample the hemisphere.</strong></dt>
-<dd><p class="first last">Angular spacing is 180 degrees / this number</p>
+<dt><strong>sample_count</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">How densely should we sample the hemisphere.
+Angular spacing is 180 degrees / this number</p>
 </dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>result: dict, with keys:</strong></dt>
+<dt><strong>result</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><dl class="first last docutils">
+<dt>With keys:</dt>
 <dd><p class="first">‘radius’    : float, radius of cylinder
 ‘height’    : float, height of cylinder
 ‘transform’ : (4,4) float, transform from the origin</p>
 <blockquote class="last">
 <div><p>to centered cylinder</p>
 </div></blockquote>
+</dd>
+</dl>
 </dd>
 </dl>
 </td>
@@ -3263,24 +3273,26 @@ final orientation of the cylinder.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>obj:       Trimesh object, (n,3) or (n,2) float set of points</strong></dt>
-<dd></dd>
-<dt><strong>angle_tol: float, angle in radians that OBB can be away from minimum volume</strong></dt>
-<dd><p class="first last">solution. Even with large values the returned extents will cover
-the mesh albeit with larger than minimal volume.
-Larger values may experience substantial speedups.
-Acceptable values are floats &gt;= 0.0.
-The default is small (1e-6) but non-zero.</p>
+<dt><strong>obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh, (n, 2) float, or (n, 3) float</span></dt>
+<dd><p class="first last">Mesh object or points in 2D or 3D space</p>
+</dd>
+<dt><strong>angle_digits</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">How much angular precision do we want on our result.
+Even with less precision the returned extents will cover
+the mesh albeit with larger than minimal volume, and may
+experience substantial speedups.</p>
 </dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>to_origin: (4,4) float, transformation matrix which will move the center of the</strong></dt>
-<dd><p class="first last">bounding box of the input mesh to the origin.</p>
+<dt><strong>to_origin</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4,4) float</span></dt>
+<dd><p class="first last">Transformation matrix which will move the center of the
+bounding box of the input mesh to the origin.</p>
 </dd>
-<dt><strong>extents: (3,) float, the extents of the mesh once transformed with to_origin</strong></dt>
-<dd></dd>
+<dt><strong>extents: (3,) float</strong></dt>
+<dd><p class="first last">The extents of the mesh once transformed with to_origin</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -3291,24 +3303,27 @@ The default is small (1e-6) but non-zero.</p>
 <dl class="function">
 <dt id="trimesh.bounds.oriented_bounds_2D">
 <code class="descclassname">trimesh.bounds.</code><code class="descname">oriented_bounds_2D</code><span class="sig-paren">(</span><em>points</em>, <em>qhull_options='QbB'</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.bounds.oriented_bounds_2D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find an oriented bounding box for a set of 2D points.</p>
+<dd><p>Find an oriented bounding box for an array of 2D points.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>points: (n,2) float, 2D points</strong></dt>
-<dd></dd>
+<dt><strong>points</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,2) float</span></dt>
+<dd><p class="first last">Points in 2D.</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>transform: (3,3) float, homogenous 2D transformation matrix to move the</strong></dt>
-<dd><p class="first last">input points so that the axis aligned bounding box
-is CENTERED AT THE ORIGIN</p>
+<dt><strong>transform</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,3) float</span></dt>
+<dd><p class="first last">Homogenous 2D transformation matrix to move the
+input points so that the axis aligned bounding box
+is CENTERED AT THE ORIGIN.</p>
 </dd>
-<dt><strong>rectangle: (2,) float, size of extents once input points are transformed</strong></dt>
-<dd><p class="first last">by transform</p>
+<dt><strong>rectangle</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(2,) float</span></dt>
+<dd><p class="first last">Size of extents once input points are transformed
+by transform</p>
 </dd>
 </dl>
 </td>
@@ -9862,28 +9877,37 @@ points (often picked manually).</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>a</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float, list of points in space.</span></dt>
-<dd></dd>
-<dt><strong>b</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,3) float or Trimesh, list of points in space or mesh.</span></dt>
-<dd></dd>
-<dt><strong>initial</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4,4) float, initial transformation.</span></dt>
-<dd></dd>
-<dt><strong>threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, stop when change in cost is less than threshold</span></dt>
-<dd></dd>
-<dt><strong>max_iterations</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, maximum number of iterations</span></dt>
-<dd></dd>
-<dt><strong>kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict, args to pass to procrustes</span></dt>
-<dd></dd>
+<dt><strong>a</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float</span></dt>
+<dd><p class="first last">List of points in space.</p>
+</dd>
+<dt><strong>b</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m,3) float or Trimesh</span></dt>
+<dd><p class="first last">List of points in space or mesh.</p>
+</dd>
+<dt><strong>initial</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4,4) float</span></dt>
+<dd><p class="first last">Initial transformation.</p>
+</dd>
+<dt><strong>threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Stop when change in cost is less than threshold</p>
+</dd>
+<dt><strong>max_iterations</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">Maximum number of iterations</p>
+</dd>
+<dt><strong>kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Args to pass to procrustes</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>matrix</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4,4) float, the transformation matrix sending a to b</span></dt>
-<dd></dd>
-<dt><strong>transformed</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float, the image of a under the transformation</span></dt>
-<dd></dd>
-<dt><strong>cost</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, the cost of the transformation</span></dt>
-<dd></dd>
+<dt><strong>matrix</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4,4) float</span></dt>
+<dd><p class="first last">The transformation matrix sending a to b</p>
+</dd>
+<dt><strong>transformed</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float</span></dt>
+<dd><p class="first last">The image of a under the transformation</p>
+</dd>
+<dt><strong>cost</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">The cost of the transformation</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -9895,35 +9919,44 @@ points (often picked manually).</p>
 <dt id="trimesh.registration.procrustes">
 <code class="descclassname">trimesh.registration.</code><code class="descname">procrustes</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>reflection=True</em>, <em>translation=True</em>, <em>scale=True</em>, <em>return_cost=True</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.registration.procrustes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform Procrustes’ analysis subject to constraints. Finds the
-transformation T mapping a to b which minimizes the sums-of-squares
+transformation T mapping a to b which minimizes the square sum
 distances between Ta and b, also called the cost.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>a</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float, list of points in space</span></dt>
-<dd></dd>
-<dt><strong>b</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float, list of points in space</span></dt>
-<dd></dd>
-<dt><strong>reflection</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, if the transformation is allowed reflections</span></dt>
-<dd></dd>
-<dt><strong>translation</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, if the transformation is allowed translations</span></dt>
-<dd></dd>
-<dt><strong>scale</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, if the transformation is allowed scaling</span></dt>
-<dd></dd>
-<dt><strong>return_cost</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, whether to return the cost and transformed a as well</span></dt>
-<dd></dd>
+<dt><strong>a</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float</span></dt>
+<dd><p class="first last">List of points in space</p>
+</dd>
+<dt><strong>b</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float</span></dt>
+<dd><p class="first last">List of points in space</p>
+</dd>
+<dt><strong>reflection</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">If the transformation is allowed reflections</p>
+</dd>
+<dt><strong>translation</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">If the transformation is allowed translations</p>
+</dd>
+<dt><strong>scale</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">If the transformation is allowed scaling</p>
+</dd>
+<dt><strong>return_cost</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Whether to return the cost and transformed a as well</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>matrix</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4,4) float, the transformation matrix sending a to b</span></dt>
-<dd></dd>
-<dt><strong>transformed</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float, the image of a under the transformation</span></dt>
-<dd></dd>
-<dt><strong>cost</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, the cost of the transformation</span></dt>
-<dd></dd>
+<dt><strong>matrix</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4,4) float</span></dt>
+<dd><p class="first last">The transformation matrix sending a to b</p>
+</dd>
+<dt><strong>transformed</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float</span></dt>
+<dd><p class="first last">The image of a under the transformation</p>
+</dd>
+<dt><strong>cost</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">The cost of the transformation</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -13624,7 +13657,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.32.6',
+            VERSION:'2.32.8',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
