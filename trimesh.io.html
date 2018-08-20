@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.io package &mdash; trimesh 2.32.5 documentation</title>
+  <title>trimesh.io package &mdash; trimesh 2.32.6 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.32.5
+                2.32.6
               </div>
             
           
@@ -375,7 +375,10 @@ mesh: a single Trimesh object, or a list of Trimesh objects,</p>
 </div>
 <div class="section" id="module-trimesh.io.gltf">
 <span id="trimesh-io-gltf-module"></span><h2>trimesh.io.gltf module<a class="headerlink" href="#module-trimesh.io.gltf" title="Permalink to this headline">¶</a></h2>
-<p>This module provides GLTF 2.0 exports</p>
+<div class="section" id="gltf-py">
+<h3>gltf.py<a class="headerlink" href="#gltf-py" title="Permalink to this headline">¶</a></h3>
+<p>Provides GLTF 2.0 exports of trimesh.Trimesh objects
+as GL_TRIANGLES, and trimesh.Path2D/Path3D as GL_LINES</p>
 <dl class="function">
 <dt id="trimesh.io.gltf.export_glb">
 <code class="descclassname">trimesh.io.gltf.</code><code class="descname">export_glb</code><span class="sig-paren">(</span><em>scene</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.io.gltf.export_glb" title="Permalink to this definition">¶</a></dt>
@@ -404,8 +407,8 @@ mesh: a single Trimesh object, or a list of Trimesh objects,</p>
 <dt id="trimesh.io.gltf.export_gltf">
 <code class="descclassname">trimesh.io.gltf.</code><code class="descname">export_gltf</code><span class="sig-paren">(</span><em>scene</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.io.gltf.export_gltf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Export a scene object as a GLTF directory.</p>
-<p>This has the advantage of putting each mesh into a separate file (buffer)
-as opposed to one large file, but means multiple files need to be tracked.</p>
+<p>This has the advantage of putting each mesh into a separate
+file (buffer) as opposed to one large file.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -437,14 +440,16 @@ as opposed to one large file, but means multiple files need to be tracked.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>file_obj: file- like object containing GLB file</strong></dt>
-<dd></dd>
+<dt><strong>file_obj</strong> <span class="classifier-delimiter">:</span> <span class="classifier">file- like object</span></dt>
+<dd><p class="first last">Containing GLB data</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>kwargs: dict, kwargs to instantiate a trimesh.Scene</strong></dt>
-<dd></dd>
+<dt><strong>kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Kwargs to instantiate a trimesh.Scene</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -452,6 +457,7 @@ as opposed to one large file, but means multiple files need to be tracked.</p>
 </table>
 </dd></dl>
 
+</div>
 </div>
 <div class="section" id="module-trimesh.io.load">
 <span id="trimesh-io-load-module"></span><h2>trimesh.io.load module<a class="headerlink" href="#module-trimesh.io.load" title="Permalink to this headline">¶</a></h2>
@@ -1287,7 +1293,7 @@ vertex_normals: (n,3) np.float64, vertex normals</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.32.5',
+            VERSION:'2.32.6',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

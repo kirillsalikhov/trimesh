@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.32.5 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.32.6 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.32.5
+                2.32.6
               </div>
             
           
@@ -316,7 +316,10 @@
 <li class="toctree-l2"><a class="reference internal" href="trimesh.io.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trimesh.io.html#module-trimesh.io.assimp">trimesh.io.assimp module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trimesh.io.html#module-trimesh.io.export">trimesh.io.export module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="trimesh.io.html#module-trimesh.io.gltf">trimesh.io.gltf module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.io.html#module-trimesh.io.gltf">trimesh.io.gltf module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.io.html#gltf-py">gltf.py</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="trimesh.io.html#module-trimesh.io.load">trimesh.io.load module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trimesh.io.html#module-trimesh.io.misc">trimesh.io.misc module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trimesh.io.html#module-trimesh.io.openctm">trimesh.io.openctm module</a></li>
@@ -12290,7 +12293,7 @@ can increment the header</p>
 
 <dl class="function">
 <dt id="trimesh.util.vector_hemisphere">
-<code class="descclassname">trimesh.util.</code><code class="descname">vector_hemisphere</code><span class="sig-paren">(</span><em>vectors</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.vector_hemisphere" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.util.</code><code class="descname">vector_hemisphere</code><span class="sig-paren">(</span><em>vectors</em>, <em>return_sign=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.vector_hemisphere" title="Permalink to this definition">¶</a></dt>
 <dd><p>For a set of 3D vectors alter the sign so they are all in the
 upper hemisphere.</p>
 <p>If the vector lies on the plane all vectors with negative Y
@@ -12302,15 +12305,23 @@ negative X value will be reversed.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>vectors: (n,3) float, set of vectors</strong></dt>
-<dd></dd>
+<dt><strong>vectors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float</span></dt>
+<dd><p class="first last">Input vectors</p>
+</dd>
+<dt><strong>return_sign</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Return the sign mask or not</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>oriented: (n,3) float, set of vectors with same magnitude but all</strong></dt>
-<dd><p class="first last">pointing in the same hemisphere.</p>
+<dt><strong>oriented: (n, 3) float</strong></dt>
+<dd><p class="first last">Vectors with same magnitude as source
+but possibly reversed to ensure all vectors
+are in the same hemisphere.</p>
 </dd>
+<dt><strong>sign</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) float</span></dt>
+<dd></dd>
 </dl>
 </td>
 </tr>
@@ -13613,7 +13624,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.32.5',
+            VERSION:'2.32.6',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
