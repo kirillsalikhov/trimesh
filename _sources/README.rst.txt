@@ -5,11 +5,11 @@
 |Build Status| |Build status| |Coverage Status| |PyPI version| |Join the
 chat at https://gitter.im/trimsh/Lobby|
 
-Trimesh is a Python (2.7- 3.3+) library for loading and using
+Trimesh is a pure Python (2.7- 3.3+) library for loading and using
 `triangular meshes <https://en.wikipedia.org/wiki/Triangle_mesh>`__ with
 an emphasis on watertight meshes. The goal of the library is to provide
 a fully featured Trimesh object which allows for easy manipulation and
-analysis, in the style of the excellent Polygon object in the `Shapely
+analysis, in the style of the Polygon object in the `Shapely
 library <http://toblerity.org/shapely/manual.html>`__.
 
 The API is mostly stable, but this should not be relied on and is not
