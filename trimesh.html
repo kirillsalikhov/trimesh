@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.32.10 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.32.11 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.32.10
+                2.32.11
               </div>
             
           
@@ -4558,6 +4558,42 @@ Requires scipy &gt;.12.</p>
 <h3>creation.py<a class="headerlink" href="#creation-py" title="Permalink to this headline">¶</a></h3>
 <p>Create meshes from primitives, or with operations.</p>
 <dl class="function">
+<dt id="trimesh.creation.annulus">
+<code class="descclassname">trimesh.creation.</code><code class="descname">annulus</code><span class="sig-paren">(</span><em>r_min=1.0</em>, <em>r_max=2.0</em>, <em>height=1.0</em>, <em>sections=32</em>, <em>transform=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.annulus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a mesh of an annular cylinder along Z,
+centered at the origin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>r_min</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">The inner radius of the annular cylinder</p>
+</dd>
+<dt><strong>r_max</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">The outer radius of the annular cylinder</p>
+</dd>
+<dt><strong>height</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">The height of the annular cylinder</p>
+</dd>
+<dt><strong>sections</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">How many pie wedges should the annular cylinder have</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>annulus</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh</span></dt>
+<dd><p class="first last">Mesh of annular cylinder</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="trimesh.creation.box">
 <code class="descclassname">trimesh.creation.</code><code class="descname">box</code><span class="sig-paren">(</span><em>extents=None</em>, <em>transform=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.box" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cuboid.</p>
@@ -4676,25 +4712,28 @@ Requires scipy &gt;.12.</p>
 <dl class="function">
 <dt id="trimesh.creation.extrude_triangulation">
 <code class="descclassname">trimesh.creation.</code><code class="descname">extrude_triangulation</code><span class="sig-paren">(</span><em>vertices</em>, <em>faces</em>, <em>height</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.extrude_triangulation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Turn a shapely.geometry Polygon object and a height (float)
-into a watertight Trimesh object.</p>
+<dd><p>Turn a 2D triangulation into a watertight Trimesh.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>vertices: (n,2) float, 2D vertices</strong></dt>
-<dd></dd>
-<dt><strong>faces:    (m,3) int,   triangle indexes of vertices</strong></dt>
-<dd></dd>
-<dt><strong>height:   float, distance to extrude triangulation</strong></dt>
-<dd></dd>
+<dt><strong>vertices</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 2) float</span></dt>
+<dd><p class="first last">2D vertices</p>
+</dd>
+<dt><strong>faces</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m, 3) int</span></dt>
+<dd><p class="first last">Triangle indexes of vertices</p>
+</dd>
+<dt><strong>height</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Distance to extrude triangulation</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>mesh: Trimesh object of result</strong></dt>
-<dd></dd>
+<dt><strong>mesh</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh</span></dt>
+<dd><p class="first last">Mesh created from extrusion</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -4717,18 +4756,21 @@ into a watertight Trimesh object.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>subdivisions: int, how many times to subdivide the mesh.</strong></dt>
-<dd><p class="first last">Note that the number of faces will grow as function of
+<dt><strong>subdivisions</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">How many times to subdivide the mesh.
+Note that the number of faces will grow as function of
 4 ** subdivisions, so you probably want to keep this under ~5</p>
 </dd>
-<dt><strong>radius: float, radius of resulting sphere</strong></dt>
-<dd></dd>
+<dt><strong>radius</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Desired radius of sphere</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>ico: trimesh.Trimesh object of sphere</strong></dt>
-<dd></dd>
+<dt><strong>ico</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh</span></dt>
+<dd><p class="first last">Meshed sphere</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -4839,20 +4881,25 @@ min_angle=None)</dd>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>radius: float, radius of sphere</strong></dt>
-<dd></dd>
-<dt><strong>count: (2,) int, number of latitude and longitude lines</strong></dt>
-<dd></dd>
-<dt><strong>theta: (n,) float, optional</strong></dt>
-<dd></dd>
-<dt><strong>phi:   (n,) float, optional</strong></dt>
-<dd></dd>
+<dt><strong>radius</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Radius of sphere</p>
+</dd>
+<dt><strong>count</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(2,) int</span></dt>
+<dd><p class="first last">Number of latitude and longitude lines</p>
+</dd>
+<dt><strong>theta</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) float</span></dt>
+<dd><p class="first last">Optional theta angles in radians</p>
+</dd>
+<dt><strong>phi</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) float</span></dt>
+<dd><p class="first last">Optional phi angles in radians</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>mesh: Trimesh object of UV sphere with specified parameters</strong></dt>
-<dd></dd>
+<dt><strong>mesh</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh</span></dt>
+<dd><p class="first last">Mesh of UV sphere with specified parameters</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -13657,7 +13704,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.32.10',
+            VERSION:'2.32.11',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
