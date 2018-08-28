@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.33.2 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.33.3 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.33.2
+                2.33.3
               </div>
             
           
@@ -10225,16 +10225,17 @@ make resulting mesh watertight</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>colors: (count, (3 or 4)) colors</strong></dt>
-<dd></dd>
+<dt><strong>colors: (count, (3 or 4)) float</strong></dt>
+<dd><p class="first last">Input colors as an array</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>colors_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
-<dd><p class="first last">color type</p>
+<dd><p class="first last">Color type</p>
 </dd>
-<dt><strong>colors_gl:   (count,) list</strong></dt>
+<dt><strong>colors_gl</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(count,) list</span></dt>
 <dd><p class="first last">Colors to pass to pyglet</p>
 </dd>
 </dl>
@@ -10301,7 +10302,7 @@ to a flat column- major GLfloat transformation.</p>
 
 <dl class="function">
 <dt id="trimesh.rendering.mesh_to_vertexlist">
-<code class="descclassname">trimesh.rendering.</code><code class="descname">mesh_to_vertexlist</code><span class="sig-paren">(</span><em>mesh</em>, <em>group=None</em>, <em>smooth_threshold=60000</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.mesh_to_vertexlist" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.rendering.</code><code class="descname">mesh_to_vertexlist</code><span class="sig-paren">(</span><em>mesh</em>, <em>group=None</em>, <em>smooth=True</em>, <em>smooth_threshold=60000</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.mesh_to_vertexlist" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a Trimesh object to arguments for an
 indexed vertex list constructor.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -10314,6 +10315,9 @@ indexed vertex list constructor.</p>
 </dd>
 <dt><strong>group</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
 <dd><p class="first last">Rendering group for the vertex list</p>
+</dd>
+<dt><strong>smooth</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Should we try to smooth shade the mesh</p>
 </dd>
 <dt><strong>smooth_threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
 <dd><p class="first last">Maximum number of faces to smooth shade</p>
@@ -10334,7 +10338,7 @@ indexed vertex list constructor.</p>
 
 <dl class="function">
 <dt id="trimesh.rendering.path_to_vertexlist">
-<code class="descclassname">trimesh.rendering.</code><code class="descname">path_to_vertexlist</code><span class="sig-paren">(</span><em>path</em>, <em>group=None</em>, <em>colors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.path_to_vertexlist" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.rendering.</code><code class="descname">path_to_vertexlist</code><span class="sig-paren">(</span><em>path</em>, <em>group=None</em>, <em>colors=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.path_to_vertexlist" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a Path3D object to arguments for an
 indexed vertex list constructor.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -10364,7 +10368,7 @@ indexed vertex list constructor.</p>
 
 <dl class="function">
 <dt id="trimesh.rendering.points_to_vertexlist">
-<code class="descclassname">trimesh.rendering.</code><code class="descname">points_to_vertexlist</code><span class="sig-paren">(</span><em>points</em>, <em>colors=None</em>, <em>group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.points_to_vertexlist" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">trimesh.rendering.</code><code class="descname">points_to_vertexlist</code><span class="sig-paren">(</span><em>points</em>, <em>colors=None</em>, <em>group=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.points_to_vertexlist" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a numpy array of 3D points to args for
 a vertex list constructor.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -13815,7 +13819,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.33.2',
+            VERSION:'2.33.3',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
