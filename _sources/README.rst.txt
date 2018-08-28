@@ -8,13 +8,20 @@ chat at https://gitter.im/trimsh/Lobby|
 Trimesh is a pure Python (2.7- 3.3+) library for loading and using
 `triangular meshes <https://en.wikipedia.org/wiki/Triangle_mesh>`__ with
 an emphasis on watertight meshes. The goal of the library is to provide
-a fully featured Trimesh object which allows for easy manipulation and
-analysis, in the style of the Polygon object in the `Shapely
-library <http://toblerity.org/shapely/manual.html>`__.
+a fully featured and well tested Trimesh object which allows for easy
+manipulation and analysis, in the style of the Polygon object in the
+`Shapely library <http://toblerity.org/shapely/manual.html>`__.
 
 The API is mostly stable, but this should not be relied on and is not
 guaranteed; install a specific version if you plan on deploying
 something using trimesh as a backend.
+
+Pull Requests are hugely appreciated and responded to promptly: if you'd
+like to contribute, here is an `up to date list of potential
+enhancements <https://github.com/mikedh/trimesh/issues/199>`__ although
+things not on that list are welcome too! Also, some `general advice for
+dealing with meshes in
+Python/Numpy. <https://github.com/mikedh/trimesh/blob/master/trimesh/io/README.md>`__
 
 Basic Installation
 ------------------
