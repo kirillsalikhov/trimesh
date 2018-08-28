@@ -16,7 +16,7 @@ The API is mostly stable, but this should not be relied on and is not
 guaranteed; install a specific version if you plan on deploying
 something using trimesh as a backend.
 
-Pull Requests are hugely appreciated and responded to promptly: if you'd
+Pull requests are hugely appreciated and responded to promptly! If you'd
 like to contribute, here is an `up to date list of potential
 enhancements <https://github.com/mikedh/trimesh/issues/199>`__ although
 things not on that list are welcome too! Also, some `general advice for
