@@ -165,11 +165,11 @@ Features
 -  Calculate nearest point on mesh surface and signed distance
 -  Determine if a point lies inside or outside of a mesh using signed
    distance
--  Create primitive objects (Box, Sphere, Extrusion) which are
+-  Create primitive objects (Box, Cylinder, Sphere, Extrusion) which are
    subclassed Trimesh objects and have all the same features (inertia,
    viewers, etc)
--  Simple scene graph and transform tree which can be rendered (pyglet)
-   or exported.
+-  Simple scene graph and transform tree which can be rendered (pyglet
+   window or three.js in a jupyter notebook) or exported.
 -  Numerous utility functions, such as transforming points, unitizing
    vectors, tracking arrays for changes, grouping rows, etc.
 

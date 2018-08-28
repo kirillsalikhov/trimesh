@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.32.13 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.33.0 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.32.13
+                2.33.0
               </div>
             
           
@@ -224,7 +224,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-trimesh">Module contents</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#trimesh-py">trimesh.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#https-github-com-mikedh-trimesh">https://github.com/mikedh/trimesh</a></li>
 </ul>
 </li>
 </ul>
@@ -478,7 +478,7 @@
 <dd><p class="first last">Which face does each edge belong to.</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.edges_sorted" title="trimesh.base.Trimesh.edges_sorted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_sorted</span></code></a></dt>
-<dd><p class="first last">Returns</p>
+<dd><p class="first last">Edges sorted along axis 1</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.edges_sparse" title="trimesh.base.Trimesh.edges_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_sparse</span></code></a></dt>
 <dd><p class="first last">Edges in sparse COO graph format.</p>
@@ -580,7 +580,7 @@
 <dd><p class="first last">Return a scipy.spatial.cKDTree of the vertices of the mesh.</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.mass" title="trimesh.base.Trimesh.mass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass</span></code></a></dt>
-<dd><p class="first last">Mass of the current mesh.</p>
+<dd><p class="first last">Mass of the current mesh, based on specified density and volume.</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.mass_properties" title="trimesh.base.Trimesh.mass_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass_properties</span></code></a></dt>
 <dd><p class="first last">Returns the mass properties of the current mesh.</p>
@@ -640,7 +640,7 @@
 <dd><p class="first last">The vertices of the mesh.</p>
 </dd>
 <dt><a class="reference internal" href="#trimesh.base.Trimesh.volume" title="trimesh.base.Trimesh.volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">volume</span></code></a></dt>
-<dd><p class="first last">Volume of the current mesh.</p>
+<dd><p class="first last">Volume of the current mesh calculated using a surface integral.</p>
 </dd>
 </dl>
 </td>
@@ -709,7 +709,7 @@
 <td>An MD5 of the core geometry information for the mesh, faces and vertices.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#trimesh.base.Trimesh.merge_vertices" title="trimesh.base.Trimesh.merge_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code></a>([distance])</td>
-<td>If a mesh has vertices that are closer than trimesh.constants.tol.merge redefine them to be the same vertex and replace face references</td>
+<td>If a mesh has vertices that are closer than trimesh.constants.tol.merge reindex faces to reference the same index for both vertices.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#trimesh.base.Trimesh.outline" title="trimesh.base.Trimesh.outline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">outline</span></code></a>([face_ids])</td>
 <td>Given a set of face ids, find the outline of the faces, and return it as a Path3D.</td>
@@ -790,8 +790,9 @@ origin and the same dimensions as the OBB.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>matrix: (4,4) float, transformation matrix that was applied</strong></dt>
-<dd><p class="first last">to mesh to move it into OBB frame.</p>
+<dt><strong>matrix</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4, 4) float</span></dt>
+<dd><p class="first last">Transformation matrix that was applied
+to mesh to move it into OBB frame</p>
 </dd>
 </dl>
 </td>
@@ -809,8 +810,9 @@ origin and the same dimensions as the OBB.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>scaling: float, scale factor</strong></dt>
-<dd></dd>
+<dt><strong>scaling</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Scale factor to apply to the mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -830,8 +832,9 @@ if possible.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>matrix: (4,4) float, homogenous transformation matrix</strong></dt>
-<dd></dd>
+<dt><strong>matrix</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4, 4) float</span></dt>
+<dd><p class="first last">Homogenous transformation matrix</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -848,8 +851,9 @@ if possible.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>translation: (3,) float, translation in XYZ</strong></dt>
-<dd></dd>
+<dt><strong>translation</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd><p class="first last">Translation in XYZ</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -866,8 +870,9 @@ if possible.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>area: float, surface area of mesh</strong></dt>
-<dd></dd>
+<dt><strong>area</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Surface area of mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -884,8 +889,9 @@ if possible.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>area_faces: (n,) float, area of each face.</strong></dt>
-<dd></dd>
+<dt><strong>area_faces</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) float</span></dt>
+<dd><p class="first last">Area of each face</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -904,8 +910,9 @@ which is calculated from FACE rather than vertex adjacency.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>count: int, number of connected vertex groups.</strong></dt>
-<dd></dd>
+<dt><strong>count</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">Number of connected vertex groups</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -922,8 +929,9 @@ which is calculated from FACE rather than vertex adjacency.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>aabb: trimesh.primitives.Box object with transform and extents defined</strong></dt>
-<dd><p class="first last">to represent the axis aligned bounding box of the mesh</p>
+<dt><strong>aabb</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.primitives.Box</span></dt>
+<dd><p class="first last">Box object with transform and extents defined
+representing the axis aligned bounding box of the mesh</p>
 </dd>
 </dl>
 </td>
@@ -941,8 +949,9 @@ which is calculated from FACE rather than vertex adjacency.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>obb: trimesh.primitives.Box object with transform and extents defined</strong></dt>
-<dd><p class="first last">to represent the minimum volume oriented bounding box of the mesh</p>
+<dt><strong>obb</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.primitives.Box</span></dt>
+<dd><p class="first last">Box object with transform and extents defined
+representing the minimum volume oriented bounding box of the mesh</p>
 </dd>
 </dl>
 </td>
@@ -960,8 +969,9 @@ which is calculated from FACE rather than vertex adjacency.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>mincyl: trimesh.primitives.Cylinder object</strong></dt>
-<dd></dd>
+<dt><strong>mincyl</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.primitives.Cylinder</span></dt>
+<dd><p class="first last">Cylinder primitive containing current mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -979,9 +989,12 @@ bounds the mesh.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>bounding_primitive: trimesh.primitives.Sphere</strong></dt>
-<dd><p class="first last">trimesh.primitives.Box
+<dt><strong>bounding_primitive</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.primitives.Sphere</span></dt>
+<dd><blockquote class="first">
+<div><p>trimesh.primitives.Box
 trimesh.primitives.Cylinder</p>
+</div></blockquote>
+<p class="last">Primitive which bounds the mesh with the smallest volume</p>
 </dd>
 </dl>
 </td>
@@ -1003,8 +1016,9 @@ sphere primitive may not contain every vertex</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>minball: trimesh.primitives.Sphere object</strong></dt>
-<dd></dd>
+<dt><strong>minball: trimesh.primitives.Sphere</strong></dt>
+<dd><p class="first last">Sphere primitive containing current mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1021,8 +1035,9 @@ sphere primitive may not contain every vertex</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>bounds: (2,3) float, bounding box with [min, max] coordinates</strong></dt>
-<dd></dd>
+<dt><strong>bounds</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(2, 3) float</span></dt>
+<dd><p class="first last">Bounding box with [min, max] coordinates</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1041,8 +1056,9 @@ unless it was explicitly set.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>center_mass: (3,) float array, volumetric center of mass of the mesh</strong></dt>
-<dd></dd>
+<dt><strong>center_mass</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd><p class="first last">Volumetric center of mass of the mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1062,8 +1078,9 @@ unlike self.center_mass</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>centroid: (3,) float, the average vertex</strong></dt>
-<dd></dd>
+<dt><strong>centroid</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd><p class="first last">The average vertex weighted by face area</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1090,31 +1107,35 @@ most probable pose first.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>mesh:        Trimesh object, the target mesh</strong></dt>
-<dd></dd>
-<dt><strong>center_mass: (3,) float,     the object center of mass (if None, this method</strong></dt>
-<dd><p class="first last">assumes uniform density and watertightness and
+<dt><strong>center_mass</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd><p class="first last">The object center of mass (if None, this method
+assumes uniform density and watertightness and
 computes a center of mass explicitly)</p>
 </dd>
-<dt><strong>sigma:     float,            the covariance for the multivariate gaussian used</strong></dt>
-<dd><p class="first last">to sample center of mass locations</p>
+<dt><strong>sigma</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">The covariance for the multivariate gaussian used
+to sample center of mass locations</p>
 </dd>
-<dt><strong>n_samples: int,             the number of samples of the center of mass loc</strong></dt>
-<dd></dd>
-<dt><strong>threshold: float,           the probability value at which to threshold</strong></dt>
-<dd><p class="first last">returned stable poses</p>
+<dt><strong>n_samples</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The number of samples of the center of mass location</p>
+</dd>
+<dt><strong>threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">The probability value at which to threshold
+returned stable poses</p>
 </dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>transforms: list of (4,4) floats, the homogenous matrices that transform the</strong></dt>
-<dd><p class="first last">object to rest in a stable pose, with the
+<dt><strong>transforms</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 4, 4) float</span></dt>
+<dd><p class="first last">The homogenous matrices that transform the
+object to rest in a stable pose, with the
 new z-axis pointing upwards from the table
 and the object just touching the table.</p>
 </dd>
-<dt><strong>probs:      list of floats,       a probability in (0, 1) for each pose</strong></dt>
-<dd></dd>
+<dt><strong>probs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) float</span></dt>
+<dd><p class="first last">A probability ranging from 0.0 to 1.0 for each pose</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1127,14 +1148,18 @@ and the object just touching the table.</p>
 <code class="descname">contains</code><span class="sig-paren">(</span><em>points</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.contains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a set of points, determine whether or not they are inside the mesh.
 This raises an error if called on a non- watertight mesh.</p>
-<p>points: (n,3) set of points in space</p>
+<dl class="docutils">
+<dt>points <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3) float</span></dt>
+<dd>Points in cartesian space</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>contains: (n) boolean array, whether or not a point is inside the mesh</strong></dt>
-<dd></dd>
+<dt><strong>contains</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, ) bool</span></dt>
+<dd><p class="first last">Whether or not each point is inside the mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1151,10 +1176,12 @@ This raises an error if called on a non- watertight mesh.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>desired: string, units to convert to (eg ‘inches’)</strong></dt>
-<dd></dd>
-<dt><strong>guess:   boolean, if self.units are not defined should we</strong></dt>
-<dd><p class="first last">guess the current units of the document and then convert?</p>
+<dt><strong>desired</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd><p class="first last">Units to convert to (eg ‘inches’)</p>
+</dd>
+<dt><strong>guess</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd><p class="first last">If self.units are not defined should we
+guess the current units of the document and then convert?</p>
 </dd>
 </dl>
 </td>
@@ -1173,20 +1200,20 @@ This raises an error if called on a non- watertight mesh.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>mesh:      Trimesh object</strong></dt>
-<dd></dd>
-<dt><strong>maxhulls:  int, maximum number of convex hulls to return</strong></dt>
-<dd></dd>
-<dt><strong>engine:    string, which backend to use. Valid choice is ‘vhacd’.</strong></dt>
-<dd></dd>
-<dt><strong>**kwargs:  testVHACD keyword arguments</strong></dt>
+<dt><strong>maxhulls</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">Maximum number of convex hulls to return</p>
+</dd>
+<dt><strong>engine</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd><p class="first last">Which backend to use. Valid choice is ‘vhacd’.</p>
+</dd>
+<dt><strong>**kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">testVHACD keyword arguments</span></dt>
 <dd></dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>meshes: list of Trimesh objects, a set of nearly convex meshes</strong></dt>
-<dd><p class="first last">that approximate the original</p>
+<dt><strong>meshes</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list of trimesh.Trimesh</span></dt>
+<dd><p class="first last">List of convex meshes that approximate the original</p>
 </dd>
 </dl>
 </td>
@@ -1205,8 +1232,9 @@ the current mesh.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>convex: Trimesh object of convex hull of current mesh</strong></dt>
-<dd></dd>
+<dt><strong>convex</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh</span></dt>
+<dd><p class="first last">Mesh of convex hull of current mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1226,8 +1254,9 @@ so may be slow on initial operations until caches are regenerated.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>copied: copy of current mesh</strong></dt>
-<dd></dd>
+<dt><strong>copied</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh</span></dt>
+<dd><p class="first last">Copy of current mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1247,8 +1276,9 @@ it gets called a lot.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>crc: int, checksum of current mesh data</strong></dt>
-<dd></dd>
+<dt><strong>crc</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">Checksum of current mesh data</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1265,8 +1295,9 @@ it gets called a lot.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>density: float, the density of the mesh.</strong></dt>
-<dd></dd>
+<dt><strong>density</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">The density of the mesh.</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1278,14 +1309,18 @@ it gets called a lot.</p>
 <dt id="trimesh.base.Trimesh.difference">
 <code class="descname">difference</code><span class="sig-paren">(</span><em>other</em>, <em>engine=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.difference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Boolean difference between this mesh and n other meshes</p>
-<p>other: Trimesh, or list of Trimesh objects</p>
+<dl class="docutils">
+<dt>other <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh, or list of trimesh.Trimesh objects</span></dt>
+<dd>Meshes to difference</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>difference: Trimesh, difference between self and other Trimesh objects</strong></dt>
-<dd></dd>
+<dt><strong>difference</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh</span></dt>
+<dd><p class="first last">Difference between self and other Trimesh objects</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1302,8 +1337,9 @@ it gets called a lot.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>edges: (n,2) int, set of vertex indices</strong></dt>
-<dd></dd>
+<dt><strong>edges</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 2) int</span></dt>
+<dd><p class="first last">List of vertex indices making up edges</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1320,8 +1356,9 @@ it gets called a lot.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>edges_face: (n,) int, index of self.faces</strong></dt>
-<dd></dd>
+<dt><strong>edges_face</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) int</span></dt>
+<dd><p class="first last">Index of self.faces</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1332,13 +1369,15 @@ it gets called a lot.</p>
 <dl class="attribute">
 <dt id="trimesh.base.Trimesh.edges_sorted">
 <code class="descname">edges_sorted</code><a class="headerlink" href="#trimesh.base.Trimesh.edges_sorted" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Edges sorted along axis 1</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>self.edges, but sorted along axis 1</strong></dt>
-<dd></dd>
+<dt><strong>edges_sorted</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 2)</span></dt>
+<dd><p class="first last">Same as self.edges but sorted along axis 1</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1356,7 +1395,7 @@ it gets called a lot.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>sparse: (len(self.vertices), len(self.vertices)) bool</strong></dt>
-<dd><p class="first last">sparse graph in COO format</p>
+<dd><p class="first last">Sparse graph in COO format</p>
 </dd>
 </dl>
 </td>
@@ -1374,8 +1413,9 @@ it gets called a lot.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>edges_unique: (n,2) int, set of vertex indices for unique edges</strong></dt>
-<dd></dd>
+<dt><strong>edges_unique</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 2) int</span></dt>
+<dd><p class="first last">Vertex indices for unique edges</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1394,8 +1434,9 @@ remove_unreferenced_vertices</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>euler_number: int, topological invariant</strong></dt>
-<dd></dd>
+<dt><strong>euler_number</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">Topological invariant</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1413,15 +1454,17 @@ remove_unreferenced_vertices</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>statement: str, statement of valid python code</strong></dt>
-<dd></dd>
-<dt><strong>*args:     available inside statement as args[0], etc</strong></dt>
-<dd></dd>
+<dt><strong>statement</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Statement of valid python code</p>
+</dd>
+<dt><strong>*args</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd><p class="first last">Available inside statement as args[0], etc</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>result: result of running eval on statement with args</strong></dt>
+<dt><strong>result</strong> <span class="classifier-delimiter">:</span> <span class="classifier">result of running eval on statement with args</span></dt>
 <dd></dd>
 </dl>
 </td>
@@ -1443,8 +1486,9 @@ dict64, msgpack.</p>
 <dt>file_obj: open writeable file object</dt>
 <dd>str, file name where to save the mesh
 None, if you would like this function to return the export blob</dd>
-<dt>file_type: str, which file type to export as.</dt>
-<dd>If file name is passed this is not required</dd>
+<dt>file_type: str</dt>
+<dd>Which file type to export as.
+If file name is passed this is not required</dd>
 </dl>
 </dd></dl>
 
@@ -1457,8 +1501,9 @@ None, if you would like this function to return the export blob</dd>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>extents: (3,) float array containing axis aligned [l,w,h]</strong></dt>
-<dd></dd>
+<dt><strong>extents</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd><p class="first last">Array containing axis aligned [length, width, height]</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1475,8 +1520,9 @@ None, if you would like this function to return the export blob</dd>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>adjacency: (n,2) int, pairs of faces which share an edge</strong></dt>
-<dd></dd>
+<dt><strong>adjacency</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,2) int</span></dt>
+<dd><p class="first last">Pairs of faces which share an edge</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1513,8 +1559,9 @@ TrackedArray([[   1,    0,  408],</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>adjacency_angle: (n,) float angle between adjacent faces.</strong></dt>
-<dd><p class="first last">Each value corresponds with self.face_adjacency</p>
+<dt><strong>adjacency_angle</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) float</span></dt>
+<dd><p class="first last">Angle between adjacent faces
+Each value corresponds with self.face_adjacency</p>
 </dd>
 </dl>
 </td>
@@ -1535,8 +1582,8 @@ has a projection that is zero or negative.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>are_convex: (len(self.face_adjacency),) bool, face pairs that are</strong></dt>
-<dd><p class="first last">locally convex.</p>
+<dt><strong>are_convex</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.face_adjacency),) bool</span></dt>
+<dd><p class="first last">Face pairs that are locally convex</p>
 </dd>
 </dl>
 </td>
@@ -1554,8 +1601,9 @@ has a projection that is zero or negative.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>edges: (n, 2) list of vertex indices which correspond to face_adjacency</strong></dt>
-<dd></dd>
+<dt><strong>edges</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 2) int</span></dt>
+<dd><p class="first last">Vertex indices which correspond to face_adjacency</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1573,8 +1621,9 @@ its adjacent face</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>projections: (len(self.face_adjacency),) float, dot product of vertex</strong></dt>
-<dd><p class="first last">onto plane of adjacent triangle.</p>
+<dt><strong>projections</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.face_adjacency),) float</span></dt>
+<dd><p class="first last">Dot product of vertex
+onto plane of adjacent triangle.</p>
 </dd>
 </dl>
 </td>
@@ -1592,8 +1641,9 @@ its adjacent face</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>radii: (len(self.face_adjacency),) float, approximate radius formed</strong></dt>
-<dd></dd>
+<dt><strong>radii</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.face_adjacency),) float</span></dt>
+<dd><p class="first last">Approximate radius formed by triangle pair</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1612,8 +1662,9 @@ the two faces.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>radii: (len(self.face_adjacency),) float, approximate radius formed</strong></dt>
-<dd></dd>
+<dt><strong>span</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.face_adjacency),) float</span></dt>
+<dd><p class="first last">Approximate span between the non- shared vertices</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1630,8 +1681,9 @@ the two faces.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>tree: rtree.index where each edge in self.face_adjacency has a</strong></dt>
-<dd><p class="first last">rectangular cell</p>
+<dt><strong>tree: rtree.index</strong></dt>
+<dd><p class="first last">Where each edge in self.face_adjacency has a
+rectangular cell</p>
 </dd>
 </dl>
 </td>
@@ -1649,15 +1701,10 @@ edge between two adjacent faces</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>mesh: Trimesh object</strong></dt>
-<dd></dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>vid_unshared: (len(mesh.face_adjacency), 2) int, indexes of mesh.vertices</strong></dt>
-<dd></dd>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>vid_unshared</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(mesh.face_adjacency), 2) int</span></dt>
+<dd><p class="first last">Indexes of mesh.vertices</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1674,8 +1721,9 @@ edge between two adjacent faces</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>angles: (n, 3) float, angle at each vertex of a face.</strong></dt>
-<dd></dd>
+<dt><strong>angles</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3) float</span></dt>
+<dd><p class="first last">Angle at each vertex of a face</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1714,8 +1762,9 @@ a zero magnitude unit vector will be returned for that face.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>normals: (len(self.faces), 3) float64, normal vectors</strong></dt>
-<dd></dd>
+<dt><strong>normals</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.faces), 3) np.float64</span></dt>
+<dd><p class="first last">Normal vectors of each face</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1735,8 +1784,9 @@ changes and clears cached values of the mesh if this is altered.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>faces: (n,3) int, representing triangles which reference self.vertices</strong></dt>
-<dd></dd>
+<dt><strong>faces</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) int</span></dt>
+<dd><p class="first last">Representing triangles which reference self.vertices</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1753,9 +1803,10 @@ changes and clears cached values of the mesh if this is altered.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>sparse: scipy.sparse.coo_matrix with:</strong></dt>
-<dd><p class="first last">dtype: bool
-shape: (len(self.vertices), len(self.faces))</p>
+<dt><strong>sparse</strong> <span class="classifier-delimiter">:</span> <span class="classifier">scipy.sparse.coo_matrix</span></dt>
+<dd><p class="first last">Has properties:
+dtype : bool
+shape : (len(self.vertices), len(self.faces))</p>
 </dd>
 </dl>
 </td>
@@ -1767,14 +1818,16 @@ shape: (len(self.vertices), len(self.faces))</p>
 <dl class="attribute">
 <dt id="trimesh.base.Trimesh.faces_unique_edges">
 <code class="descname">faces_unique_edges</code><a class="headerlink" href="#trimesh.base.Trimesh.faces_unique_edges" title="Permalink to this definition">¶</a></dt>
-<dd><p>For each face return which indexes in mesh.unique_edges constructs that face.</p>
+<dd><p>For each face return which indexes in mesh.unique_edges constructs
+that face.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>faces_unique_edges: self.faces.shape int, which indexes of self.edges_unique</strong></dt>
-<dd><p class="first last">construct self.faces</p>
+<dt><strong>faces_unique_edges</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.faces), 3) int</span></dt>
+<dd><p class="first last">Indexes of self.edges_unique that
+construct self.faces</p>
 </dd>
 </dl>
 </td>
@@ -1811,8 +1864,9 @@ array([[[    1,  6946],</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>facets: (n) sequence int, groups of indexes for self.faces</strong></dt>
-<dd></dd>
+<dt><strong>facets</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, ) sequence of (m,) int</span></dt>
+<dd><p class="first last">Groups of indexes of self.faces</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1829,8 +1883,9 @@ array([[[    1,  6946],</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>area:   (len(self.facets),) float, list of face group area</strong></dt>
-<dd></dd>
+<dt><strong>area</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.facets),) float</span></dt>
+<dd><p class="first last">Total area of each facet (group of faces)</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1847,8 +1902,9 @@ array([[[    1,  6946],</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>edges_boundary: sequence of (n,2) int, indices of self.vertices</strong></dt>
-<dd></dd>
+<dt><strong>edges_boundary</strong> <span class="classifier-delimiter">:</span> <span class="classifier">sequence of (n, 2) int</span></dt>
+<dd><p class="first last">Indices of self.vertices</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1884,8 +1940,9 @@ array([[[    1,  6946],</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>on_hull: (len(mesh.facets),) bool, is facet on convex hull</strong></dt>
-<dd></dd>
+<dt><strong>on_hull</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(mesh.facets),) bool</span></dt>
+<dd><p class="first last">is A facet on the meshes convex hull or not</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1921,8 +1978,9 @@ array([[[    1,  6946],</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>watertight: bool, is the mesh watertight after the function completes</strong></dt>
-<dd></dd>
+<dt><strong>watertight</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Is the mesh watertight after the function completes</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1933,17 +1991,19 @@ array([[[    1,  6946],</p>
 <dl class="method">
 <dt id="trimesh.base.Trimesh.fix_normals">
 <code class="descname">fix_normals</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.fix_normals" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find and fix problems with self.face_normals and self.faces winding direction.</p>
-<p>For face normals ensure that vectors are consistently pointed outwards,
-and that self.faces is wound in the correct direction for all
-connected components.</p>
+<dd><p>Find and fix problems with self.face_normals and self.faces
+winding direction.</p>
+<p>For face normals ensure that vectors are consistently pointed
+outwards, and that self.faces is wound in the correct direction
+for all connected components.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>multibody: bool, fix normals across multiple bodies</strong></dt>
-<dd><p class="first last">None, automatically pick from body_count</p>
+<dt><strong>multibody</strong> <span class="classifier-delimiter">:</span> <span class="classifier">None or bool</span></dt>
+<dd><p class="first last">Fix normals across multiple bodies
+if None automatically pick from body_count</p>
 </dd>
 </dl>
 </td>
@@ -1962,8 +2022,9 @@ and is robust to rotation and translation.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>identifier: (6,) float</strong></dt>
-<dd></dd>
+<dt><strong>identifier</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(6,) float</span></dt>
+<dd><p class="first last">Identifying properties of the current mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1980,8 +2041,9 @@ and is robust to rotation and translation.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>hashed: str, MD5 hash of the identifier vector</strong></dt>
-<dd></dd>
+<dt><strong>hashed</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">MD5 hash of the identifier vector</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -1993,14 +2055,18 @@ and is robust to rotation and translation.</p>
 <dt id="trimesh.base.Trimesh.intersection">
 <code class="descname">intersection</code><span class="sig-paren">(</span><em>other</em>, <em>engine=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.intersection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Boolean intersection between this mesh and n other meshes</p>
-<p>other: Trimesh, or list of Trimesh objects</p>
+<dl class="docutils">
+<dt>other <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh, or list of trimesh.Trimesh objects</span></dt>
+<dd>Meshes to calculate intersections with</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>intersection: Trimesh of the volume contained by all passed meshes</strong></dt>
-<dd></dd>
+<dt><strong>intersection</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh</span></dt>
+<dd><p class="first last">Mesh of the volume contained by all passed meshes</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2024,8 +2090,9 @@ face and negating normals without dumping the cache.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>is_convex: bool, is mesh convex or not</strong></dt>
-<dd></dd>
+<dt><strong>is_convex: bool</strong></dt>
+<dd><p class="first last">Is mesh convex or not</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2042,8 +2109,9 @@ face and negating normals without dumping the cache.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>empty: if True, no data exists in the mesh.</strong></dt>
-<dd></dd>
+<dt><strong>empty</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">If True, no data is set on the current mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2056,15 +2124,16 @@ face and negating normals without dumping the cache.</p>
 <code class="descname">is_volume</code><a class="headerlink" href="#trimesh.base.Trimesh.is_volume" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if a mesh has all the properties required to represent
 a valid volume, rather than just a surface.</p>
-<p>These properties include being watertight, having consistent winding,
-and outward facing normals.</p>
+<p>These properties include being watertight, having consistent
+winding and outward facing normals.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>valid: bool, does the mesh represent a volume</strong></dt>
-<dd></dd>
+<dt><strong>valid</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Does the mesh represent a volume</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2075,15 +2144,16 @@ and outward facing normals.</p>
 <dl class="attribute">
 <dt id="trimesh.base.Trimesh.is_watertight">
 <code class="descname">is_watertight</code><a class="headerlink" href="#trimesh.base.Trimesh.is_watertight" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if a mesh is watertight by making sure every edge is included in
-two faces.</p>
+<dd><p>Check if a mesh is watertight by making sure every edge is
+included in two faces.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>is_watertight: bool, is mesh watertight or not</strong></dt>
-<dd></dd>
+<dt><strong>is_watertight</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Is mesh watertight or not</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2102,8 +2172,9 @@ going in an opposite direction from the other in the pair.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>consistent: bool, if winding is consistent or not</strong></dt>
-<dd></dd>
+<dt><strong>consistent</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Is winding is consistent or not</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2121,8 +2192,9 @@ Not cached as this lead to observed memory issues and segfaults.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>tree: scipy.spatial.cKDTree containing mesh vertices</strong></dt>
-<dd></dd>
+<dt><strong>tree</strong> <span class="classifier-delimiter">:</span> <span class="classifier">scipy.spatial.cKDTree</span></dt>
+<dd><p class="first last">Contains mesh.vertices</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2133,15 +2205,16 @@ Not cached as this lead to observed memory issues and segfaults.</p>
 <dl class="attribute">
 <dt id="trimesh.base.Trimesh.mass">
 <code class="descname">mass</code><a class="headerlink" href="#trimesh.base.Trimesh.mass" title="Permalink to this definition">¶</a></dt>
-<dd><p>Mass of the current mesh.
-If the current mesh isn’t watertight this is garbage.</p>
+<dd><p>Mass of the current mesh, based on specified density and
+volume. If the current mesh isn’t watertight this is garbage.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>mass: float, mass of the current mesh</strong></dt>
-<dd></dd>
+<dt><strong>mass</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Mass of the current mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2160,8 +2233,9 @@ isn’t watertight.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>properties: dict, with keys:</strong></dt>
-<dd><p class="first">‘volume’      : in global units^3
+<dt><strong>properties</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first">With keys:
+‘volume’      : in global units^3
 ‘mass’        : From specified density
 ‘density’     : Included again for convenience (same as kwarg density)
 ‘inertia’     : Taken at the center of mass and aligned with global</p>
@@ -2190,8 +2264,9 @@ recalculate the hash occasionally, rather than on every call.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>md5: string, md5 of md5 hashes of everything in the DataStore</strong></dt>
-<dd></dd>
+<dt><strong>md5</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd><p class="first last">MD5 of everything in the DataStore</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2202,15 +2277,16 @@ recalculate the hash occasionally, rather than on every call.</p>
 <dl class="method">
 <dt id="trimesh.base.Trimesh.merge_vertices">
 <code class="descname">merge_vertices</code><span class="sig-paren">(</span><em>distance=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.merge_vertices" title="Permalink to this definition">¶</a></dt>
-<dd><p>If a mesh has vertices that are closer than trimesh.constants.tol.merge
-redefine them to be the same vertex and replace face references</p>
+<dd><p>If a mesh has vertices that are closer than
+trimesh.constants.tol.merge reindex faces to reference
+the same index for both vertices.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
 <dt><strong>distance</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float or None</span></dt>
-<dd><p class="first last">if specified, override tol.merge</p>
+<dd><p class="first last">If specified overrides tol.merge</p>
 </dd>
 </dl>
 </td>
@@ -2229,8 +2305,9 @@ If mesh isn’t watertight this is garbage.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>inertia: (3,3) float, moment of inertia of the current mesh.</strong></dt>
-<dd></dd>
+<dt><strong>inertia</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3, 3) float</span></dt>
+<dd><p class="first last">Moment of inertia of the current mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2252,8 +2329,8 @@ and the ‘outline’ of a watertight mesh is an empty path.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>face_ids: (n) int, list of indices for self.faces to</strong></dt>
-<dd><p class="first last">compute the outline of.
+<dt><strong>face_ids</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n) int</span></dt>
+<dd><p class="first last">Indices to compute the outline of.
 If None, outline of full mesh will be computed.</p>
 </dd>
 <dt><strong>**kwargs: passed to Path3D constructor</strong></dt>
@@ -2262,8 +2339,9 @@ If None, outline of full mesh will be computed.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>path:     Path3D object of the outline</strong></dt>
-<dd></dd>
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Path3D</span></dt>
+<dd><p class="first last">Curve in 3D of the outline</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2281,8 +2359,9 @@ If None, outline of full mesh will be computed.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>components: (3,) float, principal components of inertia</strong></dt>
-<dd></dd>
+<dt><strong>components</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd><p class="first last">Principal components of inertia</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2301,8 +2380,9 @@ at the origin.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>transform: (4,4) float, homogenous transformation matrix</strong></dt>
-<dd></dd>
+<dt><strong>transform</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(4, 4) float</span></dt>
+<dd><p class="first last">Homogenous transformation matrix</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2320,8 +2400,9 @@ at the origin.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>vectors:    (3,3) float, 3 vectors pointing along the</strong></dt>
-<dd><p class="first last">principal axis of inertia</p>
+<dt><strong>vectors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3, 3) float</span></dt>
+<dd><p class="first last">Three vectors pointing along the
+principal axis of inertia directions</p>
 </dd>
 </dl>
 </td>
@@ -2354,8 +2435,9 @@ oriented bounding box shorter than tol.merge</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>self: Trimesh object</strong></dt>
-<dd></dd>
+<dt><strong>self: trimesh.Trimesh</strong></dt>
+<dd><p class="first last">Current mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2376,15 +2458,17 @@ bounding box with one edge shorter than that height.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>height: float, if specified removes faces with an oriented bounding</strong></dt>
-<dd><p class="first last">box shorter than this on one side.</p>
+<dt><strong>height</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">If specified removes faces with an oriented bounding
+box shorter than this on one side.</p>
 </dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>nondegenerate: (len(self.faces),) bool, mask used to remove faces</strong></dt>
-<dd></dd>
+<dt><strong>nondegenerate</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.faces),) bool</span></dt>
+<dd><p class="first last">Mask used to remove faces</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2408,8 +2492,8 @@ bounding box with one edge shorter than that height.</p>
 <dl class="method">
 <dt id="trimesh.base.Trimesh.remove_unreferenced_vertices">
 <code class="descname">remove_unreferenced_vertices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.remove_unreferenced_vertices" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove all vertices in the current mesh which are not referenced
-by a face.</p>
+<dd><p>Remove all vertices in the current mesh which are not
+referenced by a face.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2423,17 +2507,24 @@ by a face.</p>
 <code class="descname">sample</code><span class="sig-paren">(</span><em>count</em>, <em>return_index=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return random samples distributed normally across the
 surface of the mesh</p>
-<p>count: int, number of points to sample
-return_index: bool, if True will also return face index</p>
+<dl class="docutils">
+<dt>count <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>Number of points to sample</dd>
+<dt>return_index <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>If True will also return the index of which face each
+sample was taken from.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>samples:    (count, 3) float, points on surface of mesh</strong></dt>
-<dd></dd>
-<dt><strong>face_index: (count,) int, index of self.faces</strong></dt>
-<dd></dd>
+<dt><strong>samples</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(count, 3) float</span></dt>
+<dd><p class="first last">Points on surface of mesh</p>
+</dd>
+<dt><strong>face_index</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(count, ) int</span></dt>
+<dd><p class="first last">Index of self.faces</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2451,8 +2542,9 @@ diagonal of the axis aligned bounding box of the mesh.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>scale: float, the diagonal of the meshes AABB</strong></dt>
-<dd></dd>
+<dt><strong>scale</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">The length of the meshes AABB diagonal</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2469,8 +2561,9 @@ diagonal of the axis aligned bounding box of the mesh.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>trimesh.scene.scene.Scene object, containing the current mesh</strong></dt>
-<dd></dd>
+<dt><strong>scene</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.scene.scene.Scene</span></dt>
+<dd><p class="first last">Contains just the current mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2544,15 +2637,17 @@ to return 2D section back into 3D space.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>smooth: bool, run smooth shading on mesh or not.</strong></dt>
-<dd><p class="first last">Large meshes will be slow</p>
+<dt><strong>smooth</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Run smooth shading on mesh or not,
+large meshes will be slow</p>
 </dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>scene: trimesh.scene.Scene object, of scene with current mesh in it</strong></dt>
-<dd></dd>
+<dt><strong>scene</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.scene.Scene</span></dt>
+<dd><p class="first last">Scene with current mesh in it</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2570,14 +2665,17 @@ Does not change current mesh in any way.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>angle: float, angle in radians to smooth up to</strong></dt>
-<dd></dd>
+<dt><strong>angle</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Angle in radians, face pairs with angles smaller than
+this value will appear smoothed</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>smoothed: Trimesh object, non watertight version of current mesh</strong></dt>
-<dd><p class="first last">which will render nicely with smooth shading.</p>
+<dt><strong>smoothed</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh</span></dt>
+<dd><p class="first last">Non watertight version of current mesh
+which will render nicely with smooth shading</p>
 </dd>
 </dl>
 </td>
@@ -2591,15 +2689,20 @@ Does not change current mesh in any way.</p>
 <code class="descname">split</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.split" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of Trimesh objects, based on face connectivity.
 Splits into individual components, sometimes referred to as ‘bodies’</p>
-<p>only_watertight: only meshes which are watertight are returned
-adjacency: if not None, override face adjacency with custom values (n,2)</p>
+<dl class="docutils">
+<dt>only_watertight <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>Only return watertight meshes and discard remainder</dd>
+<dt>adjacency <span class="classifier-delimiter">:</span> <span class="classifier">None or (n, 2) int</span></dt>
+<dd>Override face adjacency with custom values</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>meshes: (n) list of Trimesh objects</strong></dt>
-<dd></dd>
+<dt><strong>meshes</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) trimesh.Trimesh</span></dt>
+<dd><p class="first last">Separate bodies from original mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2617,18 +2720,14 @@ smaller faces.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>mesh: Trimesh object</strong></dt>
-<dd></dd>
-<dt><strong>face_index: faces to subdivide.</strong></dt>
-<dd><p class="first">if None: all faces of mesh will be subdivided
-if (n,) int array of indices: only specified faces will be</p>
-<blockquote class="last">
-<div><p>subdivided. Note that in this case the mesh will generally
+<dt><strong>face_index: (m,) int or None</strong></dt>
+<dd><p class="first last">If None all faces of mesh will be subdivided
+If (m,) int array of indices: only specified faces will be
+subdivided. Note that in this case the mesh will generally
 no longer be manifold, as the additional vertex on the midpoint
 will not be used by the adjacent faces to the faces specified,
 and an additional postprocessing step will be required to
 make resulting mesh watertight</p>
-</div></blockquote>
 </dd>
 </dl>
 </td>
@@ -2646,20 +2745,23 @@ make resulting mesh watertight</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>faces_sequence: sequence of face indices from mesh</strong></dt>
-<dd></dd>
-<dt><strong>only_watertight: only return submeshes which are watertight.</strong></dt>
-<dd></dd>
-<dt><strong>append: return a single mesh which has the faces appended.</strong></dt>
-<dd><p class="first last">if this flag is set, only_watertight is ignored</p>
+<dt><strong>faces_sequence</strong> <span class="classifier-delimiter">:</span> <span class="classifier">sequence (m,) int</span></dt>
+<dd><p class="first last">Face indices of mesh</p>
+</dd>
+<dt><strong>only_watertight</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Only return submeshes which are watertight</p>
+</dd>
+<dt><strong>append</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Return a single mesh which has the faces appended.
+if this flag is set, only_watertight is ignored</p>
 </dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>if append: Trimesh object</strong></dt>
+<dt><strong>if append</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh object</span></dt>
 <dd></dd>
-<dt><strong>else:      list of Trimesh objects</strong></dt>
+<dt><strong>else</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list of trimesh.Trimesh objects</span></dt>
 <dd></dd>
 </dl>
 </td>
@@ -2697,8 +2799,9 @@ make resulting mesh watertight</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>axis: (3,) float, axis around which a 2D profile</strong></dt>
-<dd><p class="first last">was revolved to generate this mesh</p>
+<dt><strong>axis: (3,) float</strong></dt>
+<dd><p class="first last">Axis around which a 2D profile
+was revolved to generate this mesh</p>
 </dd>
 </dl>
 </td>
@@ -2737,8 +2840,9 @@ that can be used as the kwargs for the Trimesh constructor, eg:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>result: dict, with keys that match trimesh constructor</strong></dt>
-<dd></dd>
+<dt><strong>result</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">With keys that match trimesh constructor</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2755,8 +2859,9 @@ that can be used as the kwargs for the Trimesh constructor, eg:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>triangles: (n,3,3) float points of vertices grouped into triangles</strong></dt>
-<dd></dd>
+<dt><strong>triangles</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3, 3) float</span></dt>
+<dd><p class="first last">Points of triangle vertices</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2773,8 +2878,9 @@ that can be used as the kwargs for the Trimesh constructor, eg:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>triangles_center: (len(self.faces), 3) float, center of each triangular face</strong></dt>
-<dd></dd>
+<dt><strong>triangles_center</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.faces), 3) float</span></dt>
+<dd><p class="first last">Center of each triangular face</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2791,8 +2897,9 @@ that can be used as the kwargs for the Trimesh constructor, eg:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>crosses: (n,3) float, cross product of each triangle</strong></dt>
-<dd></dd>
+<dt><strong>crosses</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3) float</span></dt>
+<dd><p class="first last">Cross product of each triangle</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2809,8 +2916,9 @@ that can be used as the kwargs for the Trimesh constructor, eg:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>tree: rtree.index where each triangle in self.faces has a rectangular cell</strong></dt>
-<dd></dd>
+<dt><strong>tree</strong> <span class="classifier-delimiter">:</span> <span class="classifier">rtree.index</span></dt>
+<dd><p class="first last">Each triangle in self.faces has a rectangular cell</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2822,14 +2930,18 @@ that can be used as the kwargs for the Trimesh constructor, eg:</p>
 <dt id="trimesh.base.Trimesh.union">
 <code class="descname">union</code><span class="sig-paren">(</span><em>other</em>, <em>engine=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.union" title="Permalink to this definition">¶</a></dt>
 <dd><p>Boolean union between this mesh and n other meshes</p>
-<p>other: Trimesh, or list of Trimesh objects</p>
+<dl class="docutils">
+<dt>other <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh, or list of trimesh.Trimesh objects</span></dt>
+<dd>Other meshes to union</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>union: Trimesh, union of self and other Trimesh objects</strong></dt>
-<dd></dd>
+<dt><strong>union</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh</span></dt>
+<dd><p class="first last">Union of self and other Trimesh objects</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2846,8 +2958,9 @@ that can be used as the kwargs for the Trimesh constructor, eg:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>units: str, unit system mesh is in, or None if not defined</strong></dt>
-<dd></dd>
+<dt><strong>units</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Unit system mesh is in, or None if not defined</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -2869,7 +2982,10 @@ unique vertex indices and no faces are adjacent.</p>
 However, there is additional bookkeeping to do this cleanly.
 This function updates the set of faces with a validity mask,
 as well as keeping track of normals and colors.</p>
-<p>valid: either (m) int, or (len(self.faces)) bool.</p>
+<dl class="docutils">
+<dt>valid <span class="classifier-delimiter">:</span> <span class="classifier">(m) int or (len(self.faces)) bool</span></dt>
+<dd>Mask to remove faces</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -2881,11 +2997,12 @@ as well as keeping track of normals and colors.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>vertex_mask: (len(self.vertices)) boolean array of which</strong></dt>
-<dd><p class="first last">vertices to keep</p>
+<dt><strong>vertex_mask</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.vertices)) bool</span></dt>
+<dd><p class="first last">Array of which vertices to keep</p>
 </dd>
-<dt><strong>inverse:     (len(self.vertices)) int array to reconstruct</strong></dt>
-<dd><p class="first last">vertex references (such as output by np.unique)</p>
+<dt><strong>inverse</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.vertices)) int</span></dt>
+<dd><p class="first last">Array to reconstruct vertex references
+such as output by np.unique</p>
 </dd>
 </dl>
 </td>
@@ -2903,16 +3020,10 @@ in the mesh.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>mesh:         Trimesh object</strong></dt>
-<dd></dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>graph: networkx.Graph(), graph representing vertices and edges between</strong></dt>
-<dd><p class="first last">them,where vertices are networkx Nodes and edges
-are Edges.</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>graph: networkx.Graph</strong></dt>
+<dd><p class="first last">Graph representing vertices and edges between
+them where vertices are nodes and edges are edges</p>
 </dd>
 </dl>
 </td>
@@ -2961,9 +3072,9 @@ the cached vertex_adjacency_graph, if already existent.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>vertex_neighbors: (n,) int, where n == len(self.vertices)</strong></dt>
-<dd><p class="first last">Represents each vertex’s immediate neighbors along
-the edge of a triangle.</p>
+<dt><strong>vertex_neighbors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.vertices),) int</span></dt>
+<dd><p class="first last">Represents immediate neighbors of each vertex along
+the edge of a triangle</p>
 </dd>
 </dl>
 </td>
@@ -2993,8 +3104,9 @@ vertex is used in.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>vertex_normals: (n,3) float, where n == len(self.vertices)</strong></dt>
-<dd><p class="first last">Represents the surface normal at each vertex.</p>
+<dt><strong>vertex_normals</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,3) float</span></dt>
+<dd><p class="first last">Represents the surface normal at each vertex.
+Where n == len(self.vertices)</p>
 </dd>
 </dl>
 </td>
@@ -3015,8 +3127,9 @@ for changes and clears cached values of the mesh if this is altered.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>vertices: (n, 3) float representing points in cartesian space</strong></dt>
-<dd></dd>
+<dt><strong>vertices</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3) float</span></dt>
+<dd><p class="first last">Points in cartesian space, referenced by self.faces</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -3027,15 +3140,17 @@ for changes and clears cached values of the mesh if this is altered.</p>
 <dl class="attribute">
 <dt id="trimesh.base.Trimesh.volume">
 <code class="descname">volume</code><a class="headerlink" href="#trimesh.base.Trimesh.volume" title="Permalink to this definition">¶</a></dt>
-<dd><p>Volume of the current mesh.
-If the current mesh isn’t watertight this is garbage.</p>
+<dd><p>Volume of the current mesh calculated using a surface
+integral. If the current mesh isn’t watertight this is
+garbage.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>volume: float, volume of the current mesh</strong></dt>
-<dd></dd>
+<dt><strong>volume</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Volume of the current mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -3053,14 +3168,16 @@ discretized into voxels at the specified pitch</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>pitch: float, the edge length of a single voxel</strong></dt>
-<dd></dd>
+<dt><strong>pitch</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">The edge length of a single voxel</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>voxelized: Voxel object representing the current mesh</strong></dt>
-<dd></dd>
+<dt><strong>voxelized</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Voxel object</span></dt>
+<dd><p class="first last">Representing the current mesh</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -7440,7 +7557,7 @@ trimesh operations on them at any point.</p>
 <dd><p class="first last">Which face does each edge belong to.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_sorted</span></code></dt>
-<dd><p class="first last">Returns</p>
+<dd><p class="first last">Edges sorted along axis 1</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_sparse</span></code></dt>
 <dd><p class="first last">Edges in sparse COO graph format.</p>
@@ -7545,7 +7662,7 @@ trimesh operations on them at any point.</p>
 <dd><p class="first last">Return a scipy.spatial.cKDTree of the vertices of the mesh.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass</span></code></dt>
-<dd><p class="first last">Mass of the current mesh.</p>
+<dd><p class="first last">Mass of the current mesh, based on specified density and volume.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass_properties</span></code></dt>
 <dd><p class="first last">Returns the mass properties of the current mesh.</p>
@@ -7674,7 +7791,7 @@ trimesh operations on them at any point.</p>
 <td>An MD5 of the core geometry information for the mesh, faces and vertices.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>([distance])</td>
-<td>If a mesh has vertices that are closer than trimesh.constants.tol.merge redefine them to be the same vertex and replace face references</td>
+<td>If a mesh has vertices that are closer than trimesh.constants.tol.merge reindex faces to reference the same index for both vertices.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">outline</span></code>([face_ids])</td>
 <td>Given a set of face ids, find the outline of the faces, and return it as a Path3D.</td>
@@ -7889,7 +8006,7 @@ Samples are either ‘step’ distance apart, or there are
 <dd><p class="first last">Which face does each edge belong to.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_sorted</span></code></dt>
-<dd><p class="first last">Returns</p>
+<dd><p class="first last">Edges sorted along axis 1</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_sparse</span></code></dt>
 <dd><p class="first last">Edges in sparse COO graph format.</p>
@@ -7991,7 +8108,7 @@ Samples are either ‘step’ distance apart, or there are
 <dd><p class="first last">Return a scipy.spatial.cKDTree of the vertices of the mesh.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass</span></code></dt>
-<dd><p class="first last">Mass of the current mesh.</p>
+<dd><p class="first last">Mass of the current mesh, based on specified density and volume.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass_properties</span></code></dt>
 <dd><p class="first last">Returns the mass properties of the current mesh.</p>
@@ -8051,7 +8168,7 @@ Samples are either ‘step’ distance apart, or there are
 <dd><p class="first last">The vertices of the mesh.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">volume</span></code></dt>
-<dd><p class="first last">Volume of the current mesh.</p>
+<dd><p class="first last">Volume of the current mesh calculated using a surface integral.</p>
 </dd>
 </dl>
 </td>
@@ -8120,7 +8237,7 @@ Samples are either ‘step’ distance apart, or there are
 <td>An MD5 of the core geometry information for the mesh, faces and vertices.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>([distance])</td>
-<td>If a mesh has vertices that are closer than trimesh.constants.tol.merge redefine them to be the same vertex and replace face references</td>
+<td>If a mesh has vertices that are closer than trimesh.constants.tol.merge reindex faces to reference the same index for both vertices.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">outline</span></code>([face_ids])</td>
 <td>Given a set of face ids, find the outline of the faces, and return it as a Path3D.</td>
@@ -8271,7 +8388,7 @@ Samples are either ‘step’ distance apart, or there are
 <dd><p class="first last">Which face does each edge belong to.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_sorted</span></code></dt>
-<dd><p class="first last">Returns</p>
+<dd><p class="first last">Edges sorted along axis 1</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_sparse</span></code></dt>
 <dd><p class="first last">Edges in sparse COO graph format.</p>
@@ -8373,7 +8490,7 @@ Samples are either ‘step’ distance apart, or there are
 <dd><p class="first last">Return a scipy.spatial.cKDTree of the vertices of the mesh.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass</span></code></dt>
-<dd><p class="first last">Mass of the current mesh.</p>
+<dd><p class="first last">Mass of the current mesh, based on specified density and volume.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass_properties</span></code></dt>
 <dd><p class="first last">Returns the mass properties of the current mesh.</p>
@@ -8502,7 +8619,7 @@ Samples are either ‘step’ distance apart, or there are
 <td>An MD5 of the core geometry information for the mesh, faces and vertices.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>([distance])</td>
-<td>If a mesh has vertices that are closer than trimesh.constants.tol.merge redefine them to be the same vertex and replace face references</td>
+<td>If a mesh has vertices that are closer than trimesh.constants.tol.merge reindex faces to reference the same index for both vertices.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">outline</span></code>([face_ids])</td>
 <td>Given a set of face ids, find the outline of the faces, and return it as a Path3D.</td>
@@ -8689,7 +8806,7 @@ Samples are either ‘step’ distance apart, or there are
 <dd><p class="first last">Which face does each edge belong to.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_sorted</span></code></dt>
-<dd><p class="first last">Returns</p>
+<dd><p class="first last">Edges sorted along axis 1</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_sparse</span></code></dt>
 <dd><p class="first last">Edges in sparse COO graph format.</p>
@@ -8791,7 +8908,7 @@ Samples are either ‘step’ distance apart, or there are
 <dd><p class="first last">Return a scipy.spatial.cKDTree of the vertices of the mesh.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass</span></code></dt>
-<dd><p class="first last">Mass of the current mesh.</p>
+<dd><p class="first last">Mass of the current mesh, based on specified density and volume.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass_properties</span></code></dt>
 <dd><p class="first last">Returns the mass properties of the current mesh.</p>
@@ -8923,7 +9040,7 @@ Samples are either ‘step’ distance apart, or there are
 <td>An MD5 of the core geometry information for the mesh, faces and vertices.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>([distance])</td>
-<td>If a mesh has vertices that are closer than trimesh.constants.tol.merge redefine them to be the same vertex and replace face references</td>
+<td>If a mesh has vertices that are closer than trimesh.constants.tol.merge reindex faces to reference the same index for both vertices.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">outline</span></code>([face_ids])</td>
 <td>Given a set of face ids, find the outline of the faces, and return it as a Path3D.</td>
@@ -9152,7 +9269,7 @@ along its extrude_direction vector</p>
 <dd><p class="first last">Which face does each edge belong to.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_sorted</span></code></dt>
-<dd><p class="first last">Returns</p>
+<dd><p class="first last">Edges sorted along axis 1</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges_sparse</span></code></dt>
 <dd><p class="first last">Edges in sparse COO graph format.</p>
@@ -9254,7 +9371,7 @@ along its extrude_direction vector</p>
 <dd><p class="first last">Return a scipy.spatial.cKDTree of the vertices of the mesh.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass</span></code></dt>
-<dd><p class="first last">Mass of the current mesh.</p>
+<dd><p class="first last">Mass of the current mesh, based on specified density and volume.</p>
 </dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass_properties</span></code></dt>
 <dd><p class="first last">Returns the mass properties of the current mesh.</p>
@@ -9383,7 +9500,7 @@ along its extrude_direction vector</p>
 <td>An MD5 of the core geometry information for the mesh, faces and vertices.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code>([distance])</td>
-<td>If a mesh has vertices that are closer than trimesh.constants.tol.merge redefine them to be the same vertex and replace face references</td>
+<td>If a mesh has vertices that are closer than trimesh.constants.tol.merge reindex faces to reference the same index for both vertices.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">outline</span></code>([face_ids])</td>
 <td>Given a set of face ids, find the outline of the faces, and return it as a Path3D.</td>
@@ -9501,8 +9618,9 @@ along its extrude_direction vector</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>obb: trimesh.primitives.Box object with transform and extents defined</strong></dt>
-<dd><p class="first last">to represent the minimum volume oriented bounding box of the mesh</p>
+<dt><strong>obb</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.primitives.Box</span></dt>
+<dd><p class="first last">Box object with transform and extents defined
+representing the minimum volume oriented bounding box of the mesh</p>
 </dd>
 </dl>
 </td>
@@ -9520,8 +9638,9 @@ along its extrude_direction vector</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>bounds: (2,3) float, bounding box with [min, max] coordinates</strong></dt>
-<dd></dd>
+<dt><strong>bounds</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(2, 3) float</span></dt>
+<dd><p class="first last">Bounding box with [min, max] coordinates</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -13647,17 +13766,9 @@ turn it into a dense (m,o,p) matrix.</p>
 </div>
 <div class="section" id="module-trimesh">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-trimesh" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="trimesh-py">
-<h3>trimesh.py<a class="headerlink" href="#trimesh-py" title="Permalink to this headline">¶</a></h3>
-<p>Python library for loading triangular meshes and doing simple operations on them. Included loaders are binary/ASCII STL and Wavefront (OBJ), included exporters are binary STL or COLLADA. If Assimp/pyassimp are available, meshes can be loaded using the assimp loaders.</p>
-<div class="section" id="using">
-<h4>Using<a class="headerlink" href="#using" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">trimesh</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">load_mesh</span><span class="p">(</span><span class="s1">&#39;models/ballA.off&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<div class="section" id="https-github-com-mikedh-trimesh">
+<h3><a class="reference external" href="https://github.com/mikedh/trimesh">https://github.com/mikedh/trimesh</a><a class="headerlink" href="#https-github-com-mikedh-trimesh" title="Permalink to this headline">¶</a></h3>
+<p>Trimesh is a pure Python (2.7- 3.3+) library for loading and using triangular meshes with an emphasis on watertight meshes. The goal of the library is to provide a fully featured Trimesh object which allows for easy manipulation and analysis, in the style of the Polygon object in the Shapely library.</p>
 </div>
 </div>
 </div>
@@ -13704,7 +13815,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.32.13',
+            VERSION:'2.33.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
