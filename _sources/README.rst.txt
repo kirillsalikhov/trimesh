@@ -19,9 +19,9 @@ something using trimesh as a backend.
 Pull requests are hugely appreciated and responded to promptly! If you'd
 like to contribute, here is an `up to date list of potential
 enhancements <https://github.com/mikedh/trimesh/issues/199>`__ although
-things not on that list are welcome too! Also, some `general advice for
-dealing with meshes in
-Python/Numpy. <https://github.com/mikedh/trimesh/blob/master/trimesh/io/README.md>`__
+things not on that list are also welcome. Also, some `general advice for
+writing mesh code in Python and
+Numpy. <https://github.com/mikedh/trimesh/blob/master/trimesh/io/README.md>`__
 
 Basic Installation
 ------------------
