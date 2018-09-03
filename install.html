@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Advanced Installation &mdash; trimesh 2.33.7 documentation</title>
+  <title>Advanced Installation &mdash; trimesh 2.33.11 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.33.7
+                2.33.11
               </div>
             
           
@@ -181,32 +181,14 @@
 <span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">n</span> <span class="n">conda_env</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.6</span>
 <span class="n">source</span> <span class="n">activate</span> <span class="n">conda_env</span>
 
-<span class="c1"># cyassimp is a much faster binding for the assimp importers</span>
-<span class="c1"># they use non- standard labels, master vs main</span>
-<span class="c1"># note that it installs cleanly in Linux and Windows</span>
-<span class="c1"># but generally fails on OSX</span>
-<span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">add</span> <span class="n">channels</span> <span class="n">menpo</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">menpo</span><span class="o">/</span><span class="n">label</span><span class="o">/</span><span class="n">master</span> <span class="n">cyassimp</span>
-
 <span class="c1"># install most trimesh requirements with built components from conda-forge</span>
 <span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">add</span> <span class="n">channels</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>  <span class="c1"># rtree, shapely, pyembree</span>
 <span class="n">conda</span> <span class="n">install</span> <span class="n">shapely</span> <span class="n">rtree</span> <span class="n">graph</span><span class="o">-</span><span class="n">tool</span> <span class="n">pyembree</span> <span class="n">numpy</span> <span class="n">scipy</span>
 <span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">scikit</span><span class="o">-</span><span class="n">image</span>
 
-<span class="c1"># graph-tool is only tested on Ubuntu and very unlikely to work elsewhere</span>
-<span class="c1"># it is used in connected components calculations, and is slighly faster in</span>
-<span class="c1"># most cases than scipy.sparse and networkx (although if graph-tool is not</span>
-<span class="c1"># installed trimesh will automatically use next the fastest option)</span>
-<span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">add</span> <span class="n">channels</span> <span class="n">ostrokach</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="n">graph</span><span class="o">-</span><span class="n">tool</span>
-
-<span class="c1"># requires compilation, and fails a lot</span>
-<span class="c1"># used by trimesh.primitives.Extrusion objects</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">meshpy</span>
-
-<span class="c1"># install trimesh et al (everything except for meshpy, which is separated</span>
-<span class="c1"># above because it fails all the time and is easier to debug individually)</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">trimesh</span><span class="p">[</span><span class="n">easy</span><span class="p">]</span>
+<span class="c1"># install trimesh and all possible dependancies</span>
+<span class="c1"># if this fails try: pip install trimesh[easy]</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">trimesh</span><span class="p">[</span><span class="nb">all</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -267,7 +249,7 @@ Python distribution</a>.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.33.7',
+            VERSION:'2.33.11',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
