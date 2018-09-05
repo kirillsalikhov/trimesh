@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh package &mdash; trimesh 2.33.15 documentation</title>
+  <title>trimesh package &mdash; trimesh 2.33.18 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                2.33.15
+                2.33.18
               </div>
             
           
@@ -4586,10 +4586,8 @@ a triangle onto the normal of its adjacent face.</p>
 <dd><p>Get a new Trimesh object representing the convex hull of the
 current mesh, with proper normals and watertight.
 Requires scipy &gt;.12.</p>
-<dl class="docutils">
-<dt>obj: Trimesh object OR</dt>
-<dd>(n,3) float, cartesian points</dd>
-</dl>
+<p>obj: Trimesh object OR
+(n,3) float, cartesian points</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -7088,23 +7086,31 @@ and rotatating + translating a mesh by a random matrix.</p>
 <dt id="trimesh.points.PointCloud">
 <em class="property">class </em><code class="descclassname">trimesh.points.</code><code class="descname">PointCloud</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.points.PointCloud" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Hold a 3D set of points in an object which can be visualized
+<p>Hold 3D points in an object which can be visualized
 in a scene.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>bounds</strong></dt>
-<dd></dd>
-<dt><strong>centroid</strong></dt>
-<dd></dd>
-<dt><strong>colors</strong></dt>
-<dd></dd>
-<dt><strong>extents</strong></dt>
-<dd></dd>
-<dt><strong>vertices</strong></dt>
-<dd></dd>
+<dt><a class="reference internal" href="#trimesh.points.PointCloud.bounds" title="trimesh.points.PointCloud.bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounds</span></code></a></dt>
+<dd><p class="first last">The axis aligned bounds of the PointCloud</p>
+</dd>
+<dt><a class="reference internal" href="#trimesh.points.PointCloud.centroid" title="trimesh.points.PointCloud.centroid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">centroid</span></code></a></dt>
+<dd><p class="first last">The mean vertex position</p>
+</dd>
+<dt><a class="reference internal" href="#trimesh.points.PointCloud.colors" title="trimesh.points.PointCloud.colors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">colors</span></code></a></dt>
+<dd><p class="first last">Stored per- point color</p>
+</dd>
+<dt><a class="reference internal" href="#trimesh.points.PointCloud.convex_hull" title="trimesh.points.PointCloud.convex_hull"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convex_hull</span></code></a></dt>
+<dd><p class="first last">A convex hull of every point.</p>
+</dd>
+<dt><a class="reference internal" href="#trimesh.points.PointCloud.extents" title="trimesh.points.PointCloud.extents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extents</span></code></a></dt>
+<dd><p class="first last">The size of the axis aligned bounds</p>
+</dd>
+<dt><a class="reference internal" href="#trimesh.points.PointCloud.vertices" title="trimesh.points.PointCloud.vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertices</span></code></a></dt>
+<dd><p class="first last">Vertices of the PointCloud</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -7117,52 +7123,136 @@ in a scene.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#trimesh.points.PointCloud.merge_vertices" title="trimesh.points.PointCloud.merge_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.points.PointCloud.md5" title="trimesh.points.PointCloud.md5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">md5</span></code></a>()</td>
+<td>Get an MD5 hash of the current vertices.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.points.PointCloud.merge_vertices" title="trimesh.points.PointCloud.merge_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code></a>()</td>
 <td>Merge vertices closer than tol.merge (default: 1e-8)</td>
 </tr>
-</tbody>
-</table>
-<table border="1" class="docutils">
-<colgroup>
-<col width="47%" />
-<col width="53%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>md5</strong></td>
-<td>&#160;</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.points.PointCloud.scene" title="trimesh.points.PointCloud.scene"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scene</span></code></a>()</td>
+<td>A scene containing just the PointCloud</td>
 </tr>
-<tr class="row-even"><td><strong>scene</strong></td>
-<td>&#160;</td>
+<tr class="row-even"><td><a class="reference internal" href="#trimesh.points.PointCloud.shape" title="trimesh.points.PointCloud.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape</span></code></a>()</td>
+<td>Get the shape of the pointcloud</td>
 </tr>
-<tr class="row-odd"><td><strong>show</strong></td>
-<td>&#160;</td>
+<tr class="row-odd"><td><a class="reference internal" href="#trimesh.points.PointCloud.show" title="trimesh.points.PointCloud.show"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code></a>()</td>
+<td>Open a viewer window displaying the current PointCloud</td>
 </tr>
 </tbody>
 </table>
 <dl class="attribute">
 <dt id="trimesh.points.PointCloud.bounds">
 <code class="descname">bounds</code><a class="headerlink" href="#trimesh.points.PointCloud.bounds" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The axis aligned bounds of the PointCloud</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>bounds</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(2, 3) float</span></dt>
+<dd><p class="first last">Miniumum, Maximum verteex</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="trimesh.points.PointCloud.centroid">
 <code class="descname">centroid</code><a class="headerlink" href="#trimesh.points.PointCloud.centroid" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The mean vertex position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>centroid</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd><p class="first last">Mean vertex position</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="trimesh.points.PointCloud.colors">
 <code class="descname">colors</code><a class="headerlink" href="#trimesh.points.PointCloud.colors" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Stored per- point color</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>colors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(len(self.vertices), 4) np.uint8</span></dt>
+<dd><p class="first last">Per- point RGBA color</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="trimesh.points.PointCloud.convex_hull">
+<code class="descname">convex_hull</code><a class="headerlink" href="#trimesh.points.PointCloud.convex_hull" title="Permalink to this definition">¶</a></dt>
+<dd><p>A convex hull of every point.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>convex_hull</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Trimesh</span></dt>
+<dd><p class="first last">A watertight mesh of the hull of the points</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="trimesh.points.PointCloud.extents">
 <code class="descname">extents</code><a class="headerlink" href="#trimesh.points.PointCloud.extents" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The size of the axis aligned bounds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>extents</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(3,) float</span></dt>
+<dd><p class="first last">Edge length of axis aligned bounding box</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="trimesh.points.PointCloud.md5">
 <code class="descname">md5</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.points.PointCloud.md5" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get an MD5 hash of the current vertices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>md5</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Hash of self.vertices</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="trimesh.points.PointCloud.merge_vertices">
@@ -7173,45 +7263,66 @@ in a scene.</p>
 <dl class="method">
 <dt id="trimesh.points.PointCloud.scene">
 <code class="descname">scene</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.points.PointCloud.scene" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="trimesh.points.PointCloud.show">
-<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.points.PointCloud.show" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="trimesh.points.PointCloud.vertices">
-<code class="descname">vertices</code><a class="headerlink" href="#trimesh.points.PointCloud.vertices" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.points.absolute_orientation">
-<code class="descclassname">trimesh.points.</code><code class="descname">absolute_orientation</code><span class="sig-paren">(</span><em>points_A</em>, <em>points_B</em>, <em>return_error=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.points.absolute_orientation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the transform that best aligns points_A with points_B
-Uses Horn’s method for the absolute orientation problem, in 3D with no scaling.</p>
-<p>points_A:     (n,3) list of points
-points_B:     (n,3) list of points, T*points_A
-return_error: boolean, if True returns (n) list of euclidean distances</p>
-<blockquote>
-<div>representing the distance from  T*points_A[i] to points_B[i]</div></blockquote>
+<dd><p>A scene containing just the PointCloud</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>M:    (4,4) transformation matrix for the transform that best aligns</strong></dt>
-<dd><p class="first last">points_A to points_B</p>
+<dt><strong>scene</strong> <span class="classifier-delimiter">:</span> <span class="classifier">trimesh.Scene</span></dt>
+<dd><p class="first last">Scene object containing this PointCloud</p>
 </dd>
-<dt><strong>error: float, list of maximum euclidean distance</strong></dt>
-<dd></dd>
 </dl>
 </td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="trimesh.points.PointCloud.shape">
+<code class="descname">shape</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.points.PointCloud.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the shape of the pointcloud</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>shape</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(2,) int</span></dt>
+<dd><p class="first last">Shape of vertex array</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="trimesh.points.PointCloud.show">
+<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.points.PointCloud.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a viewer window displaying the current PointCloud</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="trimesh.points.PointCloud.vertices">
+<code class="descname">vertices</code><a class="headerlink" href="#trimesh.points.PointCloud.vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertices of the PointCloud</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>vertices</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3) float</span></dt>
+<dd><p class="first last">Points in the PointCloud</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -7303,7 +7414,23 @@ return_error: boolean, if True returns (n) list of euclidean distances</p>
 <dl class="function">
 <dt id="trimesh.points.plot_points">
 <code class="descclassname">trimesh.points.</code><code class="descname">plot_points</code><span class="sig-paren">(</span><em>points</em>, <em>show=True</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.points.plot_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot an (n,3) list of points using matplotlib.</p>
+<dd><p>Plot an (n,3) list of points using matplotlib</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>points</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, 3) float</span></dt>
+<dd><p class="first last">Points in space</p>
+</dd>
+<dt><strong>show</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">If False, will not show until plt.show() is called</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -7390,18 +7517,22 @@ where no point is closer than radius.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>points: (n, dimension) float, points in space</strong></dt>
-<dd></dd>
-<dt><strong>radius: float, minimum radius between result points</strong></dt>
-<dd></dd>
+<dt><strong>points</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n, dimension) float</span></dt>
+<dd><p class="first last">Points in space</p>
+</dd>
+<dt><strong>radius</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Minimum radius between result points</p>
+</dd>
 </dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>culled: (m, dimension) float, points in space</strong></dt>
-<dd></dd>
-<dt><strong>mask:   (n,) bool, which points from the original set were returned</strong></dt>
-<dd></dd>
+<dt><strong>culled</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(m, dimension) float</span></dt>
+<dd><p class="first last">Points in space</p>
+</dd>
+<dt><strong>mask</strong> <span class="classifier-delimiter">:</span> <span class="classifier">(n,) bool</span></dt>
+<dd><p class="first last">Which points from the original set were returned</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -13802,7 +13933,7 @@ turn it into a dense (m,o,p) matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2.33.15',
+            VERSION:'2.33.18',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
