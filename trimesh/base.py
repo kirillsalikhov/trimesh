@@ -1500,7 +1500,12 @@ class Trimesh(object):
             tree = get_balanced_kdtree()
         except timeout_decorator.TimeoutError as e:
             print(e)
-            print('calculating unbalanced KD-Tree instead')
+            debug_name = ''
+            if hasattr(self, 'debug_name'):
+                debug_name = self.debug_name
+            print('calculating unbalanced KD-Tree instead', debug_name)
+            # spacer
+            print('')
             tree = get_unbalanced_kdtree()
 
         return tree
