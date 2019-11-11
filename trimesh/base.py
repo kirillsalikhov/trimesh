@@ -1472,6 +1472,22 @@ class Trimesh(object):
         is_convex = bool(convex.is_convex(self))
         return is_convex
 
+    def _kdtree_not_grid(self):
+        coords = self.vertices.view(np.ndarray)
+        total_verts = len(coords)
+        verts_limit = 120000
+        # if there not many verts consider ok
+        if total_verts < verts_limit:
+            return True
+
+        for dim in [0, 1, 2]:
+            _, counts = np.unique(coords[:, dim], return_counts=True)
+            # if uniq vals of some dimension less than some percent of total verts
+            # consider to be a grid
+            if len(counts) / total_verts < 0.001:
+                return False
+        return True
+
     @caching.cache_decorator
     def kdtree(self):
         """
@@ -1484,29 +1500,42 @@ class Trimesh(object):
           Contains mesh.vertices
         """
 
-        @timeout_decorator.timeout(seconds=30,
-                                   use_signals=False,
-                                   timeout_exception=timeout_decorator.TimeoutError,
-                                   exception_message='WARNING:timeout while KD-Tree calculating!')
-        def get_balanced_kdtree():
-            return KDTree(self.vertices.view(np.ndarray), balanced_tree=True)
-
-        def get_unbalanced_kdtree():
-            return KDTree(self.vertices.view(np.ndarray), balanced_tree=False)
-
         from scipy.spatial import cKDTree as KDTree
 
-        try:
-            tree = get_balanced_kdtree()
-        except timeout_decorator.TimeoutError as e:
-            print(e)
-            debug_name = ''
+        # @timeout_decorator.timeout(seconds=30,
+        #                            use_signals=False,
+        #                            timeout_exception=timeout_decorator.TimeoutError,
+        #                            exception_message='WARNING:timeout while KD-Tree calculating!')
+        # def get_balanced_kdtree():
+        #     return KDTree(self.vertices.view(np.ndarray), balanced_tree=True)
+        #
+        # def get_unbalanced_kdtree():
+        #     return KDTree(self.vertices.view(np.ndarray), balanced_tree=False)
+        #
+        #
+        #
+        # try:
+        #     self._kdtree_not_grid()
+        #     tree = get_balanced_kdtree()
+        # except timeout_decorator.TimeoutError as e:
+        #     print(e)
+        #     debug_name = ''
+        #     if hasattr(self, 'debug_name'):
+        #         debug_name = self.debug_name
+        #     print('calculating unbalanced KD-Tree instead', debug_name)
+        #     # spacer
+        #     print('')
+        #     tree = get_unbalanced_kdtree()
+
+        if self._kdtree_not_grid():
+            tree = KDTree(self.vertices.view(np.ndarray), balanced_tree=True)
+        else:
             if hasattr(self, 'debug_name'):
                 debug_name = self.debug_name
-            print('calculating unbalanced KD-Tree instead', debug_name)
+            print('verts are like a grid, calculating unbalanced KD-Tree instead', debug_name)
             # spacer
             print('')
-            tree = get_unbalanced_kdtree()
+            tree = KDTree(self.vertices.view(np.ndarray), balanced_tree=False)
 
         return tree
 
