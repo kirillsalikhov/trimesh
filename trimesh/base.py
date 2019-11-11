@@ -42,6 +42,8 @@ from .io.export import export_mesh
 from .constants import log, _log_time, tol
 from .scene import Scene
 
+from . import timeout_decorator
+
 
 class Trimesh(object):
 
@@ -1482,8 +1484,25 @@ class Trimesh(object):
           Contains mesh.vertices
         """
 
+        @timeout_decorator.timeout(seconds=5,
+                                   use_signals=False,
+                                   timeout_exception=timeout_decorator.TimeoutError,
+                                   exception_message='WARNING:timeout while KD-Tree calculating!')
+        def get_balanced_kdtree():
+            return KDTree(self.vertices.view(np.ndarray), balanced_tree=True)
+
+        def get_unbalanced_kdtree():
+            return KDTree(self.vertices.view(np.ndarray), balanced_tree=False)
+
         from scipy.spatial import cKDTree as KDTree
-        tree = KDTree(self.vertices.view(np.ndarray))
+
+        try:
+            tree = get_balanced_kdtree()
+        except timeout_decorator.TimeoutError as e:
+            print(e)
+            print('calculating unbalanced KD-Tree instead')
+            tree = get_unbalanced_kdtree()
+
         return tree
 
     def remove_degenerate_faces(self, height=tol.merge):
