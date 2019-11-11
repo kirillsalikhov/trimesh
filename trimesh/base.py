@@ -1484,7 +1484,7 @@ class Trimesh(object):
           Contains mesh.vertices
         """
 
-        @timeout_decorator.timeout(seconds=5,
+        @timeout_decorator.timeout(seconds=30,
                                    use_signals=False,
                                    timeout_exception=timeout_decorator.TimeoutError,
                                    exception_message='WARNING:timeout while KD-Tree calculating!')
