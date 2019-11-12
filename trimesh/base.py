@@ -42,8 +42,6 @@ from .io.export import export_mesh
 from .constants import log, _log_time, tol
 from .scene import Scene
 
-from . import timeout_decorator
-
 
 class Trimesh(object):
 
@@ -1502,34 +1500,10 @@ class Trimesh(object):
 
         from scipy.spatial import cKDTree as KDTree
 
-        # @timeout_decorator.timeout(seconds=30,
-        #                            use_signals=False,
-        #                            timeout_exception=timeout_decorator.TimeoutError,
-        #                            exception_message='WARNING:timeout while KD-Tree calculating!')
-        # def get_balanced_kdtree():
-        #     return KDTree(self.vertices.view(np.ndarray), balanced_tree=True)
-        #
-        # def get_unbalanced_kdtree():
-        #     return KDTree(self.vertices.view(np.ndarray), balanced_tree=False)
-        #
-        #
-        #
-        # try:
-        #     self._kdtree_not_grid()
-        #     tree = get_balanced_kdtree()
-        # except timeout_decorator.TimeoutError as e:
-        #     print(e)
-        #     debug_name = ''
-        #     if hasattr(self, 'debug_name'):
-        #         debug_name = self.debug_name
-        #     print('calculating unbalanced KD-Tree instead', debug_name)
-        #     # spacer
-        #     print('')
-        #     tree = get_unbalanced_kdtree()
-
         if self._kdtree_not_grid():
             tree = KDTree(self.vertices.view(np.ndarray), balanced_tree=True)
         else:
+            debug_name = ''
             if hasattr(self, 'debug_name'):
                 debug_name = self.debug_name
             print('verts are like a grid, calculating unbalanced KD-Tree instead', debug_name)
